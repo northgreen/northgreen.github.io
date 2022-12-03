@@ -1,1 +1,149 @@
-<h1>text page</h1>
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+
+    <title>ictye blog</title>
+
+    <!--css-->
+    <style type="text/css">
+		/*一般样式表*/
+		table {
+ 		   border-collapse: collapse;
+		}
+
+		table, td, th {
+	 	   border: 1px solid black;
+		}
+
+		/*主体*/
+		h1.main{
+
+		}
+		
+		/*头部*/
+		div.head{
+
+			    position: -webkit-sticky;
+  				position: sticky;
+  				top: 0;
+  				padding: 5px;
+
+		}
+
+		ul.head{
+			list-style-type: none;
+    		margin: 0;
+    		padding: 0;
+			overflow: hidden;
+			background-color:#e91899 ;
+		}
+
+		ul.head li a{    
+			display:block;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+		
+		ul.head li{    
+			float: left;
+		}
+
+		ul.head li a:hover {
+   			background-color:rgb(204, 15, 141) ;
+		}
+		
+		ul.head li a.active{
+			background-color: rgb(170, 60, 124);
+		}
+		/*下拉菜单*/
+		div.dropdown {
+		    display: inline-block;
+		}
+
+		div.dropdown-content {
+		    display: none;
+		    position: absolute;
+		    background-color: #ffffff;
+		    min-width: 160px;
+			box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+		}
+
+		div.dropdown-content a.menu {
+		    color: rgb(0, 0, 0);
+    		padding: 12px 16px;
+  			text-decoration: none;
+  			display: block;
+		}
+
+		div.dropdown-content a.menu :hover {
+			background-color: #000000
+		}
+
+		div.dropdown:hover .dropdown-content {
+  			  display: block;
+		}
+
+		
+		div.side{
+			position:fixed;
+			top:30px;
+			right:5px;
+		}
+
+		div.side ul{
+			background-color: #e91899;
+		}
+    </style>
+</head>
+
+
+<body>
+	<div class="head">
+		<ul class="head">
+			<li><a href="">主页</a></li>
+			<li>
+				<div class="dropdown">
+					<a >分类
+					</a>
+					<div class="dropdown-content">
+					  <a class="menu" href="#">音乐</a>
+					  <a class="menu" href="#">技术</a>
+					  <a class="menu" href="#">配布</a>
+					</div>
+				</div>
+			</li>
+			<li><a href="">赞助</a></li>
+			<li>				
+				<div class="dropdown">
+				<a >相关
+				</a>
+				<div class="dropdown-content">
+				  <a class="menu" href="https://space.bilibili.com/670378052">哔哩哔哩</a>
+				  <a class="menu" href="https://zh.moegirl.org.cn/User:%E6%A5%9A%E5%A4%A9%E6%9D%B3">萌娘百科</a>
+				  <a class="menu" href="#">推特</a>
+				  <a class="menu" href="#">微博</a>
+				</div>
+			</div></li>
+			<li style="float:right"><a class="active"href="#about">关于</a></li>
+		</ul>
+	</div>
+	<div class="sidebar">
+		<ul>
+			<li></li>
+		</ul>
+	</div>
+	<div class="body">
+		<h1 class="main" >text page</h1>
+	</div>
+
+
+</body>
+
+
+</html>
