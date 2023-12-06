@@ -12,33 +12,48 @@
     <style type="text/css">
 		/*一般样式表*/
 		table {
- 		   border-collapse: collapse;
+			border-collapse: collapse;
 		}
 
 		table, td, th {
-	 	   border: 1px solid black;
+			border: 1px solid black;
+		}
+		/*top*/
+		div.top {
+			display: flex;
 		}
 
-		/*主体*/
-		h1.main{
-		  background-color: #ffffff;
-    
+		div.top img {
+			height: auto;
+			width: auto;
+			border-radius: 50%;
+			border: 3px solid rgb(233, 157, 207) ;
+			box-shadow: 3px 2px 5px 1px #a4a4a4;
 		}
+
 		
 		/*头部*/
+		div.top{
+			height: 55px;
+			margin-bottom: 5px;
+		}
+		div.logo{
+			margin: 10px;
+			font-size: 30px;
+			font-weight: bold;
+			float: right;
+		}
 		div.head{
-
-			    position: -webkit-sticky;
-  				position: sticky;
-  				top: 0;
-  				padding: 5px;
-
+			position: -webkit-sticky;
+			position: sticky;
+			top: 0;
+			margin-bottom: 10px;
 		}
 
 		ul.head{
 			list-style-type: none;
-    	margin: 0;
-    	padding: 0;
+			margin: 0;
+			padding: 0;
 			overflow: hidden;
 			background-color:#e91899 ;
 		}
@@ -56,7 +71,7 @@
 		}
 
 		ul.head li a:hover {
-   			background-color:rgb(204, 15, 141) ;
+			background-color:rgb(204, 15, 141) ;
 		}
 		
 		ul.head li a.active{
@@ -64,22 +79,22 @@
 		}
 		/*下拉菜单*/
 		div.dropdown {
-		    display: inline-block;
+			display: inline-block;
 		}
 
 		div.dropdown-content {
-		    display: none;
-		    position: absolute;
-		    background-color: #ffffff;
-		    min-width: 160px;
-			  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+			display: none;
+			position: absolute;
+			background-color: #ffffff;
+			min-width: 160px;
+			box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 		}
 
 		div.dropdown-content a.menu {
-		    color: rgb(0, 0, 0);
-    		padding: 12px 16px;
-  			text-decoration: none;
-  			display: block;
+			color: rgb(0, 0, 0);
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
 		}
 
 		div.dropdown-content a.menu :hover {
@@ -87,77 +102,136 @@
 		}
 
 		div.dropdown:hover .dropdown-content {
-  			  display: block;
+			display: block;
 		}
 
-		
+		/*側邊欄*/
 		div.sidebar{
-			position:fixed;
-			background-color: #ff66cc;
+			margin-right: 10px;
+			background-color: #E91899;
+			width: 15%;
+			height: 100%;
 		}
 
 		div.sidebar ul{
-		
+			color: #ffffff;
+			font-size: 20px;
+			margin-top: 15px;
+			padding: 0;
+			text-align: center;
 		}
 		
 		div.sidebar ul li{
-		  
+			list-style: none;
+		}
+
+		div.sidebar ul li a{
+			padding: 10px;
+			display:block;
+			color: white;
+			text-align: center;
+			text-decoration: none;
+		}
+
+		div.sidebar ul li a:hover{
+			background-color: #ce0c84;
 		}
 		/*主体*/
 		div.body{
-		  
+			width: 100%;
+			padding: 20px;
+			background-color: rgba(164, 164, 164, 0.452);
+			margin-left: 20px;
+		}
+		
+
+		div.total-body{
+			display: flex;
+			justify-content: left;
+			overflow: hidden;
+		}
+
+		/*主体*/
+		h1.main{
+			
 		}
     </style>
 </head>
 
 
 <body>
-  <!--导航栏-->
+	<div class="top">
+		<img src="/assents/16987108494401a2ceaea3d2fdc933b8a7d70905426421bdb.jpg">
+		<div class="logo">
+		楚天尋簫blog
+		</div>
+	</div>
+	
+    <!--导航栏-->
 	<div class="head">
 		<ul class="head">
-			<li><a href="">主页</a></li>
+			<li>
+				<a href="">主页</a>
+			</li>
 			<li>
 				<div class="dropdown">
-					<a >分类
-					</a>
+					<a >分类</a>
 					<div class="dropdown-content">
-					  <a class="menu" href="#">音乐</a>
-					  <a class="menu" href="#">技术</a>
-					  <a class="menu" href="#">配布</a>
+						<a class="menu" href="#">音乐</a>
+						<a class="menu" href="#">技术</a>
+						<a class="menu" href="#">配布</a>
 					</div>
 				</div>
 			</li>
-			<li><a href="">赞助</a></li>
-			<li>				
+			<li>
+				<a href="">赞助</a>
+			</li>
+			<li>
 				<div class="dropdown">
-				<a >相关
-				</a>
-				<div class="dropdown-content">
-				  <a class="menu" href="https://space.bilibili.com/670378052">哔哩哔哩</a>
-				  <a class="menu" href="https://zh.moegirl.org.cn/User:%E6%A5%9A%E5%A4%A9%E6%9D%B3">萌娘百科用户页</a>
-				  <a class="menu" href="#">推特</a>
-				  <a class="menu" href="#">微博</a>
-				  <a class="menu" href="">YouTube</a>
-				  
+				<a >楚天相关</a>
+					<div class="dropdown-content">
+						<a class="menu" href="https://space.bilibili.com/670378052">哔哩哔哩</a>
+						<a class="menu" href="https://zh.moegirl.org.cn/User:%E6%A5%9A%E5%A4%A9%E6%9D%B3">萌娘百科用户页</a>
+						<a class="menu" href="#">推特</a>
+						<a class="menu" href="#">微博</a>
+						<a class="menu" href="">YouTube</a>
+					</div>
 				</div>
-			</div></li>
-			<li style="float:right"><a class="active"href="#about">关于楚天杳/at_p</a></li>
+			</li>
+			<li>
+				<div class="dropdown">
+				<a >友情鏈接</a>
+					<div class="dropdown-content">
+						<a class="menu" href="https://space.bilibili.com/670378052">哔哩哔哩</a>
+						<a class="menu" href="https://zh.moegirl.org.cn/User:%E6%A5%9A%E5%A4%A9%E6%9D%B3">萌娘百科用户页</a>
+						<a class="menu" href="#">推特</a>
+						<a class="menu" href="#">微博</a>
+						<a class="menu" href="">YouTube</a>
+					</div>
+				</div>
+			</li>
+			<li style="float:right">
+				<a class="active"href="#about">关于楚天杳/at_p</a>
+			</li>
 		</ul>
 	</div>
 	
 	
 	<!--侧边栏-->
-	<div class="sidebar">
-		<ul>
-		  <li class="tittle">分类</li>
-			<li></li>
-		</ul>
+	<div class='total-body'>
+		<div class="sidebar">
+			<ul>
+				<li class="tittle"><a href="#">分类</a></li>
+				<li><a href="#">lingyi</a></li>
+			</ul>
+		</div>
+		
+		<!--主体-->
+		<div class="body">
+			<h1 class="main" >text page</h1>
+		</div>
 	</div>
-	<clear>
-	<!--主体-->
-	<div class="body">
-		<h1 class="main" >text page</h1>
-	</div>
+	
 
 
 </body>
