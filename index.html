@@ -24,18 +24,12 @@
 			}
 
 			body {
+				background-image:linear-gradient(rgba(0, 0, 0, 0.23),rgba(0, 0, 0, 0.148)),url("assents/background.jpg") ;
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				background-position-y: center;
 				padding: 10px;
 				height: 100%;
-			}
-
-			table {
-				border-collapse: collapse;
-			}
-
-			table,
-			td,
-			th {
-				border: 1px solid black;
 			}
 
 			/*top*/
@@ -48,7 +42,7 @@
 				width: auto;
 				border-radius: 50%;
 				border: 3px solid rgb(233, 157, 207);
-				box-shadow: 3px 2px 5px 1px #a4a4a4;
+				box-shadow: 3px 2px 5px 1px #61616170;
 			}
 
 			/*头部*/
@@ -57,11 +51,14 @@
 				margin-bottom: 5px;
 			}
 
-			div.button{
+			div.top div.button{
 				padding: 20px;
 			}
 
 			div.logo {
+				text-shadow: 3px 2px 5px 1px #393939b2;
+				color: #ffffff;
+				-webkit-text-stroke: 0.5px #000000;
 				margin: 10px;
 				font-size: 30px;
 				font-weight: bold;
@@ -86,14 +83,20 @@
 			}
 			
 			@media (max-width: 930px) {
-				#check:checked ~ div.head{
+				#check:checked ~ div.head,#check:checked ~ div.head ul {
 					height: auto;
 				}
 
+				#check:checked ~ div.head {
+					padding-top: 10px;
+				}
+
 				div.top{
+					
 					position: sticky;
 					padding: 5px;
-					background-color: #e91899;
+					background-color: #c30c7d86;
+					backdrop-filter: blur(5px);
 					margin-bottom: 0px;
 				}
 				div.top div.logo{
@@ -104,12 +107,15 @@
 					transition: all .5s;
 					height: 0;
 					overflow: hidden;
-					padding-top: 10px;
+					padding-top: 0px;
 					margin-bottom: 10px;
-					background-color: #e91899;
+					backdrop-filter: blur(5px);
+					background-color: #c5087c86;
 					padding-bottom: 10px;
 				}
 				ul.head{
+					transition: all .5s;
+					height: 0;
 					list-style-type: none;
 					margin: 0;
 					padding: 0;
@@ -126,39 +132,48 @@
 
 				ul.head li a{
 					display: block;
-					background-color: #ce0c84;
+					backdrop-filter: blur(5px);
+					background-color: #b4317fba;
 					padding: 10px;
 					text-decoration: none;
 					color: #ffffff;
 				}
 
 				ul.head li a:hover{
-					background-color: #ca77aa;
+					background-color: #ca77aa93;
+					backdrop-filter: blur(5px);
 				}
 				ul.head li div.dropdown-content a:hover{
-					background-color: #fa8fd1;
+					background-color: #fa8fd193;
+					backdrop-filter: blur(5px);
 				}
 				ul.head li div.dropdown-content a{
-					background-color: #e91899;
+					background-color: #e9189993;
+					backdrop-filter: blur(5px);
 				}
 
 			}
 
 			@media (min-width: 930px ) {
+				div.top div.buttorn{
+					display: none;
+				}
 				div.head {
 					position: -webkit-sticky;
 					position: sticky;
 					top: 0;
 					margin-bottom: 10px;
-					
 				}
 
 				ul.head {
+					z-index: -1;
 					list-style-type: none;
 					margin: 0;
 					padding: 0;
 					overflow: hidden;
-					background-color: #e91899;
+					background-color: rgba(208, 19, 136, 0.851);
+					z-index: -1;
+					border-radius: 20px;
 				}
 
 				ul.head li a {
@@ -178,7 +193,7 @@
 				}
 
 				ul.head li a.active {
-					background-color: rgb(170, 60, 124);
+					background-color: rgba(240, 130, 194, 0.31);
 				}
 
 				/*下拉菜单*/
@@ -218,14 +233,19 @@
 
 			@media (max-width:634px) {
 				div.sidebar{
-					display: none;
+					position:fixed;
+					z-index: 3;
+					left: 100%;
 				}
 				
 			}
 
 			div.sidebar {
+				z-index: -1;
+				border-radius: 20px;
 				margin-right: 10px;
-				background-color: #e91899;
+				background-color: #e918999f;
+				backdrop-filter: blur(5px);
 				width: 200px;
 			}
 
@@ -250,14 +270,18 @@
 			}
 
 			div.sidebar ul li a:hover {
-				background-color: #ce0c84;
+				background-color: #ce0c84ac;
+				backdrop-filter: blur(5px);
 			}
 
 			/*主体*/
 			div.body {
+				backdrop-filter: blur(5px);
+				z-index: -1;
 				width: 100%;
 				padding: 20px;
-				background-color: rgba(164, 164, 164, 0.452);
+				background-color: rgba(255, 255, 255, 0.636);
+				border-radius: 20px;
 			}
 
 			div.total-body {
@@ -269,7 +293,7 @@
 
 			/*主体*/
 			h1.main {
-
+				
 			}
 		</style>
 	</head>
@@ -324,12 +348,7 @@
 					<div class="dropdown">
 						<a href="">友情鏈接</a>
 						<div class="dropdown-content">
-							<a class="menu" href="https://space.bilibili.com/670378052">哔哩哔哩</a>
-							<a class="menu"
-								href="https://zh.moegirl.org.cn/User:%E6%A5%9A%E5%A4%A9%E6%9D%B3">萌娘百科用户页</a>
-							<a class="menu" href="#">推特</a>
-							<a class="menu" href="#">微博</a>
-							<a class="menu" href="">YouTube</a>
+							<a class="menu" href="https://edgeneko.com">哔哩哔哩</a>
 						</div>
 					</div>
 				</li>
