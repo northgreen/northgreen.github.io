@@ -28,6 +28,7 @@
 				background-repeat: no-repeat;
 				background-attachment: fixed;
 				background-position-y: center;
+				background-size: cover;
 				padding: 10px;
 				height: 100%;
 			}
@@ -95,7 +96,7 @@
 					
 					position: sticky;
 					padding: 5px;
-					background-color: #c30c7d86;
+					background-color: rgba(208, 19, 136, 0.851);
 					backdrop-filter: blur(5px);
 					margin-bottom: 0px;
 				}
@@ -103,14 +104,14 @@
 					color: #ffffff;
 				}
 				div.head{
-					
+					box-shadow: 3px 3px 8px 2px rgba(59, 55, 55, 0.489);
 					transition: all .5s;
 					height: 0;
 					overflow: hidden;
 					padding-top: 0px;
 					margin-bottom: 10px;
 					backdrop-filter: blur(5px);
-					background-color: #c5087c86;
+					background-color: rgba(208, 19, 136, 0.851);
 					padding-bottom: 10px;
 				}
 				ul.head{
@@ -155,10 +156,12 @@
 			}
 
 			@media (min-width: 930px ) {
+
 				div.top div.buttorn{
 					display: none;
 				}
 				div.head {
+					box-shadow: 3px 3px 8px 2px rgba(59, 55, 55, 0.489);
 					position: -webkit-sticky;
 					position: sticky;
 					top: 0;
@@ -173,7 +176,6 @@
 					overflow: hidden;
 					background-color: rgba(208, 19, 136, 0.851);
 					z-index: -1;
-					border-radius: 20px;
 				}
 
 				ul.head li a {
@@ -230,18 +232,45 @@
 			}
 
 			/*側邊欄*/
+			#sidebar-btn{
+				display: none;
+			}
 
 			@media (max-width:634px) {
+				#sidebar-btn:checked ~ div.sidebar{
+					left: 5px;
+				}
+				#sidebar-btn:checked ~ div.sidebar ~ #sidebar-buttorn{
+					left: 209px;
+				}
 				div.sidebar{
 					position:fixed;
-					z-index: 3;
-					left: 100%;
+					z-index: index 3;
+					left: -200px;
+				}
+				div#sidebar-buttorn{
+					box-shadow: 3px 3px 8px 2px rgba(59, 55, 55, 0.489);
+					color: #ffffff;
+					backdrop-filter: blur(5px);
+					border-radius:5px ;
+					padding: 10px;
+					display: block;
+					background-color: #e918999f;
+					top:110px;
+					position: fixed;
+					z-index: index 1;
 				}
 				
 			}
 
+			@media (min-width:634px) {
+				div#sidebar-buttorn{
+					display: none;
+				}
+			}
 			div.sidebar {
-				z-index: -1;
+				transition: all .5;
+				box-shadow: 3px 3px 8px 2px rgba(59, 55, 55, 0.489);
 				border-radius: 20px;
 				margin-right: 10px;
 				background-color: #e918999f;
@@ -276,6 +305,7 @@
 
 			/*主体*/
 			div.body {
+				box-shadow: 3px 3px 8px 2px rgba(59, 55, 55, 0.489);
 				backdrop-filter: blur(5px);
 				z-index: -1;
 				width: 100%;
@@ -285,6 +315,7 @@
 			}
 
 			div.total-body {
+				
 				height: 100%;
 				display: flex;
 				justify-content: left;
@@ -309,6 +340,7 @@
 				</label>
 			</div>
 		</div>
+		
 
 		<!--导航栏-->
 		<input type="checkbox" id = "check">
@@ -348,7 +380,7 @@
 					<div class="dropdown">
 						<a href="">友情鏈接</a>
 						<div class="dropdown-content">
-							<a class="menu" href="https://edgeneko.com">哔哩哔哩</a>
+							<a class="menu" href="https://edgeneko.com">edgeneko</a>
 						</div>
 					</div>
 				</li>
@@ -359,13 +391,23 @@
 			</ul>
 		</div>
 
+		
+
 		<!--侧边栏-->
+		
 		<div class="total-body">
+			<input type="checkbox" id = "sidebar-btn">
 			<div class="sidebar">
 				<ul>
 					<li class="tittle"><a href="#">分类</a></li>
 					<li><a href="#">lingyi</a></li>
 				</ul>
+
+			</div>
+			<div id="sidebar-buttorn">
+				<label for="sidebar-btn">
+					<i class="fa fa-angle-double-right"></i>
+				</label>
 			</div>
 
 			<!--主体-->
