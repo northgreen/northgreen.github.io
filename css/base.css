@@ -292,3 +292,8 @@ div.total-body {
     justify-content: left;
     overflow: hidden;
 }
+
+img{
+    height: auto;
+    width: auto;
+}
