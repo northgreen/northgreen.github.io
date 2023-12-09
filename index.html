@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="zh-TW">
 
 	<head>
 		<meta charset="utf-8" />
@@ -8,67 +8,20 @@
 		<title>ictye blog</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link href="/css/bootstrap/bootstrap.min.css" type="text/css" rel="stylesheet" />
+
 		<link href="/css/base.css" type="text/css" rel="stylesheet" />
 		<link href="/css/body.css" type="text/css" rel="stylesheet" />
 		<link href="/css/menu.css" type="text/css" rel="stylesheet" />
+		<link href="/css/sidebar-link.css" type="text/css" rel="stylesheet" />
+
 		<script src="/js/jquary.js"></script>
 		<script src="/js/depends/bootstrap/bootstrap.min.js"></script>
 		<script src="/js/vue.min.js"></script>
 		<script src="/js/requirejs.js"></script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-		<script>
-			$(document).ready(function () {
-				(function () {
-					ret = {};
-					$("div#content")
-						.children()
-						.each(function (index, element) {
-							let tagName = $(this).get(0).tagName;
-						if (tagName.substr(0, 1).toUpperCase() == "H") {
-								let contentH = $(this).html();
-								let markid = "mark-" + tagName + "-" + index.toString();
-								$(this).attr("id", markid);
-								if (tagName === "H1") {
-									$("div.menu").append(`<ul class=H1><li><a href="#${markid}">${contentH}</a></li></ul>`);
-								} else {
-									$(`div.menu ul.H${tagName[1]-1}:last`).append(`<li><ul class=${tagName}><li><a href="#${markid}">${contentH}</a></li></ul></li>`)
-								}
-								
-							}
-						});
-				})();
-			});
-		</script>
-		<!--css-->
-		<style type="text/css">
-			
 
-			div.sidebar ul.link {
-				color: #ffffff;
-				font-size: 20px;
-				margin-top: 15px;
-				padding: 0;
-				text-align: center;
-			}
+		<link rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-			div.sidebar ul.link li {
-				list-style: none;
-			}
-
-			div.sidebar ul.link li a {
-				padding: 10px;
-				display: block;
-				color: white;
-				text-align: center;
-				text-decoration: none;
-			}
-
-			div.sidebar ul.link li a:hover {
-				background-color: #ce0c84ac;
-			}
-
-			
-		</style>
 	</head>
 
 	<body>
@@ -87,24 +40,31 @@
 		<div class="head">
 			<ul class="head" id="held">
 				<li>
-					<a href="">主页</a>
+					<a href="/">首頁</a>
 				</li>
 				<li>
 					<div class="dropdown">
-						<a href="">分类</a>
+						<a href="">分類</a>
 						<div class="dropdown-content">
-							<a class="menu" href="#">音乐</a>
-							<a class="menu" href="#">技术</a>
+							<a class="menu" href="#">音樂</a>
+							<a class="menu" href="#">技術</a>
 							<a class="menu" href="#">配布</a>
 						</div>
 					</div>
 				</li>
 				<li>
-					<a href="">赞助</a>
+					<div class="dropdown">
+						<a href="">贊助</a>
+						<div class="dropdown-content">
+							<a class="menu" href="https://space.bilibili.com/670378052">哔哩哔哩充電</a>
+							<a class="menu" href="">愛發電</a>
+						</div>
+					</div>
+
 				</li>
 				<li>
 					<div class="dropdown">
-						<a href="">楚天相关</a>
+						<a href="">楚天相關</a>
 						<div class="dropdown-content">
 							<a class="menu" href="https://space.bilibili.com/670378052">哔哩哔哩</a>
 							<a class="menu"
@@ -124,7 +84,7 @@
 					</div>
 				</li>
 				<li class="right-li">
-					<a class="active" href="#about">关于楚天杳/at_p</a>
+					<a class="active" href="/about.html">关于楚天杳/at_p</a>
 				</li>
 			</ul>
 		</div>
@@ -133,11 +93,10 @@
 			<!--侧边栏-->
 			<input type="checkbox" id="sidebar-btn" />
 			<div class="sidebar">
-				<div class="menu">
-					<div class="tittle">
-						<span>目錄</span>
-					</div>
-				</div>
+				<ul class="link">
+					<li class="tittle"><a>awake</a></li>
+					<li><a href="#">lingyi</a></li>
+				</ul>
 			</div>
 
 			<div id="sidebar-buttorn">
@@ -151,41 +110,94 @@
 				<div class="container" id="content">
 					<h1>主题</h1>
 					<h2>摘要</h2>
-					<div >说明</div>
+					<div>说明</div>
 					<h3>第1天</h3>
-					<div >第1天内容</div>
+					<div>第1天内容</div>
 					<h3>第2天</h3>
-					<div >第2天内容</div>
+					<div>第2天内容</div>
 					<h3>第3天</h3>
-					<div >第3天内容</div>
+					<div>第3天内容</div>
 					<h3>第4天</h3>
-					<div >第4天内容</div>
+					<div>第4天内容</div>
 					<h3>第5天</h3>
-					<div >第5天内容</div>
-
+					<div>第5天内容</div>
+					<h3>第1天</h3>
+					<div>第1天内容</div>
+					<h3>第2天</h3>
+					<div>第2天内容</div>
+					<h3>第3天</h3>
+					<div>第3天内容</div>
+					<h3>第4天</h3>
+					<div>第4天内容</div>
+					<h3>第5天</h3>
+					<div>第5天内容</div>
+					<h2>摘要2</h2>
+					<div>说明</div>
+					<h3>第1天</h3>
+					<div>第1天内容2</div>
+					<h3>第2天</h3>
+					<div>第2天内容</div>
+					<h3>第3天</h3>
+					<div>第3天内容</div>
+					<h3>第4天</h3>
+					<div>第4天内容</div>
+					<h3>第5天</h3>
+					<div>第5天内容</div>
+					<h3>第1天</h3>
+					<div>第1天内容</div>
+					<h3>第2天</h3>
+					<div>第2天内容</div>
+					<h3>第3天</h3>
+					<div>第3天内容</div>
+					<h3>第4天</h3>
+					<div>第4天内容</div>
+					<h3>第5天</h3>
+					<div>第5天内容</div>
 					<h1>主题</h1>
 					<h2>摘要</h2>
-					<div >说明</div>
+					<div>说明</div>
 					<h3>第1天</h3>
-					<div >第1天内容</div>
+					<div>第1天内容</div>
 					<h3>第2天</h3>
-					<div >第2天内容</div>
+					<div>第2天内容</div>
 					<h3>第3天</h3>
-					<div >第3天内容</div>
+					<div>第3天内容</div>
 					<h3>第4天</h3>
-					<div >第4天内容</div>
+					<div>第4天内容</div>
 					<h3>第5天</h3>
-					<div >第5天内容</div>
+					<div>第5天内容</div>
 					<h3>第1天</h3>
-					<div >第1天内容</div>
+					<div>第1天内容</div>
 					<h3>第2天</h3>
-					<div >第2天内容</div>
+					<div>第2天内容</div>
 					<h3>第3天</h3>
-					<div >第3天内容</div>
+					<div>第3天内容</div>
 					<h3>第4天</h3>
-					<div >第4天内容</div>
+					<div>第4天内容</div>
 					<h3>第5天</h3>
-					<div >第5天内容</div>
+					<div>第5天内容</div>
+					<h2>摘要2</h2>
+					<div>说明</div>
+					<h3>第1天</h3>
+					<div>第1天内容2</div>
+					<h3>第2天</h3>
+					<div>第2天内容</div>
+					<h3>第3天</h3>
+					<div>第3天内容</div>
+					<h3>第4天</h3>
+					<div>第4天内容</div>
+					<h3>第5天</h3>
+					<div>第5天内容</div>
+					<h3>第1天</h3>
+					<div>第1天内容</div>
+					<h3>第2天</h3>
+					<div>第2天内容</div>
+					<h3>第3天</h3>
+					<div>第3天内容</div>
+					<h3>第4天</h3>
+					<div>第4天内容</div>
+					<h3>第5天</h3>
+					<div>第5天内容</div>
 				</div>
 			</div>
 		</div>

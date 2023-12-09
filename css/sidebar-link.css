@@ -1,0 +1,23 @@
+div.sidebar ul.link {
+    color: #ffffff;
+    font-size: 20px;
+    margin-top: 15px;
+    padding: 0;
+    text-align: center;
+}
+
+div.sidebar ul.link li {
+    list-style: none;
+}
+
+div.sidebar ul.link li a {
+    padding: 10px;
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+div.sidebar ul.link li a:hover {
+    background-color: #ce0c84ac;
+}
