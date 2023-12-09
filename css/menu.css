@@ -1,0 +1,36 @@
+div.sidebar div.menu div.tittle {
+    text-align: center;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+div.sidebar div.menu {
+    font-weight: bold;
+    padding: 10px;
+}
+
+div.sidebar div.menu>ul:nth-child(2) {
+    list-style: none;
+}
+
+div.sidebar div.menu>ul:nth-child(2) ul {
+    padding-left: 20px;
+}
+
+div.sidebar div.menu ul {
+    padding-left: 30px;
+    list-style: none;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: left;
+}
+
+div.sidebar div.menu ul a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+div.sidebar div.menu ul a:hover {
+    background-color: rgba(0, 0, 0, 0.282);
+}

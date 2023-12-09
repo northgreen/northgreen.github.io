@@ -1,0 +1,294 @@
+/*一般样式表*/
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.23),
+            rgba(0, 0, 0, 0.148)),
+        url("assents/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position-y: center;
+    background-size: cover;
+    padding: 10px;
+    
+}
+
+/*top*/
+div.top {
+    display: flex;
+}
+
+div.top img {
+    height: auto;
+    width: auto;
+    border-radius: 50%;
+    border: 3px solid rgb(233, 157, 207);
+    box-shadow: 3px 2px 5px 1px #61616170;
+}
+
+/*头部*/
+div.top {
+    height: 55px;
+    margin-bottom: 5px;
+}
+
+div.top div.button {
+    padding: 20px;
+}
+
+div.logo {
+    text-shadow: 3px 2px 5px 1px #393939b2;
+    color: #ffffff;
+    -webkit-text-stroke: 0.5px #000000;
+    margin: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    float: right;
+}
+
+div.buttorn {
+    padding: auto;
+    padding-top: 10px;
+    padding-right: 5px;
+    margin-left: auto;
+    float: right;
+    line-height: 100%;
+}
+
+#check {
+    display: none;
+}
+
+i.down {
+    height: 100%;
+    font-size: 36px;
+    color: #ffffff;
+}
+
+@media (max-width: 930px) {
+
+    #check:checked~div.head,
+    #check:checked~div.head ul {
+        height: auto;
+    }
+
+    #check:checked~div.head {
+        padding-top: 10px;
+    }
+
+    div.top {
+        position: sticky;
+        padding: 5px;
+        background-color: rgba(208, 19, 136, 0.851);
+        backdrop-filter: blur(5px);
+        margin-bottom: 0px;
+    }
+
+    div.top div.logo {
+        color: #ffffff;
+    }
+
+    div.head {
+        box-shadow: 3px 3px 8px 2px rgba(59, 55, 55, 0.489);
+        transition: all 0.5s;
+        height: 0;
+        overflow: hidden;
+        padding-top: 0px;
+        margin-bottom: 10px;
+        backdrop-filter: blur(5px);
+        background-color: rgba(208, 19, 136, 0.851);
+        padding-bottom: 10px;
+    }
+
+    ul.head {
+        transition: all 0.5s;
+        height: 0;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    ul.head li div.dropdown a {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: #ffffff;
+    }
+
+    ul.head li a {
+        display: block;
+        backdrop-filter: blur(5px);
+        background-color: #b4317fba;
+        padding: 10px;
+        text-decoration: none;
+        color: #ffffff;
+    }
+
+    ul.head li a:hover {
+        background-color: #ca77aa93;
+        backdrop-filter: blur(5px);
+    }
+
+    ul.head li div.dropdown-content a:hover {
+        background-color: #fa8fd193;
+        backdrop-filter: blur(5px);
+    }
+
+    ul.head li div.dropdown-content a {
+        background-color: #e9189993;
+        backdrop-filter: blur(5px);
+    }
+}
+
+@media (min-width: 930px) {
+
+    div.total-body {
+        margin: auto;
+        width: 80%;
+        height: 100%;
+        display: flex;
+        justify-content: left;
+        overflow: hidden;
+    }
+
+    div.top div.buttorn {
+        display: none;
+    }
+
+    div.head {
+        box-shadow: 3px 3px 8px 2px rgba(59, 55, 55, 0.489);
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        margin-bottom: 10px;
+    }
+
+    ul.head {
+        z-index: -1;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: rgba(208, 19, 136, 0.851);
+        z-index: -1;
+    }
+
+    ul.head li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    ul.head li {
+        float: left;
+    }
+
+    ul.head li a:hover {
+        background-color: rgb(204, 15, 141);
+    }
+
+    ul.head li a.active {
+        background-color: rgba(240, 130, 194, 0.31);
+    }
+
+    /*下拉菜单*/
+    ul.head div.dropdown {
+        display: inline-block;
+        position: unset;
+    }
+
+    div.dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #ffffff;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    div.dropdown-content a.menu {
+        color: rgb(0, 0, 0);
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    div.dropdown-content a.menu :hover {
+        background-color: #000000;
+    }
+
+    div.dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    ul.head li.right-li {
+        float: right;
+    }
+}
+
+/*側邊欄*/
+#sidebar-btn {
+    display: none;
+}
+
+@media (max-width: 634px) {
+    #sidebar-btn:checked~div.sidebar {
+        left: 5px;
+    }
+
+    #sidebar-btn:checked~div.sidebar~#sidebar-buttorn {
+        left: 309px;
+    }
+
+    div.sidebar {
+        top: 20px;
+        overflow: scroll;
+        height: 100%;
+        backdrop-filter: blur(5px);
+        position: fixed;
+        z-index: index 3;
+        left: -300px;
+    }
+
+    div#sidebar-buttorn {
+        box-shadow: 3px 3px 8px 2px rgba(59, 55, 55, 0.489);
+        color: #ffffff;
+        backdrop-filter: blur(5px);
+        border-radius: 5px;
+        padding: 10px;
+        display: block;
+        background-color: #e918999f;
+        top: 110px;
+        position: fixed;
+        z-index: index 1;
+    }
+}
+
+@media (min-width: 634px) {
+    div#sidebar-buttorn {
+        display: none;
+    }
+}
+
+div.sidebar {
+    transition: all 0.5;
+    box-shadow: 3px 3px 8px 2px rgba(59, 55, 55, 0.489);
+    border-radius: 20px;
+    margin-right: 10px;
+    background-color: #e918999f;
+
+    width: 300px;
+}
+
+div.total-body {
+    height: auto;
+    display: flex;
+    justify-content: left;
+    overflow: hidden;
+}
