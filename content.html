@@ -15,8 +15,10 @@
 		<script src="/js/depends/bootstrap/bootstrap.min.js"></script>
 		<script src="/js/vue.min.js"></script>
 		<script src="/js/requirejs.js"></script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 		<script>
+			require(["js/friends"])
 			$(document).ready(function () {
 				(function () {
 					ret = {};
@@ -24,25 +26,24 @@
 						.children()
 						.each(function (index, element) {
 							let tagName = $(this).get(0).tagName;
-						if (tagName.substr(0, 1).toUpperCase() == "H") {
+							if (tagName.substr(0, 1).toUpperCase() == "H") {
 								let contentH = $(this).html();
 								let markid = "mark-" + tagName + "-" + index.toString();
 								$(this).attr("id", markid);
 								if (tagName === "H1") {
 									$("div.menu").append(`<ul class=H1><li><a href="#${markid}">${contentH}</a></li></ul>`);
 								} else {
-									$(`div.menu ul.H${tagName[1]-1}:last`).append(`<li><ul class=${tagName}><li><a href="#${markid}">${contentH}</a></li></ul></li>`)
+									$(`div.menu ul.H${tagName[1] - 1}:last`).append(`<li><ul class=${tagName}><li><a href="#${markid}">${contentH}</a></li></ul></li>`)
 								}
-								
+
 							}
 						});
 				})();
+				
 			});
 		</script>
 		<!--css-->
 		<style type="text/css">
-			
-
 			div.sidebar ul.link {
 				color: #ffffff;
 				font-size: 20px;
@@ -66,8 +67,6 @@
 			div.sidebar ul.link li a:hover {
 				background-color: #dc76b5ac;
 			}
-
-			
 		</style>
 	</head>
 
@@ -113,7 +112,8 @@
 						<a href="">楚天相關</a>
 						<div class="dropdown-content">
 							<a class="menu" href="https://b23.tv/Sp7y149">哔哩哔哩</a>
-							<a class="menu"href="https://zh.moegirl.org.cn/User:%E6%A5%9A%E5%A4%A9%E6%9D%B3">萌娘百科用户页</a>
+							<a class="menu"
+								href="https://zh.moegirl.org.cn/User:%E6%A5%9A%E5%A4%A9%E6%9D%B3">萌娘百科用户页</a>
 							<a class="menu" href="#">推特</a>
 							<a class="menu" href="#">微博</a>
 							<a class="menu" href="">YouTube</a>
@@ -121,10 +121,10 @@
 					</div>
 				</li>
 				<li>
-					<div class="dropdown">
+					<div id="friends-link" class="dropdown">
 						<a href="">友情鏈接</a>
 						<div class="dropdown-content">
-							<a class="menu" href="https://edgeneko.com">edgeneko</a>
+							<a v-for="(value,key) in friends" class="menu" v-bind:href="value.url">{{key}}</a>
 						</div>
 					</div>
 				</li>
@@ -156,94 +156,94 @@
 				<div class="container" id="content">
 					<h1>主题</h1>
 					<h2>摘要</h2>
-					<div >说明</div>
+					<div>说明</div>
 					<h3>第1天</h3>
-					<div >第1天内容</div>
+					<div>第1天内容</div>
 					<h3>第2天</h3>
-					<div >第2天内容</div>
+					<div>第2天内容</div>
 					<h3>第3天</h3>
-					<div >第3天内容</div>
+					<div>第3天内容</div>
 					<h3>第4天</h3>
-					<div >第4天内容</div>
+					<div>第4天内容</div>
 					<h3>第5天</h3>
-					<div >第5天内容</div>
+					<div>第5天内容</div>
 					<h3>第1天</h3>
-					<div >第1天内容</div>
+					<div>第1天内容</div>
 					<h3>第2天</h3>
-					<div >第2天内容</div>
+					<div>第2天内容</div>
 					<h3>第3天</h3>
-					<div >第3天内容</div>
+					<div>第3天内容</div>
 					<h3>第4天</h3>
-					<div >第4天内容</div>
+					<div>第4天内容</div>
 					<h3>第5天</h3>
-					<div >第5天内容</div>
+					<div>第5天内容</div>
 					<h2>摘要2</h2>
-					<div >说明</div>
+					<div>说明</div>
 					<h3>第1天</h3>
-					<div >第1天内容2</div>
+					<div>第1天内容2</div>
 					<h3>第2天</h3>
-					<div >第2天内容</div>
+					<div>第2天内容</div>
 					<h3>第3天</h3>
-					<div >第3天内容</div>
+					<div>第3天内容</div>
 					<h3>第4天</h3>
-					<div >第4天内容</div>
+					<div>第4天内容</div>
 					<h3>第5天</h3>
-					<div >第5天内容</div>
+					<div>第5天内容</div>
 					<h3>第1天</h3>
-					<div >第1天内容</div>
+					<div>第1天内容</div>
 					<h3>第2天</h3>
-					<div >第2天内容</div>
+					<div>第2天内容</div>
 					<h3>第3天</h3>
-					<div >第3天内容</div>
+					<div>第3天内容</div>
 					<h3>第4天</h3>
-					<div >第4天内容</div>
+					<div>第4天内容</div>
 					<h3>第5天</h3>
-					<div >第5天内容</div>
+					<div>第5天内容</div>
 					<h1>主题</h1>
 					<h2>摘要</h2>
-					<div >说明</div>
+					<div>说明</div>
 					<h3>第1天</h3>
-					<div >第1天内容</div>
+					<div>第1天内容</div>
 					<h3>第2天</h3>
-					<div >第2天内容</div>
+					<div>第2天内容</div>
 					<h3>第3天</h3>
-					<div >第3天内容</div>
+					<div>第3天内容</div>
 					<h3>第4天</h3>
-					<div >第4天内容</div>
+					<div>第4天内容</div>
 					<h3>第5天</h3>
-					<div >第5天内容</div>
+					<div>第5天内容</div>
 					<h3>第1天</h3>
-					<div >第1天内容</div>
+					<div>第1天内容</div>
 					<h3>第2天</h3>
-					<div >第2天内容</div>
+					<div>第2天内容</div>
 					<h3>第3天</h3>
-					<div >第3天内容</div>
+					<div>第3天内容</div>
 					<h3>第4天</h3>
-					<div >第4天内容</div>
+					<div>第4天内容</div>
 					<h3>第5天</h3>
-					<div >第5天内容</div>
+					<div>第5天内容</div>
 					<h2>摘要2</h2>
-					<div >说明</div>
+					<div>说明</div>
 					<h3>第1天</h3>
-					<div >第1天内容2</div>
+					<div>第1天内容2</div>
 					<h3>第2天</h3>
-					<div >第2天内容</div>
+					<div>第2天内容</div>
 					<h3>第3天</h3>
-					<div >第3天内容</div>
+					<div>第3天内容</div>
 					<h3>第4天</h3>
-					<div >第4天内容</div>
+					<div>第4天内容</div>
 					<h3>第5天</h3>
-					<div >第5天内容</div>
+					<div>第5天内容</div>
 					<h3>第1天</h3>
-					<div >第1天内容</div>
+					<div>第1天内容</div>
 					<h3>第2天</h3>
-					<div >第2天内容</div>
+					<div>第2天内容</div>
 					<h3>第3天</h3>
-					<div >第3天内容</div>
+					<div>第3天内容</div>
 					<h3>第4天</h3>
-					<div >第4天内容</div>
+					<div>第4天内容</div>
 					<h3>第5天</h3>
-					<div >第5天内容</div>
+					<div>第5天内容</div>
 				</div>
 			</div>
 		</div>

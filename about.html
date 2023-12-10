@@ -15,37 +15,46 @@
 		<script src="/js/depends/bootstrap/bootstrap.min.js"></script>
 		<script src="/js/vue.min.js"></script>
 		<script src="/js/requirejs.js"></script>
-		
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+		<link rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 		<style>
-			h1{
+			h1 {
 				text-align: center;
 			}
-			
-			div.firiends img{
+
+			div.firiends img {
 				height: 50px;
 				width: 50px;
 			}
+			
+			div.firend-link{
+				margin: 5px;
+			}
 
-			div.firiends > div{
+			div.firiends>div {
 				padding: 5px;
-				border: 3px solid #565656 ;
+				border: 3px solid #565656;
 				display: flex;
-				background: linear-gradient(60deg,rgba(255, 255, 255,255),rgba(155, 155, 229, 0.64) 75%,rgba(241, 224, 224, 0.538)) ;
+				background: linear-gradient(60deg, rgba(255, 255, 255, 255), rgba(155, 155, 229, 0.64) 75%, rgba(241, 224, 224, 0.538));
 				border-radius: 9px;
 			}
 
-			div.firiends > div div.friend-pic{
+			div.firiends>div div.friend-pic {
 				margin-left: 15px;
 			}
-			div.firiends > div div.friend-pic{
+
+			div.firiends>div div.friend-pic {
 				margin-left: 15px;
 			}
-			div.firiends > div div.text{
+
+			div.firiends>div div.text {
 				font-size: 20px;
 				margin: auto;
 			}
-			div.firiends > div div.text a{
+
+			div.firiends>div div.text a {
+				border-radius: 15px;
 				display: block;
 				margin: auto;
 				padding: auto;
@@ -53,10 +62,27 @@
 				font-weight: bold;
 				color: rgb(80, 80, 80);
 			}
-			div.firiends > div div.text a:hover{
-				background-color: rgba(255, 255, 255, 0.795);
+
+			div.firiends>div div.text a:hover {
+				background-color: rgba(255, 255, 255, 0.437);
 			}
 		</style>
+
+		<script>
+			require(["js/friends"])
+			$(document).ready(function () {
+				let friend = new Vue({
+					el: "#friends-show",
+					data: {
+						friends: {},
+					},
+				})
+				$.getJSON("/webconfigs/friends.json", function (data, status) {
+					console.log(data);
+					friend.friends = data;
+				});
+			})
+		</script>
 	</head>
 
 	<body>
@@ -101,7 +127,8 @@
 						<a href="">楚天相關</a>
 						<div class="dropdown-content">
 							<a class="menu" href="https://b23.tv/Sp7y149">哔哩哔哩</a>
-							<a class="menu"href="https://zh.moegirl.org.cn/User:%E6%A5%9A%E5%A4%A9%E6%9D%B3">萌娘百科用户页</a>
+							<a class="menu"
+								href="https://zh.moegirl.org.cn/User:%E6%A5%9A%E5%A4%A9%E6%9D%B3">萌娘百科用户页</a>
 							<a class="menu" href="#">推特</a>
 							<a class="menu" href="#">微博</a>
 							<a class="menu" href="">YouTube</a>
@@ -109,10 +136,10 @@
 					</div>
 				</li>
 				<li>
-					<div class="dropdown">
+					<div id="friends-link" class="dropdown">
 						<a href="">友情鏈接</a>
 						<div class="dropdown-content">
-							<a class="menu" href="https://edgeneko.com">edgeneko</a>
+							<a v-for="(value,key) in friends" class="menu" v-bind:href="value.url">{{key}}</a>
 						</div>
 					</div>
 				</li>
@@ -142,16 +169,16 @@
 					<p>問這個幹嘛，過。</p>
 					<h2>外站連接</h2>
 					<p>
-						
+
 					</p>
 					<h2>友情鏈接</h2>
 					<p>
-						<div class="row firiends">
-							<div class="col-md-4 firend-link">
-								<div class="friend-pic"><img src="/assents/edgeneko.png"></div>
-								<div class="text"><a href="https://edgeneko.com/">edgeneko</a></div>
-							</div>
+					<div id="friends-show" class="row firiends">
+						<div v-for="(value,key) in friends" class="col-md-4 firend-link">
+							<div class="friend-pic"><img v-bind:src="value.icon"></div>
+							<div class="text"><a v-bind:href="value.url">{{key}}</a></div>
 						</div>
+					</div>
 					</p>
 				</div>
 			</div>

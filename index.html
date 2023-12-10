@@ -20,11 +20,35 @@
 		<script src="/js/requirejs.js"></script>
 
 		<script>
+
+
+			let friend = (function () {
+				let ret
+				$.getJSON("/webconfigs/friends.json", function (data, status) {
+					console.log(data)
+					ret = data
+				})
+				return ret
+			})()
+
 			$(document).ready(function () {
 				$('[data-url]').click(function () {
 					var url = $(this).data('url');
 					window.open(url, '_blank');
 				});
+
+				let friends = new Vue({
+					el: '#friends-link',
+					data: {
+						message: 'Hello Vue.js!',
+						friends:{}
+					}
+				})
+				$.getJSON("/webconfigs/friends.json", function (data, status) {
+					console.log(data)
+					friends.friends = data
+				})
+				
 			});
 
 		</script>
@@ -45,7 +69,7 @@
 				/* 动画效果 */
 			}
 
-			div.ic-tittle:hover  {
+			div.ic-tittle:hover {
 				color: rgb(30, 138, 165);
 				/* 放大到原来的 1.2 倍 */
 			}
@@ -56,7 +80,7 @@
 				margin-bottom: 10px;
 			}
 
-			div.context div.right-picture{
+			div.context div.right-picture {
 				overflow: hidden;
 			}
 
@@ -216,10 +240,10 @@
 					</div>
 				</li>
 				<li>
-					<div class="dropdown">
+					<div id="friends-link" class="dropdown">
 						<a href="">友情鏈接</a>
-						<div class="dropdown-content">
-							<a class="menu" href="https://edgeneko.com">edgeneko</a>
+						<div   class="dropdown-content">
+							<a v-for="(value,key) in friends" class="menu" v-bind:href="value.url">{{key}}</a>
 						</div>
 					</div>
 				</li>
@@ -278,6 +302,10 @@
 						</div>
 					</div>
 				</div>
+			</div>
+
+			<div id="app">
+				<p>{{ message }}</p>
 			</div>
 	</body>
 
