@@ -11,6 +11,7 @@ div.sidebar ul.link li {
 }
 
 div.sidebar ul.link li a {
+    transition: all 0.3s;
     padding: 10px;
     display: block;
     color: white;
@@ -19,5 +20,5 @@ div.sidebar ul.link li a {
 }
 
 div.sidebar ul.link li a:hover {
-    background-color: #ce0c84ac;
+    background-color: #d7138cac;
 }

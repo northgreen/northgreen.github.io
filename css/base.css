@@ -121,6 +121,7 @@ i.down {
     }
 
     ul.head li a {
+        transition: all 0.2s;
         display: block;
         backdrop-filter: blur(5px);
         background-color: #b4317fba;
@@ -161,6 +162,7 @@ i.down {
     }
 
     div.head {
+        z-index: 2;
         box-shadow: 3px 3px 8px 2px rgba(59, 55, 55, 0.489);
         position: -webkit-sticky;
         position: sticky;
@@ -169,7 +171,6 @@ i.down {
     }
 
     ul.head {
-        z-index: -1;
         list-style-type: none;
         margin: 0;
         padding: 0;
@@ -179,6 +180,7 @@ i.down {
     }
 
     ul.head li a {
+        transition: all 0.3s;
         display: block;
         color: white;
         text-align: center;
@@ -191,7 +193,7 @@ i.down {
     }
 
     ul.head li a:hover {
-        background-color: rgb(204, 15, 141);
+        background-color: rgb(217, 102, 179);
     }
 
     ul.head li a.active {
@@ -237,26 +239,28 @@ i.down {
     display: none;
 }
 
-@media (max-width: 634px) {
+@media (max-width: 708px) {
     #sidebar-btn:checked~div.sidebar {
         left: 5px;
     }
 
     #sidebar-btn:checked~div.sidebar~#sidebar-buttorn {
-        left: 309px;
+        left: 209px;
     }
 
     div.sidebar {
+        transition: all 0.5s;
         top: 20px;
         overflow: scroll;
         height: 100%;
         backdrop-filter: blur(5px);
         position: fixed;
-        z-index: index 3;
+        z-index: 3;
         left: -300px;
     }
 
     div#sidebar-buttorn {
+        transition: all 0.5s;
         box-shadow: 3px 3px 8px 2px rgba(59, 55, 55, 0.489);
         color: #ffffff;
         backdrop-filter: blur(5px);
@@ -266,24 +270,24 @@ i.down {
         background-color: #e918999f;
         top: 110px;
         position: fixed;
-        z-index: index 1;
+        z-index: 2;
     }
 }
 
-@media (min-width: 634px) {
+@media (min-width: 708px) {
     div#sidebar-buttorn {
         display: none;
     }
 }
 
 div.sidebar {
-    transition: all 0.5;
+    transition: all 0.5s;
     box-shadow: 3px 3px 8px 2px rgba(59, 55, 55, 0.489);
     border-radius: 20px;
     margin-right: 10px;
     background-color: #e918999f;
 
-    width: 300px;
+    width: 200px;
 }
 
 div.total-body {

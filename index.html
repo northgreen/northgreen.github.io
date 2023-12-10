@@ -20,57 +20,67 @@
 		<script src="/js/requirejs.js"></script>
 
 		<style>
-			div.context{
+			div.context {
 				display: flex;
+				margin-bottom: 10px;
 			}
-			div.context div.right-picture img{
+
+			div.context div.right-picture img {
 				object-fit: cover;
-				height: auto;
+				height: 100%;
 				max-width: 280px;
 			}
-			div.context div.time{
+
+			div.context div.time {
 
 				padding-top: 5px;
 				display: flex;
 			}
-			div.context div.time i{
+
+			div.context div.time i {
 				margin-left: 10px;
 				margin-right: 5px;
 			}
-			div.context div.collect{
+
+			div.context div.collect {
 				padding-top: 5px;
 				display: flex;
 			}
-			div.context div.collect i{
+
+			div.context div.collect i {
 				margin-left: 10px;
 				margin-right: 5px;
 			}
-			div.context div.ic-tittle{
+
+			div.context div.ic-tittle {
 				font-size: 25px;
 				font-weight: bold;
 				text-align: center;
 			}
-			div.context div.info{
+
+			div.context div.info {
 				width: 100%;
-				min-width: 300px;
 				display: block;
 				margin-right: 20px;
 				margin-left: 20px;
 			}
-			div.context div.cover{
+
+			div.context div.cover {
 				margin-left: auto;
 				float: right;
 			}
-			div.context{
+
+			div.context {
 				overflow: hidden;
 				height: 150px;
-				background: linear-gradient(60deg,rgba(255, 255, 255,255),rgba(219, 219, 233, 0.64) 75%,rgba(245, 209, 209, 0.538));
-				border: 3px solid #56565655;
-				border-radius: 5px;
+				background: linear-gradient(60deg, rgba(255, 255, 255, 255), rgba(188, 188, 207, 0.64) 75%, rgb(245, 209, 209));
+				border-radius: 15px;
 				box-shadow: 3px 2px 5px 1px #61616170;
 				padding: 0%;
 			}
+
 			div.context div.flex {
+				display: block ruby;
 				font-size: small;
 				justify-content: center;
 				color: rgb(96, 96, 96);
@@ -78,12 +88,46 @@
 				line-height: 103%;
 				margin-bottom: 5px;
 			}
-			div.flex{
-				display: flex;
+
+			div.body {
+				box-shadow: unset;
+				backdrop-filter: unset;
+				z-index: 0;
+				padding: 0;
+				background-color: unset;
+				border-radius: unset;
+			}
+
+			@media (max-width: 708px) {
+				div.context {
+					display: unset;
+				}
+
+				div.context {
+					height: 250px;
+				}
+
+				div.context div.cover {
+					float: unset;
+				}
+
+				div.context div.right-picture img {
+					height: 30%;
+					max-width: 100%;
+				}
+
+				div.context div.info {
+					margin-left: unset;
+					padding-left: 20px;
+					height: 50%;
+					border-bottom: #5c5c5c solid;
+				}
+
 			}
 		</style>
 
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
 	</head>
 
@@ -129,7 +173,8 @@
 						<a href="">楚天相關</a>
 						<div class="dropdown-content">
 							<a class="menu" href="https://b23.tv/Sp7y149">哔哩哔哩</a>
-							<a class="menu"href="https://zh.moegirl.org.cn/User:%E6%A5%9A%E5%A4%A9%E6%9D%B3">萌娘百科用户页</a>
+							<a class="menu"
+								href="https://zh.moegirl.org.cn/User:%E6%A5%9A%E5%A4%A9%E6%9D%B3">萌娘百科用户页</a>
 							<a class="menu" href="#">推特</a>
 							<a class="menu" href="#">微博</a>
 							<a class="menu" href="">YouTube</a>
@@ -170,7 +215,7 @@
 			<div class="body">
 				<div class="container" id="content">
 					<div class="row">
-						<div class="col-md context">
+						<div class="col-md-12 context">
 							<div class="info">
 								<div class="ic-tittle">tittle</div>
 								<div class="flex">
@@ -179,13 +224,27 @@
 								</div>
 								<div class="view">this is some text for view</div>
 							</div>
-							<div class="cover"><div class="right-picture"><img src="/assents/Image_1702025410272.jpg"></div></div>
-							
+							<div class="cover">
+								<div class="right-picture"><img src="/assents/Image_1702025410272.jpg"></div>
+							</div>
+						</div>
+						<div class="col-md-12 context">
+							<div class="info">
+								<div class="ic-tittle">tittle</div>
+								<div class="flex">
+									<div class="time"><i class="fa fa-calendar"></i>2023-01-01</div>|
+									<div class="collect"><i class="fa fa-inbox"></i> page</div>
+								</div>
+								<div class="view">this is some text for view</div>
+							</div>
+							<div class="cover">
+								<div class="right-picture"><img src="/assents/Image_1702025410272.jpg"></div>
+							</div>
+
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 	</body>
 
 </html>
