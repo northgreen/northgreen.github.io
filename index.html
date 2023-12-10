@@ -19,10 +19,45 @@
 		<script src="/js/vue.min.js"></script>
 		<script src="/js/requirejs.js"></script>
 
+		<script>
+			$(document).ready(function () {
+				$('[data-url]').click(function () {
+					var url = $(this).data('url');
+					window.open(url, '_blank');
+				});
+			});
+
+		</script>
+
 		<style>
+			[data-url] img {
+				transition: transform .4s;
+				/* 动画效果 */
+			}
+
+			[data-url]:hover img {
+				transform: scale(1.1);
+				/* 放大到原来的 1.2 倍 */
+			}
+
+			div.ic-tittle {
+				transition: all 0.2s ease-in-out;
+				/* 动画效果 */
+			}
+
+			div.ic-tittle:hover  {
+				color: rgb(30, 138, 165);
+				/* 放大到原来的 1.2 倍 */
+			}
+
+
 			div.context {
 				display: flex;
 				margin-bottom: 10px;
+			}
+
+			div.context div.right-picture{
+				overflow: hidden;
 			}
 
 			div.context div.right-picture img {
@@ -32,7 +67,6 @@
 			}
 
 			div.context div.time {
-
 				padding-top: 5px;
 				display: flex;
 			}
@@ -59,6 +93,7 @@
 			}
 
 			div.context div.info {
+				padding-top: 10px;
 				width: 100%;
 				display: block;
 				margin-right: 20px;
@@ -120,9 +155,8 @@
 					margin-left: unset;
 					padding-left: 20px;
 					height: 50%;
-					border-bottom: #5c5c5c solid;
+					border-bottom: #9b9292 solid;
 				}
-
 			}
 		</style>
 
@@ -228,7 +262,7 @@
 								<div class="right-picture"><img src="/assents/Image_1702025410272.jpg"></div>
 							</div>
 						</div>
-						<div class="col-md-12 context">
+						<div class="col-md-12 context" data-url="/content.html">
 							<div class="info">
 								<div class="ic-tittle">tittle</div>
 								<div class="flex">

@@ -26,6 +26,7 @@ div.sidebar div.menu ul {
 }
 
 div.sidebar div.menu ul a {
+    transition: all 0.3s;
     display: block;
     color: #ffffff;
     text-decoration: none;

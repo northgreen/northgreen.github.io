@@ -245,7 +245,7 @@ i.down {
     }
 
     #sidebar-btn:checked~div.sidebar~#sidebar-buttorn {
-        left: 209px;
+        left: 259px;
     }
 
     div.sidebar {
@@ -287,7 +287,7 @@ div.sidebar {
     margin-right: 10px;
     background-color: #e918999f;
 
-    width: 200px;
+    min-width: 250px;
 }
 
 div.total-body {
