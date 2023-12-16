@@ -1,0 +1,34 @@
+{
+    "page": [
+        {
+            "tittle": "test",
+            "day": "2023-01-01",
+            "view": "this is some text for view",
+            "cover": "/assents/Image_1702025410272.jpg",
+            "url":"/content.html"
+        },
+        {
+            "tittle": "test",
+            "day": "2023-01-01",
+            "view": "this is some text for view",
+            "cover": "/assents/Image_1702025410272.jpg",
+            "url":"/content.html"
+        }
+    ],
+    "page2": [
+        {
+            "tittle": "test",
+            "day": "2023-01-01",
+            "view": "this is some text for view",
+            "cover": "/assents/Image_1702025410272.jpg",
+            "url":"/content.html"
+        },
+        {
+            "tittle": "test",
+            "day": "2023-01-01",
+            "view": "this is some text for view",
+            "cover": "/assents/Image_1702025410272.jpg",
+            "url":"/content.html"
+        }
+    ]
+}
