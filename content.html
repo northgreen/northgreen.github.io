@@ -11,39 +11,56 @@
 		<link href="/css/base.css" type="text/css" rel="stylesheet" />
 		<link href="/css/body.css" type="text/css" rel="stylesheet" />
 		<link href="/css/menu.css" type="text/css" rel="stylesheet" />
-		<script src="/js/jquary.js"></script>
+
 		<script src="/js/depends/bootstrap/bootstrap.min.js"></script>
-		<script src="/js/vue.min.js"></script>
 		<script src="/js/requirejs.js"></script>
+
+
 		<link rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 		<script>
 			require(["js/friends"])
-			$(document).ready(function () {
-				(function () {
-					ret = {};
-					$("div#content")
-						.children()
-						.each(function (index, element) {
-							let tagName = $(this).get(0).tagName;
-							if (tagName.substr(0, 1).toUpperCase() == "H") {
-								let contentH = $(this).html();
-								let markid = "mark-" + tagName + "-" + index.toString();
-								$(this).attr("id", markid);
-								if (tagName === "H1") {
-									$("div.menu").append(`<ul class=H1><li><a href="#${markid}">${contentH}</a></li></ul>`);
-								} else {
-									$(`div.menu ul.H${tagName[1] - 1}:last`).append(`<li><ul class=${tagName}><li><a href="#${markid}">${contentH}</a></li></ul></li>`)
-								}
+			require(["js/jquary"], function () {
+				$(document).ready(function () {
+					(function () {
+						ret = {};
+						$("div#content")
+							.children()
+							.each(function (index, element) {
+								let tagName = $(this).get(0).tagName;
+								if (tagName.substr(0, 1).toUpperCase() == "H") {
+									let contentH = $(this).html();
+									let markid = "mark-" + tagName + "-" + index.toString();
+									$(this).attr("id", markid);
+									if (tagName === "H1") {
+										$("div.menu").append(`<ul class=H1><li><a href="#${markid}">${contentH}</a></li></ul>`);
+									} else {
+										$(`div.menu ul.H${tagName[1] - 1}:last`).append(`<li><ul class=${tagName}><li><a href="#${markid}">${contentH}</a></li></ul></li>`)
+									}
 
-							}
-						});
-				})();
-				
-			});
+								}
+							});
+					})();
+
+				});
+			})
+
 		</script>
 		<!--css-->
 		<style type="text/css">
+			#crumb {
+				width: 100%;
+				background-color: #fedcf192;
+				border-radius: 10px;
+				padding: 5px;
+				padding-left: 20px;
+				margin-bottom: 25px;
+			}
+
+			#crumb>ol {
+				margin: 0px;
+			}
+
 			div.sidebar ul.link {
 				color: #ffffff;
 				font-size: 20px;
@@ -153,6 +170,13 @@
 
 			<!--主体-->
 			<div class="body">
+				<div id="crumb">
+					<ol class="breadcrumb ">
+						<li class="breadcrumb-item"><a href="#">test</a></li>
+						<li class="breadcrumb-item"><a href="#">test page</a></li>
+						<li class="breadcrumb-item active">awake</li>
+					</ol>
+				</div>
 				<div class="container" id="content">
 					<h1>主题</h1>
 					<h2>摘要</h2>

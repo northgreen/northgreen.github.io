@@ -1,4 +1,4 @@
-define(function () {
+define(["js/jquary","js/vue.min"],function (_,Vue) {
     let friends = new Vue({
         el: "#friends-link",
         data: {

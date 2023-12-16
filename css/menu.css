@@ -2,6 +2,8 @@ div.sidebar div.menu div.tittle {
     text-align: center;
     font-size: 30px;
     color: #ffffff;
+    margin-bottom: 10px;
+    margin-top: 5px;
 }
 
 div.sidebar div.menu {

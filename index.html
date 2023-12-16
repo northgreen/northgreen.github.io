@@ -14,42 +14,59 @@
 		<link href="/css/menu.css" type="text/css" rel="stylesheet" />
 		<link href="/css/sidebar-link.css" type="text/css" rel="stylesheet" />
 
-		<script src="/js/jquary.js"></script>
 		<script src="/js/depends/bootstrap/bootstrap.min.js"></script>
 		<script src="/js/vue.min.js"></script>
 		<script src="/js/requirejs.js"></script>
 
 		<script>
-
-
-			let friend = (function () {
-				let ret
-				$.getJSON("/webconfigs/friends.json", function (data, status) {
-					console.log(data)
-					ret = data
-				})
-				return ret
-			})()
-
-			$(document).ready(function () {
-				$('[data-url]').click(function () {
-					var url = $(this).data('url');
-					window.open(url, '_blank');
-				});
-
-				let friends = new Vue({
-					el: '#friends-link',
+			require(["js/friends"])
+			require(["js/vue.min.js", "js/jquary.js"], function (Vue) {
+				let app = new Vue({
+					el: "#content",
 					data: {
-						message: 'Hello Vue.js!',
-						friends:{}
+						content: [],
+					},
+					watch: {
+						content: function (newVal, oldVal) {
+							this.$nextTick(function () {
+								$("[data-url]").each(function () {
+									var targetUrl = $(this).data("url");
+									$(this).attr("title", "转到：" + targetUrl);
+								}).click(function () {
+									var targetUrl = $(this).data("url");  //獲取元素的 data-url 值
+									window.open(targetUrl)
+								});
+							})
+						}
 					}
 				})
-				$.getJSON("/webconfigs/friends.json", function (data, status) {
-					console.log(data)
-					friends.friends = data
+
+				$.get("/content/web-contents.json", function (data, status) {
+					console.log(data);
 				})
-				
-			});
+
+				app.content = [
+					{
+						"tittle": "test1",
+						"day": "2023-01-01",
+						"view": "this is some text for view",
+						"cover": "/assents/Image_1702025410272.jpg",
+						"url": "/content.html",
+						"class":"test"
+					},
+					{
+						"tittle": "test2",
+						"day": "2023-01-02",
+						"view": "this is some text for view1111",
+						"cover": "/assents/background-bk.jpg",
+						"url": "/content.html",
+						"class":"test2"
+					}
+				]
+
+
+
+			})
 
 		</script>
 
@@ -157,6 +174,13 @@
 				border-radius: unset;
 			}
 
+			#pagination {
+				background-color: rgba(240, 248, 255, 0.722);
+				border-radius: 10px;
+				width: 100%;
+				padding: 15px;
+			}
+
 			@media (max-width: 708px) {
 				div.context {
 					display: unset;
@@ -242,7 +266,7 @@
 				<li>
 					<div id="friends-link" class="dropdown">
 						<a href="">友情鏈接</a>
-						<div   class="dropdown-content">
+						<div class="dropdown-content">
 							<a v-for="(value,key) in friends" class="menu" v-bind:href="value.url">{{key}}</a>
 						</div>
 					</div>
@@ -273,34 +297,35 @@
 			<div class="body">
 				<div class="container" id="content">
 					<div class="row">
-						<div class="col-md-12 context">
+						<div class="col-md-12 context" v-for="slite in content" v-bind:data-url="slite.url">
 							<div class="info">
-								<div class="ic-tittle">tittle</div>
+								<div class="ic-tittle">{{slite.tittle}}</div>
 								<div class="flex">
-									<div class="time"><i class="fa fa-calendar"></i>2023-01-01</div>|
-									<div class="collect"><i class="fa fa-inbox"></i> page</div>
+									<div class="time"><i class="fa fa-calendar"></i>{{slite.day}}</div>|
+									<div class="collect"><i class="fa fa-inbox"></i> {{slite.class}}</div>
 								</div>
-								<div class="view">this is some text for view</div>
+								<div class="view">{{slite.view}}</div>
 							</div>
 							<div class="cover">
-								<div class="right-picture"><img src="/assents/Image_1702025410272.jpg"></div>
+								<div class="right-picture"><img v-bind:src="slite.cover"></div>
 							</div>
 						</div>
-						<div class="col-md-12 context" data-url="/content.html">
-							<div class="info">
-								<div class="ic-tittle">tittle</div>
-								<div class="flex">
-									<div class="time"><i class="fa fa-calendar"></i>2023-01-01</div>|
-									<div class="collect"><i class="fa fa-inbox"></i> page</div>
-								</div>
-								<div class="view">this is some text for view</div>
-							</div>
-							<div class="cover">
-								<div class="right-picture"><img src="/assents/Image_1702025410272.jpg"></div>
-							</div>
-
-						</div>
-					</div>
+				</div>
+				<div id="pagination">
+					<nav aria-label="Page navigation example">
+						<ul class="pagination justify-content-center">
+							<li class="page-item disabled">
+								<a class="page-link" href="#" tabindex="-1" aria-disabled="true"> <span
+										aria-hidden="true">&laquo;</span></a>
+							</li>
+							<li class="page-item active"><a class="page-link" href="#1">1</a></li>
+							<li class="page-item"><a class="page-link" href="#2">2</a></li>
+							<li class="page-item"><a class="page-link" href="#3">3</a></li>
+							<li class="page-item">
+								<a class="page-link" href="#"><span aria-hidden="true">&raquo;</span></a>
+							</li>
+						</ul>
+					</nav>
 				</div>
 			</div>
 	</body>

@@ -11,9 +11,8 @@
 		<link href="/css/base.css" type="text/css" rel="stylesheet" />
 		<link href="/css/body.css" type="text/css" rel="stylesheet" />
 		<link href="/css/menu.css" type="text/css" rel="stylesheet" />
-		<script src="/js/jquary.js"></script>
+
 		<script src="/js/depends/bootstrap/bootstrap.min.js"></script>
-		<script src="/js/vue.min.js"></script>
 		<script src="/js/requirejs.js"></script>
 
 		<link rel="stylesheet"
@@ -27,8 +26,8 @@
 				height: 50px;
 				width: 50px;
 			}
-			
-			div.firend-link{
+
+			div.firend-link {
 				margin: 5px;
 			}
 
@@ -70,7 +69,7 @@
 
 		<script>
 			require(["js/friends"])
-			$(document).ready(function () {
+			require(["js/jquary", "js/vue.min"], function (_,Vue) {
 				let friend = new Vue({
 					el: "#friends-show",
 					data: {
@@ -154,7 +153,7 @@
 			<!--主体-->
 			<div class="body">
 				<div class="container" id="content">
-					<h1>關於楚天尋蕭</h1>
+					<h1 class="text-lg-center">關於楚天尋蕭</h1>
 					<p>
 						我是一個自學編程的開發者，個人的話是喜歡python和c++（比較好玩）<br>
 						另外我也會自己寫一些項目，比如説這個站點和ictye live dm項目，都是從個人需求出發的，另外

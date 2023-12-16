@@ -85,10 +85,12 @@ i.down {
         background-color: rgba(208, 19, 136, 0.851);
         backdrop-filter: blur(5px);
         margin-bottom: 0px;
+        height: 45px;
     }
 
     div.top div.logo {
         color: #ffffff;
+        font-size: 22px;
     }
 
     div.head {
@@ -143,6 +145,10 @@ i.down {
     ul.head li div.dropdown-content a {
         background-color: #e9189993;
         backdrop-filter: blur(5px);
+    }
+
+    div.top i.down {
+        font-size: 28px;
     }
 }
 
