@@ -4,7 +4,6 @@ html {
 }
 
 body {
-    height: 100%;
     background-image: linear-gradient(rgba(0, 0, 0, 0.23),
             rgba(0, 0, 0, 0.148)),
         url("assents/background.jpg");
@@ -160,7 +159,6 @@ i.down {
         height: 100%;
         display: flex;
         justify-content: left;
-        overflow: hidden;
     }
 
     div.top div.buttorn {
@@ -292,7 +290,7 @@ div.sidebar {
     border-radius: 20px;
     margin-right: 10px;
     background-color: #e918999f;
-
+    /*position: relative;*/
     min-width: 250px;
 }
 
@@ -300,7 +298,6 @@ div.total-body {
     height: auto;
     display: flex;
     justify-content: left;
-    overflow: hidden;
 }
 
 img{

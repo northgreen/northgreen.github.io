@@ -7,6 +7,8 @@ div.sidebar div.menu div.tittle {
 }
 
 div.sidebar div.menu {
+    /*position: sticky;*/
+    top: 45px;
     font-weight: bold;
     padding: 10px;
 }
@@ -36,4 +38,18 @@ div.sidebar div.menu ul a {
 
 div.sidebar div.menu ul a:hover {
     background-color: rgba(0, 0, 0, 0.282);
+}
+
+@media (min-width: 708px)and(max-width:930px){
+    div.sidebar div.menu{
+        top: 5px;
+    }
+
+    
+}
+
+@media (max-width: 708px){
+    div.sidebar{
+        position:fixed;
+    }
 }

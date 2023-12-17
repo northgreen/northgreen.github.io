@@ -52,7 +52,7 @@
 						"view": "this is some text for view",
 						"cover": "/assents/Image_1702025410272.jpg",
 						"url": "/content.html",
-						"class":"test"
+						"class": "test"
 					},
 					{
 						"tittle": "test2",
@@ -60,7 +60,7 @@
 						"view": "this is some text for view1111",
 						"cover": "/assents/background-bk.jpg",
 						"url": "/content.html",
-						"class":"test2"
+						"class": "test2"
 					}
 				]
 
@@ -71,6 +71,28 @@
 		</script>
 
 		<style>
+			ul {
+				margin-bottom: 0;
+			}
+
+			.page-link:focus {
+				box-shadow: 0 0 0 0.25rem rgba(253, 13, 133, 0.25);
+			}
+
+			.pagination .page-link {
+				color: #ef3397;
+			}
+
+			.pagination .page-item.active .page-link {
+				background-color: #ef3397;
+				color: #ffffff;
+			}
+
+			.active>.page-link,
+			.page-link.active {
+				border-color: #93245f;
+			}
+
 			[data-url] img {
 				transition: transform .4s;
 				/* 动画效果 */
@@ -87,7 +109,7 @@
 			}
 
 			div.ic-tittle:hover {
-				color: rgb(30, 138, 165);
+				color: rgb(165, 30, 116);
 				/* 放大到原来的 1.2 倍 */
 			}
 
@@ -175,6 +197,7 @@
 			}
 
 			#pagination {
+				margin: auto;
 				background-color: rgba(240, 248, 255, 0.722);
 				border-radius: 10px;
 				width: 100%;
@@ -310,24 +333,24 @@
 								<div class="right-picture"><img v-bind:src="slite.cover"></div>
 							</div>
 						</div>
+					</div>
+					<div id="pagination">
+						<nav aria-label="Page navigation example">
+							<ul class="pagination justify-content-center">
+								<li class="page-item disabled">
+									<a class="page-link" href="#" tabindex="-1" aria-disabled="true"> <span
+											aria-hidden="true">&laquo;</span></a>
+								</li>
+								<li class="page-item active"><a class="page-link" href="#1">1</a></li>
+								<li class="page-item"><a class="page-link" href="#2">2</a></li>
+								<li class="page-item"><a class="page-link" href="#3">3</a></li>
+								<li class="page-item">
+									<a class="page-link" href="#"><span aria-hidden="true">&raquo;</span></a>
+								</li>
+							</ul>
+						</nav>
+					</div>
 				</div>
-				<div id="pagination">
-					<nav aria-label="Page navigation example">
-						<ul class="pagination justify-content-center">
-							<li class="page-item disabled">
-								<a class="page-link" href="#" tabindex="-1" aria-disabled="true"> <span
-										aria-hidden="true">&laquo;</span></a>
-							</li>
-							<li class="page-item active"><a class="page-link" href="#1">1</a></li>
-							<li class="page-item"><a class="page-link" href="#2">2</a></li>
-							<li class="page-item"><a class="page-link" href="#3">3</a></li>
-							<li class="page-item">
-								<a class="page-link" href="#"><span aria-hidden="true">&raquo;</span></a>
-							</li>
-						</ul>
-					</nav>
-				</div>
-			</div>
 	</body>
 
 </html>
