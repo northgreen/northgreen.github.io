@@ -23,7 +23,7 @@
 					el: "#content",
 					data: {
 						content: [],
-						page: 1,
+						page: 5,
 					},
 					computed: {
 						total_page: function () {
@@ -384,30 +384,30 @@
 							<ul class="pagination justify-content-center">
 								<!--上一頁-->
 								<li v-bind:class="page == 1 ? 'page-item disabled' : 'page-item'"><a class="page-link"
-										href="#" tabindex="-1" aria-disabled="true"> <span
+										tabindex="-1" aria-disabled="true" v-on:click="page = page - 1"> <span
 											aria-hidden="true">&laquo;</span></a></li>
 								<!--在最後一頁的時候顯示第一頁-->
-								<li class="page-item" v-if="page >= total_page"><a class="page-link" href="#1">1</a>
+								<li class="page-item" v-if="page >= total_page" v-on:click="page = 1"><a class="page-link" href="#1">1</a>
 								</li>
 								<!--在最後一頁的時候顯示省略號-->
 								<li class="page-item disabled" v-if="page >= total_page"><a class="page-link"
 										href="#1">...</a></li>
 								<!--顯示前面的頁碼-->
-								<li class="page-item" v-for="n in page-1" v-if="n > page-2"><a class="page-link"
+								<li class="page-item" v-for="n in page-1" v-if="n > page-2" v-on:click="page = n"><a class="page-link"
 										href="#1">{{n}}</a></li>
 								<!--顯示當前的頁碼-->
 								<li class="page-item active"><a class="page-link" href="#1">{{page}}</a></li>
 								<!--展示後面的頁碼，儅到左後一頁時隱藏-->
 								<li class="page-item" v-for="n in page + 2" v-if="n > page & page < total_page & n < total_page"><a
-										class="page-link" href="#1">{{n}}</a></li>
+										class="page-link" href="#1" v-on:click="page = n">{{n}}</a></li>
 								<!--右側的省略號，到最後一頁時隱藏-->
 								<li class="page-item disabled" v-if="page < total_page - 2 & page < total_page - 3"><a class="page-link"
 										href="#1">...</a></li>
 								<!--展示最後一頁，到最後一頁時隱藏-->
-								<li class="page-item" v-if="page < total_page"><a class="page-link" href="#1">{{total_page}}</a>
+								<li class="page-item" v-if="page < total_page"><a class="page-link" href="#1" v-on:click="page = total_page">{{total_page}}</a>
 								</li>
 								<li v-bind:class="page >= total_page ? 'page-item disabled' : 'page-item'"><a
-										class="page-link" href="#"><span aria-hidden="true">&raquo;</span></a></li>
+										class="page-link" v-on:click="page = page + 1"><span aria-hidden="true">&raquo;</span></a></li>
 							</ul>
 						</nav>
 					</div>
