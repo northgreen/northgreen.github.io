@@ -25,7 +25,7 @@ div.top img {
     width: auto;
     border-radius: 50%;
     border: 3px solid rgb(233, 157, 207);
-    box-shadow: 3px 2px 5px 1px #61616170;
+    box-shadow: 3px 2px 5px 1px rgba(97, 97, 97, 0.439);
 }
 
 /*头部*/
@@ -39,9 +39,9 @@ div.top div.button {
 }
 
 div.logo {
-    text-shadow: 3px 2px 5px 1px #393939b2;
+    text-shadow: 3px 2px 5px 1px rgba(57, 57, 57, 0.678);
     color: #ffffff;
-    -webkit-text-stroke: 0.5px #000000;
+    -webkit-text-stroke: 0.5px rgb(0, 0, 0);
     margin: 10px;
     font-size: 30px;
     font-weight: bold;
@@ -64,7 +64,7 @@ div.buttorn {
 i.down {
     height: 100%;
     font-size: 36px;
-    color: #ffffff;
+    color: rgb(255, 255, 255);
 }
 
 @media (max-width: 930px) {
@@ -88,7 +88,7 @@ i.down {
     }
 
     div.top div.logo {
-        color: #ffffff;
+        color: rgb(255, 255, 255);
         font-size: 22px;
     }
 
@@ -118,31 +118,31 @@ i.down {
         display: block;
         padding: 10px;
         text-decoration: none;
-        color: #ffffff;
+        color: rgb(255, 255, 255);
     }
 
     ul.head li a {
         transition: all 0.2s;
         display: block;
         backdrop-filter: blur(5px);
-        background-color: #b4317fba;
+        background-color: rgba(180, 49, 127, 0.729);
         padding: 10px;
         text-decoration: none;
-        color: #ffffff;
+        color: rgb(255, 255, 255);
     }
 
     ul.head li a:hover {
-        background-color: #ca77aa93;
+        background-color: rgba(202, 119, 170, 0.576);
         backdrop-filter: blur(5px);
     }
 
     ul.head li div.dropdown-content a:hover {
-        background-color: #fa8fd193;
+        background-color: rgba(250, 143, 209, 0.576);
         backdrop-filter: blur(5px);
     }
 
     ul.head li div.dropdown-content a {
-        background-color: #e9189993;
+        background-color: rgba(233, 24, 153, 0.576);
         backdrop-filter: blur(5px);
     }
 
@@ -186,7 +186,7 @@ i.down {
     ul.head li a {
         transition: all 0.3s;
         display: block;
-        color: white;
+        color: rgb(255, 255, 255);
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
@@ -213,7 +213,7 @@ i.down {
     div.dropdown-content {
         display: none;
         position: absolute;
-        background-color: #ffffff;
+        background-color: rgb(255, 255, 255);
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     }
@@ -226,7 +226,7 @@ i.down {
     }
 
     div.dropdown-content a.menu :hover {
-        background-color: #000000;
+        background-color: rgb(0, 0, 0);
     }
 
     div.dropdown:hover .dropdown-content {
@@ -271,7 +271,7 @@ i.down {
         border-radius: 5px;
         padding: 10px;
         display: block;
-        background-color: #e918999f;
+        background-color: rgba(233, 24, 153, 0.624);
         top: 110px;
         position: fixed;
         z-index: 2;
@@ -289,7 +289,7 @@ div.sidebar {
     box-shadow: 3px 3px 8px 2px rgba(59, 55, 55, 0.489);
     border-radius: 20px;
     margin-right: 10px;
-    background-color: #e918999f;
+    background-color: rgba(233, 24, 153, 0.624);
     /*position: relative;*/
     min-width: 250px;
 }

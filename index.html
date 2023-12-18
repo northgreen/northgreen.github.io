@@ -9,15 +9,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link href="/css/bootstrap/bootstrap.min.css" type="text/css" rel="stylesheet" />
 
+		<script src="/js/depends/bootstrap/bootstrap.min.js"></script>
+		<script src="/js/requirejs.js"></script>
+
 		<link href="/css/base.css" type="text/css" rel="stylesheet" />
 		<link href="/css/body.css" type="text/css" rel="stylesheet" />
 		<link href="/css/menu.css" type="text/css" rel="stylesheet" />
 		<link href="/css/sidebar-link.css" type="text/css" rel="stylesheet" />
-
-		<script src="/js/depends/bootstrap/bootstrap.min.js"></script>
-		<script src="/js/vue.min.js"></script>
-		<script src="/js/requirejs.js"></script>
-
 		<script>
 			require(["js/friends"])
 			require(["js/vue.min.js", "js/jquary.js"], function (Vue) {
@@ -25,18 +23,11 @@
 					el: "#content",
 					data: {
 						content: [],
+						page: 1,
 					},
-					watch: {
-						content: function (newVal, oldVal) {
-							this.$nextTick(function () {
-								$("[data-url]").each(function () {
-									var targetUrl = $(this).data("url");
-									$(this).attr("title", "转到：" + targetUrl);
-								}).click(function () {
-									var targetUrl = $(this).data("url");  //獲取元素的 data-url 值
-									window.open(targetUrl)
-								});
-							})
+					computed: {
+						total_page: function () {
+							return 10
 						}
 					}
 				})
@@ -61,31 +52,69 @@
 						"cover": "/assents/background-bk.jpg",
 						"url": "/content.html",
 						"class": "test2"
+					},
+					{
+						"tittle": "test3",
+						"day": "2023-01-03",
+						"view": "this is some text for view11afdas11",
+						"cover": "/assents/background-bk.jpg",
+						"url": "/content.html",
+						"class": "test2"
+					},
+					{
+						"tittle": "test4",
+						"day": "2023-01-03",
+						"view": "this is some text for view111asd1",
+						"cover": "/assents/background-bk.jpg",
+						"url": "/content.html",
+						"class": "test2"
 					}
 				]
 
 
-
 			})
+
 
 		</script>
 
 		<style>
+			/*導航樣式*/
+
+			ul.nav {
+				padding: 10px;
+				margin-top: 10px;
+				font-size: 19px;
+			}
+
+			.nav-pills {
+				--bs-nav-pills-link-active-bg: #b01373;
+			}
+
+			.nav-link {
+				color: #fff;
+			}
+
+			.nav-link:focus,
+			.nav-link:hover {
+				color: #7a5d7d;
+			}
+
 			ul {
 				margin-bottom: 0;
 			}
 
+			/*頁面分頁導航樣式*/
 			.page-link:focus {
 				box-shadow: 0 0 0 0.25rem rgba(253, 13, 133, 0.25);
 			}
 
 			.pagination .page-link {
-				color: #ef3397;
+				color: rgb(239, 51, 151);
 			}
 
 			.pagination .page-item.active .page-link {
-				background-color: #ef3397;
-				color: #ffffff;
+				background-color: rgb(239, 51, 151);
+				color: rgb(255, 255, 255);
 			}
 
 			.active>.page-link,
@@ -93,6 +122,7 @@
 				border-color: #93245f;
 			}
 
+			/*卡片樣式*/
 			[data-url] img {
 				transition: transform .4s;
 				/* 动画效果 */
@@ -109,7 +139,7 @@
 			}
 
 			div.ic-tittle:hover {
-				color: rgb(165, 30, 116);
+				color: rgb(192, 36, 135);
 				/* 放大到原来的 1.2 倍 */
 			}
 
@@ -173,7 +203,7 @@
 				height: 150px;
 				background: linear-gradient(60deg, rgba(255, 255, 255, 255), rgba(188, 188, 207, 0.64) 75%, rgb(245, 209, 209));
 				border-radius: 15px;
-				box-shadow: 3px 2px 5px 1px #61616170;
+				box-shadow: 3px 2px 5px 1px rgba(97, 97, 97, 0.439);
 				padding: 0%;
 			}
 
@@ -226,7 +256,7 @@
 					margin-left: unset;
 					padding-left: 20px;
 					height: 50%;
-					border-bottom: #9b9292 solid;
+					border-bottom: rgb(155, 146, 146) solid;
 				}
 			}
 		</style>
@@ -304,6 +334,20 @@
 			<!--侧边栏-->
 			<input type="checkbox" id="sidebar-btn" />
 			<div class="sidebar">
+				<ul class="nav flex-column nav-pills nav-fill">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="#">Active</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Link</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Link</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link disabled">Disabled</a>
+					</li>
+				</ul>
 				<ul class="link">
 					<li class="tittle"><a>awake</a></li>
 					<li><a href="#">lingyi</a></li>
@@ -320,7 +364,8 @@
 			<div class="body">
 				<div class="container" id="content">
 					<div class="row">
-						<div class="col-md-12 context" v-for="slite in content" v-bind:data-url="slite.url">
+						<div class="col-md-12 context" v-for="slite in content" v-bind:data-url="slite.url"
+							tittle="转到：slite.url" v-on:click="window.open(slite.url)">
 							<div class="info">
 								<div class="ic-tittle">{{slite.tittle}}</div>
 								<div class="flex">
@@ -337,16 +382,32 @@
 					<div id="pagination">
 						<nav aria-label="Page navigation example">
 							<ul class="pagination justify-content-center">
-								<li class="page-item disabled">
-									<a class="page-link" href="#" tabindex="-1" aria-disabled="true"> <span
-											aria-hidden="true">&laquo;</span></a>
+								<!--上一頁-->
+								<li v-bind:class="page == 1 ? 'page-item disabled' : 'page-item'"><a class="page-link"
+										href="#" tabindex="-1" aria-disabled="true"> <span
+											aria-hidden="true">&laquo;</span></a></li>
+								<!--在最後一頁的時候顯示第一頁-->
+								<li class="page-item" v-if="page >= total_page"><a class="page-link" href="#1">1</a>
 								</li>
-								<li class="page-item active"><a class="page-link" href="#1">1</a></li>
-								<li class="page-item"><a class="page-link" href="#2">2</a></li>
-								<li class="page-item"><a class="page-link" href="#3">3</a></li>
-								<li class="page-item">
-									<a class="page-link" href="#"><span aria-hidden="true">&raquo;</span></a>
+								<!--在最後一頁的時候顯示省略號-->
+								<li class="page-item disabled" v-if="page >= total_page"><a class="page-link"
+										href="#1">...</a></li>
+								<!--顯示前面的頁碼-->
+								<li class="page-item" v-for="n in page-1" v-if="n > page-2"><a class="page-link"
+										href="#1">{{n}}</a></li>
+								<!--顯示當前的頁碼-->
+								<li class="page-item active"><a class="page-link" href="#1">{{page}}</a></li>
+								<!--展示後面的頁碼，儅到左後一頁時隱藏-->
+								<li class="page-item" v-for="n in page + 2" v-if="n > page & page < total_page & n < total_page"><a
+										class="page-link" href="#1">{{n}}</a></li>
+								<!--右側的省略號，到最後一頁時隱藏-->
+								<li class="page-item disabled" v-if="page < total_page - 2 & page < total_page - 3"><a class="page-link"
+										href="#1">...</a></li>
+								<!--展示最後一頁，到最後一頁時隱藏-->
+								<li class="page-item" v-if="page < total_page"><a class="page-link" href="#1">{{total_page}}</a>
 								</li>
+								<li v-bind:class="page >= total_page ? 'page-item disabled' : 'page-item'"><a
+										class="page-link" href="#"><span aria-hidden="true">&raquo;</span></a></li>
 							</ul>
 						</nav>
 					</div>
