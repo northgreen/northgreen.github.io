@@ -10,33 +10,33 @@
 		<link href="/css/bootstrap/bootstrap.min.css" type="text/css" rel="stylesheet" />
 
 		<script src="/js/depends/bootstrap/bootstrap.min.js"></script>
-		<script src="/js/requirejs.js"></script>
+		<script data-main="/js/require-config" src="/js/requirejs.js"></script>
 
 		<link href="/css/base.css" type="text/css" rel="stylesheet" />
 		<link href="/css/body.css" type="text/css" rel="stylesheet" />
 		<link href="/css/menu.css" type="text/css" rel="stylesheet" />
 		<link href="/css/sidebar-link.css" type="text/css" rel="stylesheet" />
 		<script>
-			require(["js/friends"])
-			require(["js/vue.min.js", "js/jquary.js"], function (Vue) {
-				let app = new Vue({
+			require(["friends"])
+			require(["vue", "axios"], function (Vue, axios) {
+				let content_main = new Vue({
 					el: "#content",
 					data: {
-						content: [],
-						page: 5,
+						page: 1,
+						sub_content: [],
+						classification: "page1",
 					},
 					computed: {
+						content:function(){
+							return this.sub_content.slice((this.page-1)*5,(this.page-1)*5+5)
+						},
 						total_page: function () {
-							return 10
-						}
-					}
+							return Math.ceil(this.sub_content.length/5)
+						},
+					},
 				})
 
-				$.get("/content/web-contents.json", function (data, status) {
-					console.log(data);
-				})
-
-				app.content = [
+				content_main.sub_content = [
 					{
 						"tittle": "test1",
 						"day": "2023-01-01",
@@ -68,11 +68,55 @@
 						"cover": "/assents/background-bk.jpg",
 						"url": "/content.html",
 						"class": "test2"
+					},
+					{
+						"tittle": "test4",
+						"day": "2023-01-03",
+						"view": "this is some text for view111asd1",
+						"cover": "/assents/background-bk.jpg",
+						"url": "/content.html",
+						"class": "test2"
+					},{
+						"tittle": "test1",
+						"day": "2023-01-01",
+						"view": "this is some text for view",
+						"cover": "/assents/Image_1702025410272.jpg",
+						"url": "/content.html",
+						"class": "test"
+					},
+					{
+						"tittle": "test2",
+						"day": "2023-01-02",
+						"view": "this is some text for view1111",
+						"cover": "/assents/background-bk.jpg",
+						"url": "/content.html",
+						"class": "test2"
+					},
+					{
+						"tittle": "test3",
+						"day": "2023-01-03",
+						"view": "this is some text for view11afdas11",
+						"cover": "/assents/background-bk.jpg",
+						"url": "/content.html",
+						"class": "test2"
+					},
+					
+					{
+						"tittle": "testz",
+						"day": "2023-01-03",
+						"view": "this is some text for view111asd1",
+						"cover": "/assents/background-bk.jpg",
+						"url": "/content.html",
+						"class": "test2"
 					}
 				]
 
 
+
+
 			})
+
+
 
 
 		</script>
@@ -387,27 +431,31 @@
 										tabindex="-1" aria-disabled="true" v-on:click="page = page - 1"> <span
 											aria-hidden="true">&laquo;</span></a></li>
 								<!--在最後一頁的時候顯示第一頁-->
-								<li class="page-item" v-if="page >= total_page" v-on:click="page = 1"><a class="page-link" href="#1">1</a>
+								<li class="page-item" v-if="page >= total_page & page != 1" v-on:click="page = 1"><a
+										class="page-link" href="#1">1</a>
 								</li>
 								<!--在最後一頁的時候顯示省略號-->
-								<li class="page-item disabled" v-if="page >= total_page"><a class="page-link"
+								<li class="page-item disabled" v-if="page >= total_page & page != 1"><a class="page-link"
 										href="#1">...</a></li>
 								<!--顯示前面的頁碼-->
-								<li class="page-item" v-for="n in page-1" v-if="n > page-2" v-on:click="page = n"><a class="page-link"
-										href="#1">{{n}}</a></li>
+								<li class="page-item" v-for="n in page-1" v-if="n > page-2" v-on:click="page = n"><a
+										class="page-link" href="#1">{{n}}</a></li>
 								<!--顯示當前的頁碼-->
 								<li class="page-item active"><a class="page-link" href="#1">{{page}}</a></li>
 								<!--展示後面的頁碼，儅到左後一頁時隱藏-->
-								<li class="page-item" v-for="n in page + 2" v-if="n > page & page < total_page & n < total_page"><a
-										class="page-link" href="#1" v-on:click="page = n">{{n}}</a></li>
+								<li class="page-item" v-for="n in page + 2"
+									v-if="n > page & page < total_page & n < total_page"><a class="page-link" href="#1"
+										v-on:click="page = n">{{n}}</a></li>
 								<!--右側的省略號，到最後一頁時隱藏-->
-								<li class="page-item disabled" v-if="page < total_page - 2 & page < total_page - 3"><a class="page-link"
-										href="#1">...</a></li>
+								<li class="page-item disabled" v-if="page < total_page - 2 & page < total_page - 3"><a
+										class="page-link" href="#1">...</a></li>
 								<!--展示最後一頁，到最後一頁時隱藏-->
-								<li class="page-item" v-if="page < total_page"><a class="page-link" href="#1" v-on:click="page = total_page">{{total_page}}</a>
+								<li class="page-item" v-if="page < total_page"><a class="page-link" href="#1"
+										v-on:click="page = total_page">{{total_page}}</a>
 								</li>
 								<li v-bind:class="page >= total_page ? 'page-item disabled' : 'page-item'"><a
-										class="page-link" v-on:click="page = page + 1"><span aria-hidden="true">&raquo;</span></a></li>
+										class="page-link" v-on:click="page = page + 1"><span
+											aria-hidden="true">&raquo;</span></a></li>
 							</ul>
 						</nav>
 					</div>
