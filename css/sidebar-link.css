@@ -1,9 +1,10 @@
 div.sidebar ul.link {
     color: #ffffff;
     font-size: 20px;
-    margin-top: 15px;
     padding: 0;
+    margin-top: 5px;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 div.sidebar ul.link li {
@@ -21,4 +22,5 @@ div.sidebar ul.link li a {
 
 div.sidebar ul.link li a:hover {
     background-color: #d7138cac;
+    color: #d1d1d1;
 }

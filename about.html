@@ -65,11 +65,18 @@
 			div.firiends>div div.text a:hover {
 				background-color: rgba(255, 255, 255, 0.437);
 			}
+
+			div.mtf {
+				height: 100%;
+				margin: 0;
+				background-size: 100%;
+				background-image: linear-gradient(to bottom, #5BCEFA 20%, #F5A9B8 20%, #F5A9B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F5A9B8 60%, #F5A9B8 80%, #5BCEFA 80%);
+			}
 		</style>
 
 		<script>
 			require(["js/friends"])
-			require(["js/jquary", "js/vue.min"], function (_,Vue) {
+			require(["js/jquary", "js/vue.min"], function (_, Vue) {
 				let friend = new Vue({
 					el: "#friends-show",
 					data: {
@@ -166,9 +173,13 @@
 					</p>
 					<h2>你的學習路綫</h2>
 					<p>問這個幹嘛，過。</p>
+					<h2>你什麽時候開始懷疑自己的性別</h2>
+					<p>
+						順其自然的事情，我也不知道，大概是初中？
+					</p>
 					<h2>外站連接</h2>
 					<p>
-
+						無
 					</p>
 					<h2>友情鏈接</h2>
 					<p>
@@ -179,6 +190,14 @@
 						</div>
 					</div>
 					</p>
+					<hr>
+					<div class="row"
+						style="border:3px solid #565656;padding: 5px;border-radius: 5px;background-color: #ffffff8a;">
+						<div class="mtf col-md-6" style="height: 20vh;width: 30vh;margin: auto;"></div>
+						<div class="col-md-6" style="margin: auto;font-size: 170%;text-align: center;">
+							尊重和保障跨性別者權益,不讓她們過於困擾</div>
+					</div>
+
 				</div>
 			</div>
 		</div>

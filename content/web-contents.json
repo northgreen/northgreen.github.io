@@ -17,16 +17,16 @@
     ],
     "page2": [
         {
-            "tittle": "test",
+            "tittle": "test1",
             "day": "2023-01-01",
-            "view": "this is some text for view",
+            "view": "this is some text for view2",
             "cover": "/assents/Image_1702025410272.jpg",
             "url":"/content.html"
         },
         {
-            "tittle": "test",
+            "tittle": "test22",
             "day": "2023-01-01",
-            "view": "this is some text for view",
+            "view": "this is some text for view3",
             "cover": "/assents/Image_1702025410272.jpg",
             "url":"/content.html"
         }

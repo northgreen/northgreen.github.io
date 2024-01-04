@@ -27,92 +27,67 @@
 						classification: "page1",
 					},
 					computed: {
-						content:function(){
-							return this.sub_content.slice((this.page-1)*5,(this.page-1)*5+5)
+						content: function () {
+							if (this.sub_content) {
+								return this.sub_content.slice((this.page - 1) * 10, (this.page - 1) * 10 + 10)
+							}
+							else {
+								return sub_content
+							}
 						},
 						total_page: function () {
-							return Math.ceil(this.sub_content.length/5)
+							return Math.ceil(this.sub_content.length / 10)
 						},
 					},
 				})
+				let nav = new Vue({
+					el: "#nav",
+					data: {
+						tag: "",
+						content: {},
+					}, computed: {
+						tags: function () {
+							return Object.keys(this.content)
+						},
+					}, watch: {
+						tag: function (newVal, oldVal) {
+							let ret = []
+							let tag = this.tag
+							if (tag !== "") {
+								for (i in this.content[tag]) {
+									let pu = this.content[tag][i]
+									pu.class = tag
+									ret.push(pu)
+								}
 
-				content_main.sub_content = [
-					{
-						"tittle": "test1",
-						"day": "2023-01-01",
-						"view": "this is some text for view",
-						"cover": "/assents/Image_1702025410272.jpg",
-						"url": "/content.html",
-						"class": "test"
+							} else {
+								for (item in this.content) {
+									for (i in this.content[item]) {
+										let pu = this.content[item][i]
+										pu.class = item
+										ret.push(pu)
+									}
+								}
+							}
+							content_main.sub_content = ret
+						}
 					},
-					{
-						"tittle": "test2",
-						"day": "2023-01-02",
-						"view": "this is some text for view1111",
-						"cover": "/assents/background-bk.jpg",
-						"url": "/content.html",
-						"class": "test2"
-					},
-					{
-						"tittle": "test3",
-						"day": "2023-01-03",
-						"view": "this is some text for view11afdas11",
-						"cover": "/assents/background-bk.jpg",
-						"url": "/content.html",
-						"class": "test2"
-					},
-					{
-						"tittle": "test4",
-						"day": "2023-01-03",
-						"view": "this is some text for view111asd1",
-						"cover": "/assents/background-bk.jpg",
-						"url": "/content.html",
-						"class": "test2"
-					},
-					{
-						"tittle": "test4",
-						"day": "2023-01-03",
-						"view": "this is some text for view111asd1",
-						"cover": "/assents/background-bk.jpg",
-						"url": "/content.html",
-						"class": "test2"
-					},{
-						"tittle": "test1",
-						"day": "2023-01-01",
-						"view": "this is some text for view",
-						"cover": "/assents/Image_1702025410272.jpg",
-						"url": "/content.html",
-						"class": "test"
-					},
-					{
-						"tittle": "test2",
-						"day": "2023-01-02",
-						"view": "this is some text for view1111",
-						"cover": "/assents/background-bk.jpg",
-						"url": "/content.html",
-						"class": "test2"
-					},
-					{
-						"tittle": "test3",
-						"day": "2023-01-03",
-						"view": "this is some text for view11afdas11",
-						"cover": "/assents/background-bk.jpg",
-						"url": "/content.html",
-						"class": "test2"
-					},
-					
-					{
-						"tittle": "testz",
-						"day": "2023-01-03",
-						"view": "this is some text for view111asd1",
-						"cover": "/assents/background-bk.jpg",
-						"url": "/content.html",
-						"class": "test2"
-					}
-				]
+				})
 
-
-
+				axios
+					.get('/content/web-contents.json')
+					.then(function (response) {
+						nav.content = response.data
+						let ret = []
+						for (item in nav.content) {
+							for (i in nav.content[item]) {
+								let pu = nav.content[item][i]
+								pu.class = item
+								ret.push(pu)
+							}
+						}
+						content_main.sub_content = ret
+					})
 
 			})
 
@@ -120,9 +95,32 @@
 
 
 		</script>
-
+		<!--自殺尼瑪自殺-->
 		<style>
 			/*導航樣式*/
+
+			div.sidebar div.tittle {
+				text-align: center;
+				font-size: 23px;
+				font-weight: bold;
+				color: #fff;
+				margin-top: 10px;
+				margin: 15px;
+				margin-bottom: 0px;
+				padding-top: 15px;
+				border-top: 2px dashed #7777778b;
+			}
+
+			div.sidebar div.tittle-top {
+				text-align: center;
+				font-size: 23px;
+				font-weight: bold;
+				color: #fff;
+				margin-top: 10px;
+				margin: 15px;
+				margin-bottom: 0px;
+				padding-top: 15px;
+			}
 
 			ul.nav {
 				padding: 10px;
@@ -377,24 +375,26 @@
 		<div class="total-body">
 			<!--侧边栏-->
 			<input type="checkbox" id="sidebar-btn" />
-			<div class="sidebar">
-				<ul class="nav flex-column nav-pills nav-fill">
+			<div class="sidebar" style="margin-top: 5px;">
+				<div class="tittle-top">
+					分類 <span class="fa fa-inbox"></span>
+				</div>
+				<ul class="nav flex-column nav-pills nav-fill" id="nav">
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="#">Active</a>
+						<a v-bind:class="tag == '' ? 'nav-link active' : 'nav-link'" aria-current="page"
+							v-on:click="tag = '' ">全部</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Link</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Link</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link disabled">Disabled</a>
+					<li class="nav-item" v-for="item in tags">
+						<a v-bind:class="item == tag ? 'nav-link active' : 'nav-link'"
+							v-on:click="tag = item">{{item}}</a>
 					</li>
 				</ul>
+				<div class="tittle">
+					連接 <span class="fa fa-external-link"></span>
+				</div>
 				<ul class="link">
-					<li class="tittle"><a>awake</a></li>
-					<li><a href="#">lingyi</a></li>
+					<li><a href="https://referer.shadowai.xyz/r/28058">closeAI(cheatGPT接口代理商)</a></li>
+					<li><a href="https://www.runoob.com/">菜鳥教程（一個很全的編程教學網站，但是有一定閲讀門檻）</a></li>
 				</ul>
 			</div>
 
@@ -435,8 +435,8 @@
 										class="page-link" href="#1">1</a>
 								</li>
 								<!--在最後一頁的時候顯示省略號-->
-								<li class="page-item disabled" v-if="page >= total_page & page != 1"><a class="page-link"
-										href="#1">...</a></li>
+								<li class="page-item disabled" v-if="page >= total_page & page != 1"><a
+										class="page-link" href="#1">...</a></li>
 								<!--顯示前面的頁碼-->
 								<li class="page-item" v-for="n in page-1" v-if="n > page-2" v-on:click="page = n"><a
 										class="page-link" href="#1">{{n}}</a></li>
