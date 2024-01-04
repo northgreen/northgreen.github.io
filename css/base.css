@@ -243,6 +243,15 @@ i.down {
     display: none;
 }
 
+div.sidebar {
+    transition: all 0.5s;
+    box-shadow: 3px 3px 8px 2px rgba(59, 55, 55, 0.489);
+    border-radius: 20px;
+    margin-right: 10px;
+    background-color: rgba(233, 24, 153, 0.624);
+    width: 25vw;
+}
+
 @media (max-width: 708px) {
     .body {
         width: auto;
@@ -253,7 +262,7 @@ i.down {
     }
 
     #sidebar-btn:checked~div.sidebar~#sidebar-buttorn {
-        left: 63vh;
+        left: 63vw;
         transition: all 0.5s;
     }
 
@@ -265,10 +274,10 @@ i.down {
         backdrop-filter: blur(5px);
         position: fixed;
         z-index: 3;
-        left: -300px;
+        left: -100%;
         overflow: scroll;
         height: 94vh;
-        width: 250px;
+        width: 60vw;
     }
 
     div#sidebar-buttorn {
@@ -290,15 +299,6 @@ i.down {
     div#sidebar-buttorn {
         display: none;
     }
-}
-
-div.sidebar {
-    transition: all 0.5s;
-    box-shadow: 3px 3px 8px 2px rgba(59, 55, 55, 0.489);
-    border-radius: 20px;
-    margin-right: 10px;
-    background-color: rgba(233, 24, 153, 0.624);
-    width: 60vh;
 }
 
 div.total-body {
