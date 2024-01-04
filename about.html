@@ -13,7 +13,7 @@
 		<link href="/css/menu.css" type="text/css" rel="stylesheet" />
 
 		<script src="/js/depends/bootstrap/bootstrap.min.js"></script>
-		<script src="/js/requirejs.js"></script>
+		<script data-main="/js/require-config" src="/js/requirejs.js"></script>
 
 		<link rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -75,8 +75,8 @@
 		</style>
 
 		<script>
-			require(["js/friends"])
-			require(["js/jquary", "js/vue.min"], function (_, Vue) {
+			require(["friends"])
+			require(["jquary", "vue.min"], function (_, Vue) {
 				let friend = new Vue({
 					el: "#friends-show",
 					data: {
