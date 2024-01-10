@@ -27,7 +27,6 @@ code[class*=language-] {
     height: inherit;
     padding: 0 1em;
     display: block;
-    overflow: auto
 }
 
 :not(pre)>code[class*=language-],
