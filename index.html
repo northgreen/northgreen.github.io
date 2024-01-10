@@ -19,6 +19,7 @@
 		<script>
 			require(["friends"])
 			require(["vue", "axios"], function (Vue, axios) {
+				// 内容控件
 				let content_main = new Vue({
 					el: "#content",
 					data: {
@@ -40,6 +41,7 @@
 						},
 					},
 				})
+				// 導航控件
 				let nav = new Vue({
 					el: "#nav",
 					data: {

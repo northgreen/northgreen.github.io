@@ -1,0 +1,40 @@
+blockquote {
+    background: #9d9d9d5e;
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 8px;
+    border-left: 5px solid #767676;
+    border-radius: 5px;
+}
+
+blockquote>p {
+    margin: 2px;
+}
+
+code {
+    background: #9d9d9d5e;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+pre {
+    display: block;
+    background: #aa95aa5e;
+    padding: 10px;
+    border-left: 5px solid #767676;
+    border-radius: 5px;
+}
+
+pre:has(code.language-python) {
+    display: block;
+    background: #142a3c22;
+    padding: 10px;
+    border-left: 5px solid #142a3c;
+    border-radius: 5px;
+}
+
+pre>code {
+    background: none;
+    padding: 0px;
+    border-radius: opx;
+}
