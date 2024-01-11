@@ -10,6 +10,13 @@ div.body {
     max-width: 100%;
     overflow: auto;
 }
+@media (max-width: 708px) {
+    div.body {
+        padding: 10px;
+        padding-top: 20px;
+
+    }
+}
 
 h1,
 h2,
