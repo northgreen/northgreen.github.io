@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8"/>
+<title>ictye blog</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="/css/base.css" rel="stylesheet" type="text/css"/>
+<link href="/css/body.css" rel="stylesheet" type="text/css"/>
+<link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+<script src="/js/depends/bootstrap/bootstrap.min.js"></script>
+<script data-main="/js/require-config" src="/js/requirejs.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="/css/content.css" rel="stylesheet"/>
+<link href="/css/prism.css" rel="stylesheet"/>
+<script>
+			require(["nav"])
+			require(["jquary"], function () {
+				$(document).ready(function () {
+					(function () {
+						ret = {};
+						$("div#content")
+							.children()
+							.each(function (index, element) {
+								let tagName = $(this).get(0).tagName;
+								if (tagName.substr(0, 1).toUpperCase() == "H") {
+									let contentH = $(this).html();
+									let markid = "mark-" + tagName + "-" + index.toString();
+									$(this).attr("id", markid);
+									if (tagName === "H1") {
+										$("div.menu").append(`<ul class=H1><li><a href="#${markid}">${contentH}</a></li></ul>`);
+									} else {
+										$(`div.menu ul.H${tagName[1] - 1}:last`).append(`<li><ul class=${tagName}><li><a href="#${markid}">${contentH}</a></li></ul></li>`)
+									}
+
+								}
+							});
+					})();
+
+				});
+			})
+
+		</script>
+<!--css-->
+<style type="text/css">
+			#crumb {
+				width: 100%;
+				background-color: #c8c4c692;
+				border-radius: 10px;
+				padding: 5px;
+				padding-left: 20px;
+				margin-bottom: 25px;
+			}
+
+			#crumb>ol {
+				margin: 0px;
+			}
+
+			div.sidebar ul.link {
+				color: #ffffff;
+				font-size: 20px;
+				margin-top: 15px;
+				padding: 0;
+				text-align: center;
+			}
+
+			div.sidebar ul.link li {
+				list-style: none;
+			}
+
+			div.sidebar ul.link li a {
+				padding: 10px;
+				display: block;
+				color: white;
+				text-align: center;
+				text-decoration: none;
+			}
+
+			div.sidebar ul.link li a:hover {
+				background-color: #dc76b5ac;
+			}
+		</style>
+</head>
+<body>
+<div class="top">
+<img src="/assents/16987108494401a2ceaea3d2fdc933b8a7d70905426421bdb.jpg"/>
+<div class="logo">楚天尋簫blog</div>
+<div class="buttorn">
+<label for="check">
+<i class="fa fa-bars down"></i>
+</label>
+</div>
+</div>
+<!--导航栏-->
+<input id="check" type="checkbox"/>
+<div class="head">
+<ul class="head" id="held">
+<li>
+<a href="/">首頁</a>
+</li>
+<li v-for="(value,key) in nav">
+<div class="dropdown">
+<a href="">{{key}}</a>
+<div class="dropdown-content">
+<a class="menu" v-bind:href="v" v-for="(v,k) in value">{{k}}</a>
+</div>
+</div>
+</li>
+<li>
+<div class="dropdown" v-if="Object.keys(spon).length &gt; 0">
+<a href="">贊助</a>
+<div class="dropdown-content">
+<a class="menu" v-bind:href="value" v-for="(value,key) in spon">{{key}}</a>
+</div>
+</div>
+</li>
+<li>
+<div class="dropdown">
+<a href="">友情鏈接</a>
+<div class="dropdown-content">
+<a class="menu" v-bind:href="value.url" v-for="(value,key) in friends">{{key}}</a>
+</div>
+</div>
+</li>
+<li class="right-li">
+<a class="active" href="/about.html">关于</a>
+</li>
+</ul>
+</div>
+<div class="total-body">
+<!--侧边栏-->
+<input id="sidebar-btn" type="checkbox"/>
+<div class="sidebar">
+<div class="menu">
+<div class="tittle">
+<span>目錄</span>
+</div>
+</div>
+</div>
+<div id="sidebar-buttorn">
+<label for="sidebar-btn">
+<i class="fa fa-angle-double-right"></i>
+</label>
+</div>
+<!--主体-->
+<div class="body">
+<div id="crumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="#">test</a></li>
+<li class="breadcrumb-item"><a href="#">test page</a></li>
+<li class="breadcrumb-item active">awake</li>
+</ol>
+</div>
+<div class="container" id="content"><h1>Python插件系統的一個簡單實現（測試性博客）</h1>
+<p>有些時候在程序開發的時候會涉及到插件系統的設計和實現，這裏的話提供和一種大致的思路，都是很基礎的東西</p>
+<h2>思路</h2>
+<p>首先呢我們需要設計我們的api什麽的，在這裏我們這樣設計：</p>
+<ul>
+<li>插件必須實現<code>Plugin_Main</code>作爲入口類</li>
+<li>插件需要實現<code>foo()</code>函數，并且提供<code>type</code>成員變量</li>
+</ul>
+<p>本次的目錄結構：</p>
+<ul>
+<li>(root)<ul>
+<li><code>depend</code><ul>
+<li><code>plugin_father.py</code></li>
+</ul>
+</li>
+<li><code>plugin</code><ul>
+<li><code>plugin.py</code></li>
+<li>(插件)</li>
+</ul>
+</li>
+<li><code>plugin_system.py</code></li>
+<li><code>__main__.py</code>（假裝為一個根）</li>
+</ul>
+</li>
+</ul>
+<h2>定義一個父類</h2>
+<p>根據這個思路，我們需要定義一個父類，讓後讓插件引用，這裏我們創建一個檔案：<code>/depend/plugin_father.py</code>,在這裏實現一個插件的父類<code>Plugin_Main_Father</code></p>
+<p>在實際的工程中我們需要根據項目的實際需要來設計良好的接口，在這裏就假設我們傳遞給<code>foo()</code>一個數字，然後返回這個數字處理後并且以<code>[plugin type] num</code>的形式打印出來</p>
+<pre><code class="language-python">class Plugin_Main_Father:
+    def __init__(self):
+        self.type = ''
+    def foo(self,Num):
+        assert 0
+</code></pre>
+<p>在這裏我們更像是約定一些，這種情況下子類可以通過繼承父類并且重寫方法來實現，對於IDE來説也能很方便地解析出來并且實現建議對於開發者來説也是很方便的</p>
+<p>此外，我們也可以在其中實現一些api什麽的，然後開發者可疑很方便的調用<code>self.fuc</code>來調用接口</p>
+<h2>開發者如何實現插件</h2>
+<p>此時要實現插件，我們需要引用<code>/depend/plugin_father.py</code>并且繼承<code>Plugin_Main_Father</code></p>
+<pre><code class="language-python">from depend import plugin_father
+
+class Plugin_Main(Plugin_Main_Father):
+</code></pre>
+<p>然後定義成員變量和成員函數</p>
+<pre><code class="language-python">from depend import plugin_father
+
+class Plugin_Main(Plugin_Main_Father):
+    def __init__(self):
+        self.type = 'MyPlugin'
+    def foo(self,Num):
+        return Num + 10
+</code></pre>
+<p>這裏我們定義<code>self.type</code>為<code>MyPlugin</code>，然後讓<code>foo</code>處理這個數字，這裏直接返回 <code>Num+10</code></p>
+<h2>實現插件管理器</h2>
+<p>爲了實現插件管理器，我們有必要先瞭解importlib，importlib是Python的内建库，用于执行Python的import语句和管理Python的模块加载过程。它提供了一种功能强大的动态导入模块的方式，让你可以在运行时动态地加载和重新加载Python模块。</p>
+<p>一些基礎的用法：</p>
+<ol>
+<li>導入模塊</li>
+</ol>
+<pre><code class="language-python">import importlib
+
+# 动态加载模块
+module = importlib.import_module('os.path')
+
+# 使用模块
+print(module.join('/a', 'b'))
+
+</code></pre>
+<ol start="2">
+<li>重載模塊</li>
+</ol>
+<p>如果你在运行时修改了模块的内容，可以使用importlib.reload来重新加载模块。</p>
+<pre><code class="language-python">import importlib
+import my_module
+
+# 修改了my_module后
+importlib.reload(my_module)
+
+</code></pre>
+<p>其他的還有很多，建議是看一下<a href="https://docs.python.org/zh-tw/3/library/importlib.html">https://docs.python.org/zh-tw/3/library/importlib.html</a></p>
+<p>有這些然後我們就可以開始實現<code>plugin_system.py</code>，首先我們先要定義插件管理器<code>Plugin_Manager</code></p>
+<pre><code class="language-python">import importlib
+
+class Plugin_Manager:
+    def __init__(self):
+</code></pre>
+<p>然後實現加載插件的功能，這裏當然是循環插件列表并且存儲在一個列表中</p>
+<pre><code class="language-python">import importlib
+
+class Plugin_Manager:
+    def __init__(self):
+</code></pre>
+<p>（未完待續）</p>
+</div>
+</div>
+</div>
+<script src="/js/prism.js"></script>
+</body>
+</html>
