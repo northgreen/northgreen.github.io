@@ -17,7 +17,7 @@
 		<link href="/css/menu.css" type="text/css" rel="stylesheet" />
 		<link href="/css/sidebar-link.css" type="text/css" rel="stylesheet" />
 		<script>
-			require(["friends"])
+			require(["nav"])
 			require(["vue", "axios"], function (Vue, axios) {
 				// 内容控件
 				let content_main = new Vue({
@@ -329,40 +329,27 @@
 				<li>
 					<a href="/">首頁</a>
 				</li>
-				<li>
+
+				<li v-for="(value,key) in nav">
 					<div class="dropdown">
-						<a href="">分類</a>
+						<a href="">{{key}}</a>
 						<div class="dropdown-content">
-							<a class="menu" href="#">音樂</a>
-							<a class="menu" href="#">技術</a>
-							<a class="menu" href="#">配布</a>
+							<a v-for="(v,k) in value" class="menu" v-bind:href="v">{{k}}</a>
 						</div>
 					</div>
 				</li>
 				<li>
-					<div class="dropdown">
+					<div v-if = "Object.keys(spon).length > 0" class="dropdown">
 						<a href="">贊助</a>
 						<div class="dropdown-content">
-							<a class="menu" href="https://afdian.net/a/ictye">愛發電</a>
+							<a class="menu" v-for="(value,key) in spon" v-bind:href="value">{{key}}</a>
 						</div>
 					</div>
 
 				</li>
+				
 				<li>
 					<div class="dropdown">
-						<a href="">楚天相關</a>
-						<div class="dropdown-content">
-							<a class="menu" href="https://b23.tv/Sp7y149">哔哩哔哩</a>
-							<a class="menu"
-								href="https://zh.moegirl.org.cn/User:%E6%A5%9A%E5%A4%A9%E6%9D%B3">萌娘百科用户页</a>
-							<a class="menu" href="#">推特</a>
-							<a class="menu" href="#">微博</a>
-							<a class="menu" href="">YouTube</a>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div id="friends-link" class="dropdown">
 						<a href="">友情鏈接</a>
 						<div class="dropdown-content">
 							<a v-for="(value,key) in friends" class="menu" v-bind:href="value.url">{{key}}</a>

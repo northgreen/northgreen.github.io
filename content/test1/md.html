@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 
 <html lang="zh-TW">
-<head>
-<meta charset="utf-8"/>
-<title>ictye blog</title>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-<link href="/css/base.css" rel="stylesheet" type="text/css"/>
-<link href="/css/body.css" rel="stylesheet" type="text/css"/>
-<link href="/css/menu.css" rel="stylesheet" type="text/css"/>
-<script src="/js/depends/bootstrap/bootstrap.min.js"></script>
-<script data-main="/js/require-config" src="/js/requirejs.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
-<link href="/css/content.css" rel="stylesheet"/>
-<link href="/css/prism.css" rel="stylesheet"/>
-<script>
-			require(["friends"])
+
+	<head>
+		<meta charset="utf-8" />
+		<title>ictye blog</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+		<link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<link href="/css/base.css" rel="stylesheet" type="text/css" />
+		<link href="/css/body.css" rel="stylesheet" type="text/css" />
+		<link href="/css/menu.css" rel="stylesheet" type="text/css" />
+		<script src="/js/depends/bootstrap/bootstrap.min.js"></script>
+		<script data-main="/js/require-config" src="/js/requirejs.js"></script>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+			rel="stylesheet" />
+		<link href="/css/content.css" rel="stylesheet" />
+		<link href="/css/prism.css" rel="stylesheet" />
+		<script>
+			require(["nav"])
 			require(["jquary"], function () {
 				$(document).ready(function () {
 					(function () {
@@ -42,8 +44,8 @@
 			})
 
 		</script>
-<!--css-->
-<style type="text/css">
+		<!--css-->
+		<style type="text/css">
 			#crumb {
 				width: 100%;
 				background-color: #c8c4c692;
@@ -81,109 +83,97 @@
 				background-color: #dc76b5ac;
 			}
 		</style>
-</head>
-<body>
-<div class="top">
-<img src="/assents/16987108494401a2ceaea3d2fdc933b8a7d70905426421bdb.jpg"/>
-<div class="logo">楚天尋簫blog</div>
-<div class="buttorn">
-<label for="check">
-<i class="fa fa-bars down"></i>
-</label>
-</div>
-</div>
-<!--导航栏-->
-<input id="check" type="checkbox"/>
-<div class="head">
-<ul class="head" id="held">
-<li>
-<a href="/">首頁</a>
-</li>
-<li>
-<div class="dropdown">
-<a href="">分類</a>
-<div class="dropdown-content">
-<a class="menu" href="#">音樂</a>
-<a class="menu" href="#">技術</a>
-<a class="menu" href="#">配布</a>
-</div>
-</div>
-</li>
-<li>
-<div class="dropdown">
-<a href="">贊助</a>
-<div class="dropdown-content">
-<a class="menu" href="https://afdian.net/a/ictye">愛發電</a>
-</div>
-</div>
-</li>
-<li>
-<div class="dropdown">
-<a href="">楚天相關</a>
-<div class="dropdown-content">
-<a class="menu" href="https://b23.tv/Sp7y149">哔哩哔哩</a>
-<a class="menu" href="https://zh.moegirl.org.cn/User:%E6%A5%9A%E5%A4%A9%E6%9D%B3">萌娘百科用户页</a>
-<a class="menu" href="#">推特</a>
-<a class="menu" href="#">微博</a>
-<a class="menu" href="">YouTube</a>
-</div>
-</div>
-</li>
-<li>
-<div class="dropdown" id="friends-link">
-<a href="">友情鏈接</a>
-<div class="dropdown-content">
-<a class="menu" v-bind:href="value.url" v-for="(value,key) in friends">{{key}}</a>
-</div>
-</div>
-</li>
-<li class="right-li">
-<a class="active" href="/about.html">关于楚天杳/at_p</a>
-</li>
-</ul>
-</div>
-<div class="total-body">
-<!--侧边栏-->
-<input id="sidebar-btn" type="checkbox"/>
-<div class="sidebar">
-<div class="menu">
-<div class="tittle">
-<span>目錄</span>
-</div>
-</div>
-</div>
-<div id="sidebar-buttorn">
-<label for="sidebar-btn">
-<i class="fa fa-angle-double-right"></i>
-</label>
-</div>
-<!--主体-->
-<div class="body">
-<div id="crumb">
-<ol class="breadcrumb">
-<li class="breadcrumb-item"><a href="#">test</a></li>
-<li class="breadcrumb-item"><a href="#">test page</a></li>
-<li class="breadcrumb-item active">awake</li>
-</ol>
-</div>
-<div class="container" id="content"><h1>tests</h1>
-<p>some content</p>
-<h2>p2</h2>
-<p>content</p>
-<blockquote>
-<p>content</p>
-<blockquote>
-<p>contents</p>
-</blockquote>
-</blockquote>
-<hr/>
-<h2>p3</h2>
-<p><em>content</em></p>
-<p><strong>content</strong></p>
-<p><em><strong>content</strong></em></p>
-<p><del>delted</del></p>
-<p>inline code <code>code</code></p>
-<pre><code class="language-python">class Plugin:
+	</head>
+
+	<body>
+		<div class="top">
+			<img src="/assents/16987108494401a2ceaea3d2fdc933b8a7d70905426421bdb.jpg" />
+			<div class="logo">楚天尋簫blog</div>
+			<div class="buttorn">
+				<label for="check">
+					<i class="fa fa-bars down"></i>
+				</label>
+			</div>
+		</div>
+		<!--导航栏-->
+		<input id="check" type="checkbox" />
+		<div class="head">
+			<ul class="head" id="held">
+				<li>
+					<a href="/">首頁</a>
+				</li>
+				<li v-for="(value,key) in nav">
+					<div class="dropdown">
+						<a href="">{{key}}</a>
+						<div class="dropdown-content">
+							<a class="menu" v-bind:href="v" v-for="(v,k) in value">{{k}}</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="dropdown" v-if="Object.keys(spon).length &gt; 0">
+						<a href="">贊助</a>
+						<div class="dropdown-content">
+							<a class="menu" v-bind:href="value" v-for="(value,key) in spon">{{key}}</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="dropdown">
+						<a href="">友情鏈接</a>
+						<div class="dropdown-content">
+							<a class="menu" v-bind:href="value.url" v-for="(value,key) in friends">{{key}}</a>
+						</div>
+					</div>
+				</li>
+				<li class="right-li">
+					<a class="active" href="/about.html">关于楚天杳/at_p</a>
+				</li>
+			</ul>
+		</div>
+		<div class="total-body">
+			<!--侧边栏-->
+			<input id="sidebar-btn" type="checkbox" />
+			<div class="sidebar">
+				<div class="menu">
+					<div class="tittle">
+						<span>目錄</span>
+					</div>
+				</div>
+			</div>
+			<div id="sidebar-buttorn">
+				<label for="sidebar-btn">
+					<i class="fa fa-angle-double-right"></i>
+				</label>
+			</div>
+			<!--主体-->
+			<div class="body">
+				<div id="crumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="#">test</a></li>
+						<li class="breadcrumb-item"><a href="#">test page</a></li>
+						<li class="breadcrumb-item active">awake</li>
+					</ol>
+				</div>
+				<div class="container" id="content">
+					<h1>tests</h1>
+					<p>some content</p>
+					<h2>p2</h2>
+					<p>content</p>
+					<blockquote>
+						<p>content</p>
+						<blockquote>
+							<p>contents</p>
+						</blockquote>
+					</blockquote>
+					<hr />
+					<h2>p3</h2>
+					<p><em>content</em></p>
+					<p><strong>content</strong></p>
+					<p><em><strong>content</strong></em></p>
+					<p><del>delted</del></p>
+					<p>inline code <code>code</code></p>
+					<pre><code class="language-python">class Plugin:
     def __init__(self):
         mlogger = logging.getLogger(__name__)
 
@@ -233,19 +223,23 @@
             except IndexError as e:
                 mlogger.error(f"failed to import plugin :\n{plugin_name} {str(e)}")
 </code></pre>
-<p>link:<a href="http://www.google.com">Google</a></p>
-<p><a href="http://www.google.com">http://www.google.com</a></p>
-<ul>
-<li>content</li>
-<li>content</li>
-</ul>
-<ol>
-<li>cont</li>
-<li>cont</li>
-</ol>
-</div>
-</div>
-</div>
-<script src="/js/prism.js"></script>
-</body>
+					<p>link:<a href="http://www.google.com">Google</a></p>
+					<p><a href="http://www.google.com">http://www.google.com</a></p>
+					<p>圖片</p>
+					<p><img alt="这是图片" src="https://markdown.com.cn/assets/img/philly-magic-garden.9c0b4415.jpg"
+							title="Magic Gardens" /></p>
+					<ul>
+						<li>content</li>
+						<li>content</li>
+					</ul>
+					<ol>
+						<li>cont</li>
+						<li>cont</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+		<script src="/js/prism.js"></script>
+	</body>
+
 </html>

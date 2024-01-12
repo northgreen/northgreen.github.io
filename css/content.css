@@ -38,3 +38,7 @@ pre>code {
     padding: 0px;
     border-radius: opx;
 }
+
+p > img{
+    width: 100%;
+}
