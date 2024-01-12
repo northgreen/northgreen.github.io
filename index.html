@@ -395,12 +395,12 @@
 						<div class="col-md-12 context" v-for="slite in content" v-bind:data-url="slite.url"
 							tittle="转到：slite.url" v-on:click="window.open(slite.url)">
 							<div class="info">
-								<div class="ic-tittle">{{slite.tittle}}</div>
+								<div class="ic-tittle text-truncate">{{slite.tittle}}</div>
 								<div class="flex">
 									<div class="time"><i class="fa fa-calendar"></i>{{slite.day}}</div>|
 									<div class="collect"><i class="fa fa-inbox"></i> {{slite.class}}</div>
 								</div>
-								<div class="view">{{slite.view}}</div>
+								<div class="view text-truncate">{{slite.view}}</div>
 							</div>
 							<div class="cover">
 								<div class="right-picture"><img v-bind:src="slite.cover"></div>
