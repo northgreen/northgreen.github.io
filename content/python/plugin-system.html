@@ -192,12 +192,14 @@
 <p>此時要實現插件，我們需要引用<code>/depend/plugin_father.py</code>并且繼承<code>Plugin_Main_Father</code></p>
 <pre><code class="language-python">from depend import plugin_father
 
-class Plugin_Main(Plugin_Main_Father):
+
+class Plugin_Main(plugin_father.Plugin_Main_Father):
 </code></pre>
 <p>然後定義成員變量和成員函數</p>
 <pre><code class="language-python">from depend import plugin_father
 
-class Plugin_Main(Plugin_Main_Father):
+
+class Plugin_Main(plugin_father.Plugin_Main_Father):
     def __init__(self):
         self.type = 'MyPlugin'
     def foo(self,Num):
@@ -237,13 +239,74 @@ importlib.reload(my_module)
 class Plugin_Manager:
     def __init__(self):
 </code></pre>
-<p>然後實現加載插件的功能，這裏當然是循環插件列表并且存儲在一個列表中</p>
+<p>在插件的構造方法中，我們要完成插件的初始化，我們使用importlib載入插件并且存儲到一個列表中</p>
+<p>爲了實現，我們遍歷<code>/plugin</code>目錄，然後就可以獲取裏面的檔案名稱然後就能輕而易舉地實現了</p>
 <pre><code class="language-python">import importlib
+import os
+import depend.plugin_father
+
 
 class Plugin_Manager:
     def __init__(self):
+        self.plugin_list = []  # 插件列表
+        for plugin_file in os.listdir('./plugin'):
+            try:
+                if os.path.splitext(plugin_file)[1] == ".py" or os.path.isdir(
+                        os.path.join('./plugin', plugin_file)) and not plugin_file == "__pycache__":
+                    # 這裏不僅僅要判斷文件的拓展名，還要排除__pycache__資料夾
+                    plugin_name = os.path.splitext(plugin_file)[0]
+                    plugin_module = importlib.import_module(f'plugin.{plugin_name}')  # 加載插件
+                    assert hasattr(plugin_module, "Plugin_Main")  # 斷言有Plugin_Main類，如果沒有的話下面的程式就無法執行
+                    plugin_class = getattr(plugin_module, "Plugin_Main")
+                    plugin_interface: depend.plugin_father.Plugin_Main_Father = plugin_class()
+                    self.plugin_list.append(plugin_interface)
+            except ImportError as e:
+                # 處理錯誤
+                print(f"failed to import plugin :\n{plugin_file} {str(e)}")
 </code></pre>
-<p>（未完待續）</p>
+<p>再之後插件管理器提供調用方法的方法，具體實現還是要看需求，這裏就簡單地演示一下：</p>
+<pre><code class="language-python">import importlib
+import os
+import depend.plugin_father
+
+
+class Plugin_Manager:
+    def __init__(self):
+        self.plugin_list = []  # 插件列表
+        for plugin_file in os.listdir('./plugin'):
+            try:
+                if os.path.splitext(plugin_file)[1] == ".py" or os.path.isdir(
+                        os.path.join('./plugin', plugin_file)) and not plugin_file == "__pycache__":
+                    # 這裏不僅僅要判斷文件的拓展名，還要排除__pycache__資料夾
+                    plugin_name = os.path.splitext(plugin_file)[0]
+                    plugin_module = importlib.import_module(f'plugin.{plugin_name}')  # 加載插件
+                    assert hasattr(plugin_module, "Plugin_Main")  # 斷言有Plugin_Main類，如果沒有的話下面的程式就無法執行
+                    plugin_class = getattr(plugin_module, "Plugin_Main")
+                    plugin_interface: depend.plugin_father.Plugin_Main_Father = plugin_class()
+                    self.plugin_list.append(plugin_interface)
+            except ImportError as e:
+                # 處理錯誤
+                print(f"failed to import plugin :\n{plugin_file} {str(e)}")
+
+    def use_foo(self, num):
+        for plugin in self.plugin_list:
+            print(f'[{plugin.type}] {plugin.foo(num)}')
+</code></pre>
+<h2>使用這個插件管理器</h2>
+<p>然後我們就可以很方便的使用這個插件管理器了：</p>
+<p><code>__main__.py</code></p>
+<pre><code class="language-python">import plugin_system
+
+plugin_sys = plugin_system.Plugin_Manager()
+plugin_sys.use_foo(114504)
+</code></pre>
+<p>輸出</p>
+<pre><code>C:\Users\north\AppData\Local\Programs\Python\Python310\python.exe C:/Users/north/document/proj/pythonProject/main.py
+[MyPlugin] 114514
+
+进程已结束,退出代码0
+</code></pre>
+<p>太臭了（bushi</p>
 </div>
 </div>
 </div>
