@@ -1,0 +1,19 @@
+<div class="card post-full">
+    <span class="post-title article-title">标签</span>
+    <div class="tag-cloud-page">
+        <% if (site.tags && site.tags.length) { %>
+            <div class="tag-cloud">
+                <%- tagcloud({
+                    min_font: theme.tagcloud.min_font || 14,
+                    max_font: theme.tagcloud.max_font || 28,
+                    amount: theme.tagcloud.amount || 100,
+                    color: theme.tagcloud.color || true,
+                    start_color: theme.tagcloud.start_color || '#ca9ee6',
+                    end_color: theme.tagcloud.end_color || '#eebebe'
+                }) %>
+            </div>
+        <% } else { %>
+            <div class="tag-empty">暂无标签</div>
+        <% } %>
+    </div>
+</div>

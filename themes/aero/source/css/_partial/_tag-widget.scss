@@ -1,0 +1,74 @@
+// 侧边栏标签云 widget
+.tag-cloud-widget {
+  margin-top: 10px;
+
+  .tag-cloud-title {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 12px;
+    color: var(--secondary-color);
+  }
+
+  .tag-cloud-content {
+    padding: 8px 12px 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    line-height: 1.5;
+
+    a {
+      text-decoration: none;
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 15px;
+      background: rgba(from var(--primary-color) r g b / 0.2);
+      box-shadow:
+        inset 0 0 0 1px var(--white-main),
+        0 0 0 0.5px var(--black-main),
+        1px 1px 4px rgba(from var(--black-main) r g b / 0.3);
+      transition: all 0.2s ease;
+      color: var(--black-main);
+      font-size: 12px;
+
+      &:hover {
+        background: rgba(from var(--primary-color) r g b / 0.35);
+        box-shadow:
+          inset 0 0 0 1px var(--white-main),
+          0 0 0 0.5px var(--black-main),
+          2px 2px 8px rgba(from var(--black-main) r g b / 0.5);
+        transform: translateY(-1px);
+      }
+    }
+  }
+}
+
+// 暗主题适配
+[data-theme="dark"],
+body.dark-mode {
+  .tag-cloud-widget {
+    .tag-cloud-title {
+      color: var(--secondary-color);
+    }
+
+    .tag-cloud-content a {
+      background: rgba(from var(--primary-color) r g b / 0.2);
+      color: var(--black-main);
+    }
+  }
+}
+
+// 亮主题适配
+[data-theme="light"],
+body:not(.dark-mode) {
+  .tag-cloud-widget {
+    .tag-cloud-title {
+      color: #666;
+    }
+
+    .tag-cloud-content a {
+      background: rgba(from var(--primary-color) r g b / 0.1);
+      color: #555;
+    }
+  }
+}

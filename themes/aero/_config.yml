@@ -34,3 +34,15 @@ highlight:
 # Graph
 graph:
   enable: true
+
+# Tags
+tagcloud:
+  min_font: 14
+  max_font: 28
+  amount: 100
+  color: true
+  start_color: '#ca9ee6'
+  end_color: '#eebebe'
+sidebar_tagcloud:
+  enable: true
+  limit: 20

@@ -36,6 +36,23 @@
 <% } %>
 
 
+<% if (theme.sidebar_tagcloud && theme.sidebar_tagcloud.enable) { %>
+<div class="widget card tag-cloud-widget">
+    <div class="tag-cloud-title">标签云</div>
+    <div class="tag-cloud-content">
+        <%- tagcloud({
+            min_font: 12,
+            max_font: 18,
+            amount: theme.sidebar_tagcloud.limit || 20,
+            color: false,
+            start_color: '#ca9ee6',
+            end_color: '#eebebe'
+        }) %>
+    </div>
+</div>
+<% } %>
+
+
 <div class="widget music-widget">
     <div class="player-content">
         <div class="song-info">
