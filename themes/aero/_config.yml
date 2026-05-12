@@ -1,0 +1,36 @@
+menu:
+  about: /1969/05/12/about/
+favicon:
+  enable: true
+  icon: /image/icon/vista_messenger.jpg
+profile:
+  enable: true
+  author: ''
+  avatar: 'image/icon/pic.jpg'  # Your avatar image, for example, https://avatars.githubusercontent.com/username
+  avatar_link: 'https://github.com/northgreen' # The link you click on the avatar and jump to, for example, https://github.com/username
+  social: # you can customize which and how many social links to show
+    - name: Github
+      link: 'https://github.com/northgreen' # https://github.com/username
+      icon: /image/icon/github.png
+    - name: Bilibili
+      link: '' # https://space.bilibili.com/youruid
+      icon: /image/icon/bilibili.png
+music:
+  enable: false
+  autoplay: false
+  songs:
+    - title: '永远的满月'
+      artist: 'ZUN'
+      cover: ''
+      url: '/music/yydmy.ogg'
+math:
+  enable: true
+  engine: mathjax
+
+highlight: 
+  enable: true
+  hljs: true
+
+# Graph
+graph:
+  enable: true

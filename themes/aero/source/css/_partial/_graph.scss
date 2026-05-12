@@ -1,0 +1,197 @@
+// 局部图谱 - 侧边栏
+
+.graph-widget {
+  margin-top: 10px;
+
+  .graph-title {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 12px;
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .graph-global-btn {
+      cursor: pointer;
+      font-size: 16px;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .graph-container {
+    width: 100%;
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background: rgba(from var(--primary-color) r g b / 0.15);
+    box-shadow:
+      inset 0 0 20px rgba(from var(--primary-color) r g b / 0.3),
+      0 0 0 1px var(--white-main),
+      0 0 0 1.5px var(--black-main);
+    backdrop-filter: blur(2px);
+
+    canvas {
+      display: block;
+    }
+  }
+
+  .graph-empty {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--highlight-color);
+    font-size: 12px;
+    user-select: none;
+  }
+}
+
+// 全局图谱 - 全屏覆盖
+#global-graph-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: graph-fade-in 0.3s ease;
+
+  .global-graph-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background: transparent;
+    z-index: 10;
+
+    .global-graph-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .global-graph-close {
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+
+  .global-graph-container {
+    width: 85vw;
+    height: 80vh;
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(from var(--primary-color) r g b / 0.2);
+    box-shadow:
+      inset 0 0 30px rgba(from var(--primary-color) r g b / 0.4),
+      0 0 0 1px var(--white-main),
+      0 0 0 1.5px var(--black-main),
+      0 8px 32px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+
+    canvas {
+      display: block;
+    }
+  }
+}
+
+// Broken Wikilink 样式
+.wikilink-broken {
+  color: #e03131;
+  background: rgba(224, 49, 49, 0.08);
+  border: 1px dashed #e03131;
+  border-radius: 3px;
+  padding: 0 2px;
+  font-size: 0.9em;
+  cursor: help;
+}
+
+// 暗主题显式适配
+[data-theme="dark"],
+body.dark-mode {
+  --graph-node: #74b9ff;
+  --graph-tag: #a9e34b;
+  --graph-highlight: #ffd43b;
+  --graph-visited: #868e96;
+  --graph-link: #5c7cba;
+  --graph-text: #e0e0e0;
+  --graph-tag-stroke: #74b9ff;
+
+  .graph-widget {
+    .graph-title {
+      color: var(--secondary-color);
+    }
+
+    .graph-container {
+      background: rgba(from var(--primary-color) r g b / 0.15);
+    }
+  }
+
+  .global-graph-container {
+    background: rgba(from var(--primary-color) r g b / 0.2);
+  }
+}
+
+// 亮主题适配
+[data-theme="light"],
+body:not(.dark-mode) {
+  .graph-widget {
+    .graph-title {
+      color: #666;
+    }
+
+    .graph-container {
+      background: rgba(from var(--primary-color) r g b / 0.08);
+    }
+  }
+
+  .global-graph-container {
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow:
+      0 0 0 1px rgba(0, 0, 0, 0.1),
+      0 8px 32px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// 淡入动画
+@keyframes graph-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

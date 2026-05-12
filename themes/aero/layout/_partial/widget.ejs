@@ -1,0 +1,73 @@
+<div class="widget avatar-widget">
+    <div class="avatar-bg">
+        <a href="<%= url_for(theme.profile.avatar_link) %>">
+            <img src="<%= url_for(theme.profile.avatar) %>" class="profile-img">
+        </a>
+    </div>
+</div>
+<div class="widget card profile-widget">
+    <div class="profile">
+        <div><%= theme.profile.author || config.author %></div>
+        <div>
+            <% if (theme.profile.social) { %>
+            <% theme.profile.social.forEach(function(item) { %>
+                <a href="<%= url_for(item.link) %>" class="button profile-link" target="_blank" title="<%= item.name %>">
+                    <img src="<%= url_for(item.icon) %>" class="profile-icon" alt="<%= item.name %>">
+                </a>
+            <% }); %>
+        <% } %>
+        </div>
+    </div>
+    <div class="about">
+        <%- config.description %>
+    </div>
+</div>
+
+
+<div class="widget music-widget">
+    <div class="player-content">
+        <div class="song-info">
+            <div class="info-bg album-art" id="albumArt"></div>
+            <div class="info-bg title-bar">
+                <span class="song-title" id="songTitle">Loading...</span>
+            </div>
+        </div>
+
+        <div class="info-bg progress-container" id="progressContainer">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="controls">
+            <button class="button play-btn" id="playBtn">
+                <span id="playIcon" class="ri-play-large-fill"></span>
+            </button>
+            <button class="button ctrl-btn" id="prevBtn">
+                <span class="ri-skip-back-fill"></span>
+            </button>
+            <button class="button ctrl-btn" id="nextBtn">
+                <span class="ri-skip-forward-fill"></span>
+            </button>
+        </div>
+    </div>
+
+    <audio id="audioPlayer"></audio>
+</div>
+
+<script>
+    var musicConfig = {
+        autoplay: <%= theme.music.autoplay %>,
+        playlist: <%- JSON.stringify(theme.music.songs) %>
+    };
+</script>
+
+<% if (theme.graph && theme.graph.enable) { %>
+<div class="widget card graph-widget">
+    <div class="graph-title">
+        <span>关系图谱</span>
+        <span class="graph-global-btn ri-ri-earth-line" id="graph-global-btn" title="全局图谱">🌐</span>
+    </div>
+    <div class="graph-container" id="graph-container">
+        <div class="graph-empty">加载中...</div>
+    </div>
+</div>
+<% } %>

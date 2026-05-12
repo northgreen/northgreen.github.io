@@ -1,0 +1,31 @@
+:root {
+    // --black-main: #303446;
+    // --white-main: #ffffff ;
+
+    --black-main: #c6d0f5;
+    --white-main: #303446;
+
+    --code-block-background:#414559;
+    /* You can customize the theme color here */
+    --primary-color: #ca9ee6;
+    --highlight-color: #949cbb;
+    --secondary-color: #838ba7;
+
+    --aero-grad: linear-gradient(to bottom, 
+    color-mix(in srgb, var(--secondary-color), white 60%) 0%, 
+    var(--secondary-color) 50%, 
+    color-mix(in srgb, var(--secondary-color), black 10%) 51%, 
+    var(--secondary-color) 100%);
+
+    /* You can customize the background image here */
+    --bg-image: url(/image/background.png);
+
+    /* Graph variables */
+    --graph-node: #49b0f5;
+    --graph-tag: #82c91e;
+    --graph-highlight: #fab005;
+    --graph-visited: #868e96;
+    --graph-link: #a0c4ff;
+    --graph-text: #333333;
+    --graph-tag-stroke: #5c940d;
+}

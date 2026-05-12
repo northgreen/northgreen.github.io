@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>
+        <%= config.title %>
+    </title>
+    <%- css('css/style.css') %>
+    <% if (theme.favicon.enable) { %>
+        <% if (theme.favicon.icon) { %>
+            <link rel="icon" href="<%= url_for(theme.favicon.icon) %>">
+        <% } %>
+    <% } %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.9.1/fonts/remixicon.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-light.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- header -->
+        <%- partial('_partial/header') %>
+
+        <div class="button mobile-menu-btn" id="mobile-menu-btn">
+            <span class="menu-icon ri-menu-fill"></span>
+        </div>
+
+            <div class="main-layout">
+                <aside id="sidebar">
+                    <%- partial('_partial/widget') %>
+                </aside>
+                <main id="pjax-container">
+                    <%- body %>
+                </main>
+                <div class="sidebar-mask" id="sidebar-mask"></div>
+            </div>
+            <!-- footer -->
+            <%- partial('_partial/footer') %>
+    </div>
+
+    <script src="/js/responsive.js"></script>
+    <script src="/js/music.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            new Pjax({
+                elements: 'a[href]:not([target]):not([data-no-pjax])',
+                selectors: [
+                    'title',
+                    '#pjax-container',
+                    '#pjax-header'
+                ]
+            })
+        })
+    </script>
+    <% if (theme.math.enable && page.mathjax) { %>
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ["\\(", "\\)"]],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true
+                },
+                options: {
+                    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] // 忽略的代码块
+                }
+            };
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+    <% } %>
+    <% if (theme.graph && theme.graph.enable) { %>
+    <script src="https://cdn.jsdelivr.net/npm/pixi.js@8.18.1/dist/pixi.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+    <script src="/js/graph.js"></script>
+    <% } %>
+</body>
+
+</html>
