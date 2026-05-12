@@ -639,14 +639,24 @@
   function navigateToNode(node) {
     if (!node) return;
     var slug = node.id;
-    // 确保 slug 有前导斜杠但无尾部斜杠
-    var cleanSlug = slug.replace(/^\/+/, '').replace(/\/+$/, '');
     var url;
 
     if (isTagSlug(slug)) {
+      // Tag: 使用 slug 生成标签页 URL
       var tagName = slug.replace(/^tags\//, '').replace(/\/$/, '');
       url = '/tags/' + encodeURIComponent(tagName) + '/';
+    } else if (node.path) {
+      // Page: 使用 node.path 提取相对路径
+      try {
+        var urlObj = new URL(node.path);
+        url = urlObj.pathname;
+      } catch (_) {
+        // Fallback: 使用 slug
+        var cleanSlug = slug.replace(/^\/+/, '').replace(/\/+$/, '');
+        url = '/' + cleanSlug + '/';
+      }
     } else {
+      var cleanSlug = slug.replace(/^\/+/, '').replace(/\/+$/, '');
       url = '/' + cleanSlug + '/';
     }
 
