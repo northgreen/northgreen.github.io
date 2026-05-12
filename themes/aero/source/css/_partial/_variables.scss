@@ -28,4 +28,9 @@
     --graph-link: #a0c4ff;
     --graph-text: #333333;
     --graph-tag-stroke: #5c940d;
+    /* Graph UI text variables */
+    --graph-overlay-text: #fff;              /* 全局图谱标题/关闭按钮文字 */
+    --graph-wikilink-broken-text: #e03131;   /* 断裂维基链接文字 */
+    --graph-wikilink-broken-border: #e03131; /* 断裂维基链接边框 */
+    --graph-widget-title-light: #666;        /* 亮主题侧边栏标题文字 */
 }

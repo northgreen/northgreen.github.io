@@ -86,7 +86,7 @@
     .global-graph-title {
       font-size: 16px;
       font-weight: 600;
-      color: #fff;
+      color: var(--graph-overlay-text);
     }
 
     .global-graph-close {
@@ -94,7 +94,7 @@
       height: 32px;
       border: none;
       background: rgba(255, 255, 255, 0.12);
-      color: #fff;
+      color: var(--graph-overlay-text);
       border-radius: 50%;
       cursor: pointer;
       font-size: 16px;
@@ -130,9 +130,9 @@
 
 // Broken Wikilink 样式
 .wikilink-broken {
-  color: #e03131;
+  color: var(--graph-wikilink-broken-text);
   background: rgba(224, 49, 49, 0.08);
-  border: 1px dashed #e03131;
+  border: 1px dashed var(--graph-wikilink-broken-border);
   border-radius: 3px;
   padding: 0 2px;
   font-size: 0.9em;
@@ -149,6 +149,10 @@ body.dark-mode {
   --graph-link: #5c7cba;
   --graph-text: #e0e0e0;
   --graph-tag-stroke: #74b9ff;
+  --graph-overlay-text: #fff;
+  --graph-wikilink-broken-text: #ff6b6b;
+  --graph-wikilink-broken-border: #ff6b6b;
+  --graph-widget-title-light: #a0a0a0;
 
   .graph-widget {
     .graph-title {
@@ -168,9 +172,14 @@ body.dark-mode {
 // 亮主题适配
 [data-theme="light"],
 body:not(.dark-mode) {
+  --graph-overlay-text: #fff;
+  --graph-wikilink-broken-text: #e03131;
+  --graph-wikilink-broken-border: #e03131;
+  --graph-widget-title-light: #666;
+
   .graph-widget {
     .graph-title {
-      color: #666;
+      color: var(--graph-widget-title-light);
     }
 
     .graph-container {
