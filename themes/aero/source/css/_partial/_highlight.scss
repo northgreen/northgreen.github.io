@@ -1,0 +1,105 @@
+// Highlight.js Syntax Highlighting
+// Colors converted to CSS variables for theme customization
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: var(--hl-text);
+  background: var(--hl-background);
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: var(--hl-comment);
+  font-style: italic;
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula {
+  color: var(--hl-keyword);
+}
+
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: var(--hl-tag);
+}
+
+.hljs-literal {
+  color: var(--hl-function);
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta-string {
+  color: var(--hl-string);
+}
+
+.hljs-built_in,
+.hljs-class .hljs-title {
+  color: var(--hl-class);
+}
+
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+  color: var(--hl-number);
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  color: var(--hl-function);
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}
+
+// Gutter styles for code blocks (line numbers)
+.post-content .highlight .gutter {
+  color: var(--hl-gutter-text);
+  border-right: 1px solid var(--hl-gutter-border);
+}
+
+// Dark theme — Catppuccin Mocha palette
+[data-theme="dark"],
+body.dark-mode {
+  --hl-background: #313244;
+  --hl-text: #cdd6f4;
+  --hl-comment: #6c7086;
+  --hl-keyword: #cba6f7;
+  --hl-string: #a6e3a1;
+  --hl-function: #89b4fa;
+  --hl-number: #fab387;
+  --hl-class: #f9e2af;
+  --hl-attribute: #f38ba8;
+  --hl-tag: #f38ba8;
+  --hl-operator: #89dceb;
+  --hl-param: #f38ba8;
+  --hl-regexp: #a6e3a1;
+  --hl-gutter-text: #585b70;
+  --hl-gutter-border: #45475a;
+}
