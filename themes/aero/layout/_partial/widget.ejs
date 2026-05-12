@@ -23,6 +23,18 @@
     </div>
 </div>
 
+<% if (theme.graph && theme.graph.enable) { %>
+<div class="widget card graph-widget">
+    <div class="graph-title">
+        <span>关系图谱</span>
+        <span class="graph-global-btn ri-ri-earth-line" id="graph-global-btn" title="全局图谱">🌐</span>
+    </div>
+    <div class="graph-container" id="graph-container">
+        <div class="graph-empty">加载中...</div>
+    </div>
+</div>
+<% } %>
+
 
 <div class="widget music-widget">
     <div class="player-content">
@@ -53,6 +65,7 @@
     <audio id="audioPlayer"></audio>
 </div>
 
+
 <script>
     var musicConfig = {
         autoplay: <%= theme.music.autoplay %>,
@@ -60,14 +73,3 @@
     };
 </script>
 
-<% if (theme.graph && theme.graph.enable) { %>
-<div class="widget card graph-widget">
-    <div class="graph-title">
-        <span>关系图谱</span>
-        <span class="graph-global-btn ri-ri-earth-line" id="graph-global-btn" title="全局图谱">🌐</span>
-    </div>
-    <div class="graph-container" id="graph-container">
-        <div class="graph-empty">加载中...</div>
-    </div>
-</div>
-<% } %>

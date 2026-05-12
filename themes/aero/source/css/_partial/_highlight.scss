@@ -81,7 +81,10 @@
 // Gutter styles for code blocks (line numbers)
 .post-content .highlight .gutter {
   color: var(--hl-gutter-text);
+  text-align: right;
   border-right: 1px solid var(--hl-gutter-border);
+  width: 2em;
+  padding: 0 0.25em;
 }
 
 // Dark theme — Catppuccin Frappe palette
