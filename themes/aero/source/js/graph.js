@@ -147,10 +147,11 @@
 
     // Parse content index into a Map
     var data = new Map();
-    for (var key in contentIndex) {
-      if (Object.prototype.hasOwnProperty.call(contentIndex, key)) {
-        data.set(normalizeSlug(key), contentIndex[key]);
-      }
+    // contentIndex is an array, iterate and use each node's id/slug as key
+    for (var i = 0; i < contentIndex.length; i++) {
+      var node = contentIndex[i];
+      var nodeId = node.id || node.slug || String(i);
+      data.set(normalizeSlug(nodeId), node);
     }
 
     var validSlugs = new Set(data.keys());
@@ -638,13 +639,15 @@
   function navigateToNode(node) {
     if (!node) return;
     var slug = node.id;
+    // 确保 slug 有前导斜杠但无尾部斜杠
+    var cleanSlug = slug.replace(/^\/+/, '').replace(/\/+$/, '');
     var url;
 
     if (isTagSlug(slug)) {
-      var tagName = slug.replace(/^tags\//, '').replace(/\/$/, '');
+      var tagName = slug.replace(/^tags\//, '').replace(/\/$/', '');
       url = '/tags/' + encodeURIComponent(tagName) + '/';
     } else {
-      url = '/' + slug;
+      url = '/' + cleanSlug + '/';
     }
 
     markPageVisited(slug);
