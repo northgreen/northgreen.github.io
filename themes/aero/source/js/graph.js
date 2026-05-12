@@ -242,6 +242,7 @@
         tags: details ? (details.tags || []) : [],
         isTag: isTag,
         isCurrent: slug === currentSlug,
+        path: details ? details.path : null,  // 添加 path 字段，用于导航
       };
       nodeMap.set(slug, node);
       nodes.push(node);
