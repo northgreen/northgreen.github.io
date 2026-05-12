@@ -280,7 +280,7 @@
       height: height,
       antialias: true,
       autoStart: false,
-      background: { alpha: 0 },
+      backgroundAlpha: 0,
       resolution: window.devicePixelRatio || 1,
     });
     container.appendChild(app.canvas);
