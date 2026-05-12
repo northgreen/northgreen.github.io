@@ -36,3 +36,8 @@ $ hexo deploy
 ```
 
 More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+
+## 测试链接
+
+查看 [[test]] 页面获取更多信息。
+也可以参考关于页面 [[About]]。
