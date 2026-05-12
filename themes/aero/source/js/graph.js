@@ -94,6 +94,26 @@
 
   function getCurrentSlug() {
     var path = window.location.pathname;
+    // 尝试从 contentIndex 中查找匹配的节点
+    if (contentIndex && Array.isArray(contentIndex)) {
+      for (var i = 0; i < contentIndex.length; i++) {
+        var node = contentIndex[i];
+        // 检查 path 是否匹配（去掉域名，比较 pathname）
+        if (node.path) {
+          try {
+            var urlObj = new URL(node.path);
+            if (urlObj.pathname === path || normalizeSlug(urlObj.pathname) === normalizeSlug(path)) {
+              return node.id || node.slug;
+            }
+          } catch (_) {}
+        }
+        // 也检查 slug 直接匹配
+        if (node.slug && normalizeSlug(node.slug) === normalizeSlug(path)) {
+          return node.id || node.slug;
+        }
+      }
+    }
+    // Fallback: 使用路径
     return normalizeSlug(path);
   }
 
