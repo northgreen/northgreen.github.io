@@ -31,6 +31,16 @@ function graphBuilderFilter() {
       const cleanPath = permalinkPath.replace(/\/+$/, '') + '/';
       slugMap.set(cleanPath, doc);
       slugMap.set(cleanPath.replace(/^\//, ''), doc);
+      // 也映射 .html 变体（不带尾部斜杠）
+      if (permalinkPath.endsWith('.html')) {
+        const htmlPath = permalinkPath.replace(/\/+$/, '');
+        slugMap.set(htmlPath, doc);
+        slugMap.set(htmlPath.replace(/^\//, ''), doc);
+        // 也添加去掉 .html 后缀的变体（用于链接解析）
+        const noHtmlPath = permalinkPath.replace(/\.html$/, '').replace(/\/+$/, '') + '/';
+        slugMap.set(noHtmlPath, doc);
+        slugMap.set(noHtmlPath.replace(/^\//, ''), doc);
+      }
     }
     
     // 也按 source 文件名映射
@@ -60,22 +70,63 @@ function graphBuilderFilter() {
         let clean = href.replace(/\.html$/, '').replace(/\/+$/, '') + '/';
         // 跳过不是其他 post/page 的链接
         const targetDoc = slugMap.get(clean) || slugMap.get(href);
-        if (targetDoc && targetDoc.slug !== doc.slug) {
-          links.add(clean);
+        // 确保 targetDoc 存在且不是当前文档
+        if (targetDoc && targetDoc !== doc) {
+          // 计算目标 slug
+          let targetSlug = targetDoc.slug || '';
+          if (!targetSlug || targetSlug === '/') {
+            const targetSource = targetDoc.source || '';
+            const targetFilename = targetSource.replace(/\.\w+$/, '').replace(/^source\//, '').toLowerCase();
+            targetSlug = targetFilename ? targetFilename + '/' : '/';
+          } else {
+            targetSlug = targetSlug.endsWith('/') ? targetSlug : targetSlug + '/';
+          }
+          links.add(targetSlug);
         }
       }
     }
     
-    // 也解析 plain markdown 链接模式 [text](path) - 可能 Wikilink filter 没处理到
+    // 也解析 plain markdown 链接模式 [text](path)
     const mdLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
     while ((match = mdLinkRegex.exec(content)) !== null) {
       const href = match[2];
       if (href.startsWith('/') && !href.includes('://') && href !== '/') {
         let clean = href.replace(/\.html$/, '').replace(/\/+$/, '') + '/';
         const targetDoc = slugMap.get(clean) || slugMap.get(href);
-        if (targetDoc && targetDoc.slug !== doc.slug) {
-          links.add(clean);
+        // 确保 targetDoc 存在且不是当前文档
+        if (targetDoc && targetDoc !== doc) {
+          // 计算目标 slug
+          let targetSlug = targetDoc.slug || '';
+          if (!targetSlug || targetSlug === '/') {
+            const targetSource = targetDoc.source || '';
+            const targetFilename = targetSource.replace(/\.\w+$/, '').replace(/^source\//, '').toLowerCase();
+            targetSlug = targetFilename ? targetFilename + '/' : '/';
+          } else {
+            targetSlug = targetSlug.endsWith('/') ? targetSlug : targetSlug + '/';
+          }
+          links.add(targetSlug);
         }
+      }
+    }
+    
+    // 解析 Wikilink 格式 [[Title]]
+    const wikilinkRegex = /\[\[([^\[\]|#]+?)(?:#([^\[\]|]*?))?(?:\|([^\[\]]*?))?\]\]/g;
+    while ((match = wikilinkRegex.exec(content)) !== null) {
+      const title = match[1].trim();
+      const key = title.toLowerCase();
+      // 按 title 查找目标文档
+      const targetDoc = allDocs.find(d => (d.title || '').toLowerCase() === key);
+      if (targetDoc && targetDoc !== doc) {
+        // 计算目标 slug
+        let targetSlug = targetDoc.slug || '';
+        if (!targetSlug || targetSlug === '/') {
+          const targetSource = targetDoc.source || '';
+          const targetFilename = targetSource.replace(/\.\w+$/, '').replace(/^source\//, '').toLowerCase();
+          targetSlug = targetFilename ? targetFilename + '/' : '/';
+        } else {
+          targetSlug = targetSlug.endsWith('/') ? targetSlug : targetSlug + '/';
+        }
+        links.add(targetSlug);
       }
     }
     
