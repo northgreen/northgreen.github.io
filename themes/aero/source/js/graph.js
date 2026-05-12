@@ -644,7 +644,7 @@
     var url;
 
     if (isTagSlug(slug)) {
-      var tagName = slug.replace(/^tags\//, '').replace(/\/$/', '');
+      var tagName = slug.replace(/^tags\//, '').replace(/\/$/, '');
       url = '/tags/' + encodeURIComponent(tagName) + '/';
     } else {
       url = '/' + cleanSlug + '/';
