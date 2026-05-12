@@ -94,6 +94,7 @@
 
   function getCurrentSlug() {
     var path = window.location.pathname;
+    console.log('[Graph] getCurrentSlug: path =', path);
     // 尝试从 contentIndex 中查找匹配的节点
     if (contentIndex && Array.isArray(contentIndex)) {
       for (var i = 0; i < contentIndex.length; i++) {
@@ -103,18 +104,22 @@
           try {
             var urlObj = new URL(node.path);
             if (urlObj.pathname === path || normalizeSlug(urlObj.pathname) === normalizeSlug(path)) {
+              console.log('[Graph] getCurrentSlug: matched node.id =', node.id);
               return node.id || node.slug;
             }
           } catch (_) {}
         }
         // 也检查 slug 直接匹配
         if (node.slug && normalizeSlug(node.slug) === normalizeSlug(path)) {
+          console.log('[Graph] getCurrentSlug: matched by slug =', node.id);
           return node.id || node.slug;
         }
       }
     }
     // Fallback: 使用路径
-    return normalizeSlug(path);
+    var fallback = normalizeSlug(path);
+    console.log('[Graph] getCurrentSlug: fallback =', fallback);
+    return fallback;
   }
 
   function isTagSlug(slug) {
@@ -690,10 +695,15 @@
   // ============================================================
   function initLocalGraph(containerId) {
     var container = document.getElementById(containerId);
-    if (!container) return;
+    if (!container) {
+      console.warn('[Graph] initLocalGraph: container not found:', containerId);
+      return;
+    }
+    console.log('[Graph] initLocalGraph: container found, loading data...');
 
     loadContentIndex()
       .then(function () {
+        console.log('[Graph] initLocalGraph: data loaded, calling renderLocalGraph...');
         renderLocalGraph(containerId);
       })
       .catch(function (err) {
@@ -705,9 +715,18 @@
 
   function renderLocalGraph(containerId, currentSlug) {
     var container = document.getElementById(containerId);
-    if (!container || !contentIndex) return;
+    if (!container) {
+      console.warn('[Graph] renderLocalGraph: container not found:', containerId);
+      return;
+    }
+    if (!contentIndex) {
+      console.warn('[Graph] renderLocalGraph: contentIndex not loaded');
+      container.innerHTML = '<div class="graph-empty">图谱数据未加载</div>';
+      return;
+    }
 
     currentSlug = currentSlug || getCurrentSlug();
+    console.log('[Graph] renderLocalGraph: currentSlug =', currentSlug);
 
     // Destroy existing instance
     if (graphInstances.has(containerId)) {
@@ -716,12 +735,17 @@
     }
 
     var graphData = buildLocalGraph(currentSlug, DEFAULTS.depth);
+    console.log('[Graph] renderLocalGraph: graphData.nodes.length =', graphData.nodes.length);
 
     // Guard: too few nodes
     if (graphData.nodes.length < 2) {
+      console.warn('[Graph] renderLocalGraph: too few nodes, showing empty state');
       container.innerHTML = '<div class="graph-empty">暂无关联页面</div>';
       return;
     }
+
+    // 清除容器内的"加载中..."等旧内容，为画布腾出空间
+    container.innerHTML = '';
 
     // Create a shallow copy of config with currentSlug for coloring
     var cfg = {};
@@ -733,11 +757,13 @@
     cfg.currentSlug = currentSlug;
 
     createGraph(container, graphData, cfg).then(function(instance) {
+      console.log('[Graph] renderLocalGraph: graph created successfully');
       if (instance) {
         graphInstances.set(containerId, instance);
       }
     }).catch(function(err) {
       console.error('[Graph] Failed to create local graph:', err);
+      container.innerHTML = '<div class="graph-empty">图谱渲染失败</div>';
     });
   }
 
