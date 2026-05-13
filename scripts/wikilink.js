@@ -48,7 +48,7 @@ function wikilinkFilter(data) {
   // 这样 Embed 内的 [[...]] 不会被 wikilink 重复处理
 
   // 处理 Embed
-  data.content = data.content.replace(EMBED_REGEX, (match, title, heading, alias) => {
+  data.content = data.content.replace(EMBED_REGEX, (match, title, heading, alias, offset, fullContent) => {
     const key = title.trim().toLowerCase();
     const doc = lookup.get(key);
 
@@ -81,8 +81,19 @@ function wikilinkFilter(data) {
     const display = (alias || title).trim();
     const relPath = '/' + (doc.path || '').replace(/index\.html$/, '');
 
-    // 如果指定了 heading，添加锚点链接
-    const headingAnchor = heading ? '#' + heading : '';
+    // 如果指定了 heading，添加锚点链接（URL 编码）
+    const headingAnchor = heading ? '#' + encodeURIComponent(heading) : '';
+
+    // 检测是否在列表项内（避免 <div> 嵌入破坏列表 HTML 结构）
+    const beforeMatch = fullContent.slice(0, offset);
+    const lastNewline = beforeMatch.lastIndexOf('\n');
+    const lineStart = lastNewline >= 0 ? beforeMatch.slice(lastNewline + 1) : beforeMatch;
+    const isInList = /^\s*[-*+]\s/.test(lineStart) || /^\s*\d+\.\s/.test(lineStart);
+
+    if (isInList) {
+      // 列表内使用内联链接，避免 <div> 破坏 <li> 结构
+      return '<a href="' + relPath + headingAnchor + '" class="embed-inline">' + display.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;') + '</a>';
+    }
 
     // 输出嵌入内容
     return '<div class="wikilink-embed">\n' +

@@ -247,4 +247,15 @@
   border-radius: 6px;
 }
 
+/* Inline embed (used inside lists to avoid HTML structure issues) */
+.embed-inline {
+  color: var(--primary-color);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--primary-color);
+  padding: 0 2px;
+}
+.embed-inline:hover {
+  border-bottom-style: solid;
+}
+
 

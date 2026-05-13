@@ -168,4 +168,39 @@ describe('wikilink.js - Wikilink 解析器', () => {
     const result = processWikilink(null);
     expect(result).toBeTruthy();
   });
+
+  // ==============================================================
+  // 测试点 10: ![[Page]] → embed card (非列表上下文)
+  // ==============================================================
+  it('should convert ![[About]] to embed card with wikilink-embed', () => {
+    const result = processWikilink('![[About]]');
+    expect(result.content).toContain('wikilink-embed');
+    expect(result.content).toContain('/about.html');
+    expect(result.content).not.toContain('[[');
+  });
+
+  // ==============================================================
+  // 测试点 11: 列表中 ![[Page]] → inline link (embed-inline)
+  // ==============================================================
+  it('should render embed-inline for ![[About]] inside an unordered list item', () => {
+    const result = processWikilink('- 嵌入页面：![[About]]');
+    expect(result.content).toContain('embed-inline');
+    expect(result.content).not.toContain('wikilink-embed');
+    expect(result.content).toContain('/about.html');
+  });
+
+  it('should render embed-inline for ![[About]] inside an ordered list item', () => {
+    const result = processWikilink('1. 嵌入页面：![[About]]');
+    expect(result.content).toContain('embed-inline');
+    expect(result.content).not.toContain('wikilink-embed');
+  });
+
+  // ==============================================================
+  // 测试点 12: ![[不存在的页面]] → embed-broken
+  // ==============================================================
+  it('should render embed-broken for non-existent ![[Page]]', () => {
+    const result = processWikilink('![[不存在的页面]]');
+    expect(result.content).toContain('embed-broken');
+    expect(result.content).toContain('![');
+  });
 });
