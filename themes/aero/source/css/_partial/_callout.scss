@@ -1,0 +1,211 @@
+/* Callout Styles */
+.callout {
+  margin: 1em 0;
+  padding: 0;
+  border-radius: 8px;
+  border-left: 4px solid;
+  overflow: hidden;
+}
+
+.callout-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 8px 12px;
+  font-weight: 700;
+  font-size: 0.95em;
+}
+
+.callout-content {
+  padding: 8px 12px 12px;
+}
+
+.callout-content p:last-child {
+  margin-bottom: 0;
+}
+
+.callout-content > :first-child {
+  margin-top: 0;
+}
+
+/* Callout type colors */
+.callout-note {
+  border-left-color: #448aff;
+}
+.callout-note .callout-title {
+  background-color: rgba(68, 138, 255, 0.15);
+  color: #448aff;
+}
+
+.callout-tip {
+  border-left-color: #00c853;
+}
+.callout-tip .callout-title {
+  background-color: rgba(0, 200, 83, 0.15);
+  color: #00c853;
+}
+
+.callout-warning {
+  border-left-color: #ff9100;
+}
+.callout-warning .callout-title {
+  background-color: rgba(255, 145, 0, 0.15);
+  color: #ff9100;
+}
+
+.callout-danger {
+  border-left-color: #ff1744;
+}
+.callout-danger .callout-title {
+  background-color: rgba(255, 23, 68, 0.15);
+  color: #ff1744;
+}
+
+.callout-info {
+  border-left-color: #00bcd4;
+}
+.callout-info .callout-title {
+  background-color: rgba(0, 188, 212, 0.15);
+  color: #00bcd4;
+}
+
+.callout-question {
+  border-left-color: #aa00ff;
+}
+.callout-question .callout-title {
+  background-color: rgba(170, 0, 255, 0.15);
+  color: #aa00ff;
+}
+
+.callout-example {
+  border-left-color: #f50057;
+}
+.callout-example .callout-title {
+  background-color: rgba(245, 0, 87, 0.15);
+  color: #f50057;
+}
+
+.callout-quote {
+  border-left-color: #9e9e9e;
+}
+.callout-quote .callout-title {
+  background-color: rgba(158, 158, 158, 0.15);
+  color: #9e9e9e;
+}
+
+.callout-todo {
+  border-left-color: #76ff03;
+}
+.callout-todo .callout-title {
+  background-color: rgba(118, 255, 3, 0.15);
+  color: #76ff03;
+}
+
+.callout-important {
+  border-left-color: #ff6d00;
+}
+.callout-important .callout-title {
+  background-color: rgba(255, 109, 0, 0.15);
+  color: #ff6d00;
+}
+
+.callout-summary {
+  border-left-color: #00e5ff;
+}
+.callout-summary .callout-title {
+  background-color: rgba(0, 229, 255, 0.15);
+  color: #00e5ff;
+}
+
+.callout-abstract {
+  border-left-color: #1de9b6;
+}
+.callout-abstract .callout-title {
+  background-color: rgba(29, 233, 182, 0.15);
+  color: #1de9b6;
+}
+
+/* Callout icons using Remix Icon (ri-) */
+.callout-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.3em;
+  height: 1.3em;
+  font-size: 1.1em;
+}
+
+.callout-note .callout-icon::before {
+  font-family: 'remixicon';
+  content: '\ea0c';  /* ri-information-line */
+}
+.callout-tip .callout-icon::before {
+  font-family: 'remixicon';
+  content: '\f0b1';  /* ri-lightbulb-line */
+}
+.callout-warning .callout-icon::before {
+  font-family: 'remixicon';
+  content: '\f125';  /* ri-alert-line */
+}
+.callout-danger .callout-icon::before {
+  font-family: 'remixicon';
+  content: '\f08d';  /* ri-error-warning-line */
+}
+.callout-info .callout-icon::before {
+  font-family: 'remixicon';
+  content: '\f124';  /* ri-information-2-line - close match */
+}
+.callout-question .callout-icon::before {
+  font-family: 'remixicon';
+  content: '\f091';  /* ri-question-line */
+}
+.callout-example .callout-icon::before {
+  font-family: 'remixicon';
+  content: '\f02d';  /* ri-flask-line */
+}
+.callout-quote .callout-icon::before {
+  font-family: 'remixicon';
+  content: '\f0b3';  /* ri-double-quotes-l */
+}
+.callout-todo .callout-icon::before {
+  font-family: 'remixicon';
+  content: '\f078';  /* ri-checkbox-circle-line */
+}
+.callout-important .callout-icon::before {
+  font-family: 'remixicon';
+  content: '\f030';  /* ri-star-line */
+}
+.callout-summary .callout-icon::before {
+  font-family: 'remixicon';
+  content: '\f17d';  /* ri-file-list-3-line */
+}
+.callout-abstract .callout-icon::before {
+  font-family: 'remixicon';
+  content: '\f17c';  /* ri-file-list-2-line */
+}
+
+/* Dark theme */
+[data-theme="dark"] .callout-note { border-left-color: #82b1ff; }
+[data-theme="dark"] .callout-note .callout-title { color: #82b1ff; }
+[data-theme="dark"] .callout-tip { border-left-color: #69f0ae; }
+[data-theme="dark"] .callout-tip .callout-title { color: #69f0ae; }
+[data-theme="dark"] .callout-warning { border-left-color: #ffd740; }
+[data-theme="dark"] .callout-warning .callout-title { color: #ffd740; }
+[data-theme="dark"] .callout-danger { border-left-color: #ff5252; }
+[data-theme="dark"] .callout-danger .callout-title { color: #ff5252; }
+[data-theme="dark"] .callout-info { border-left-color: #4dd0e1; }
+[data-theme="dark"] .callout-info .callout-title { color: #4dd0e1; }
+[data-theme="dark"] .callout-question { border-left-color: #ce93d8; }
+[data-theme="dark"] .callout-question .callout-title { color: #ce93d8; }
+[data-theme="dark"] .callout-example { border-left-color: #f48fb1; }
+[data-theme="dark"] .callout-example .callout-title { color: #f48fb1; }
+[data-theme="dark"] .callout-quote { border-left-color: #bdbdbd; }
+[data-theme="dark"] .callout-quote .callout-title { color: #bdbdbd; }
+[data-theme="dark"] .callout-todo { border-left-color: #aed581; }
+[data-theme="dark"] .callout-todo .callout-title { color: #aed581; }
+[data-theme="dark"] .callout-important { border-left-color: #ff8a65; }
+[data-theme="dark"] .callout-important .callout-title { color: #ff8a65; }
+[data-theme="dark"] .callout-summary { border-left-color: #80deea; }
+[data-theme="dark"] .callout-summary .callout-title { color: #80deea; }
+[data-theme="dark"] .callout-abstract { border-left-color: #a7ffeb; }
+[data-theme="dark"] .callout-abstract .callout-title { color: #a7ffeb; }

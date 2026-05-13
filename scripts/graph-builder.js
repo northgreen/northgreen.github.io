@@ -110,7 +110,7 @@ function graphBuilderFilter() {
     }
     
     // 解析 Wikilink 格式 [[Title]]
-    const wikilinkRegex = /\[\[([^\[\]|#]+?)(?:#([^\[\]|]*?))?(?:\|([^\[\]]*?))?\]\]/g;
+    const wikilinkRegex = /!?\[\[([^\[\]|#]+?)(?:#([^\[\]|]*?))?(?:\|([^\[\]]*?))?\]\]/g;
     while ((match = wikilinkRegex.exec(content)) !== null) {
       const title = match[1].trim();
       const key = title.toLowerCase();

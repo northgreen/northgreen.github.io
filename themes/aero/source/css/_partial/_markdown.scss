@@ -148,4 +148,101 @@
   background-color:var(--code-block-background);
 }
 
+/* Footnotes */
+.post-content .footnotes {
+  margin-top: 2em;
+  padding-top: 1em;
+  border-top: 1px solid var(--white-main);
+  font-size: 0.875em;
+  color: var(--secondary-color);
+}
+.post-content .footnotes ol {
+  padding-left: 1.5em;
+}
+.post-content .footnote-ref {
+  font-size: 0.75em;
+  vertical-align: super;
+  line-height: 0;
+}
+.post-content .footnote-backref {
+  text-decoration: none;
+  font-size: 0.75em;
+  margin-left: 0.25em;
+}
+.post-content .footnote-backref:hover {
+  text-decoration: underline;
+}
+
+/* Highlight (==text==) */
+.post-content mark {
+  background-color: rgba(from var(--primary-color) r g b / 0.3);
+  color: var(--black-main);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+/* Mermaid diagrams */
+.post-content .mermaid {
+  text-align: center;
+  margin: 1.5em 0;
+  overflow-x: auto;
+  background-color: white;
+  padding: 1em;
+  border-radius: 8px;
+}
+
+/* Embed styles (for ![[...]] transclusion) */
+.wikilink-embed {
+  margin: 1em 0;
+  border: 1px solid var(--white-main);
+  border-left: 3px solid var(--primary-color);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.wikilink-embed-header {
+  padding: 6px 12px;
+  background-color: rgba(from var(--primary-color) r g b / 0.1);
+  font-size: 0.9em;
+  border-bottom: 1px solid var(--white-main);
+}
+
+.wikilink-embed-header a {
+  color: var(--primary-color);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.wikilink-embed-header a:hover {
+  text-decoration: underline;
+}
+
+.wikilink-embed-body {
+  padding: 12px;
+  font-size: 0.95em;
+}
+
+.wikilink-embed-body p:last-child {
+  margin-bottom: 0;
+}
+
+.embed-broken,
+.embed-error {
+  color: #e74c3c;
+  border: 1px dashed #e74c3c;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+.embed-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1em auto;
+  border-radius: 6px;
+}
+
 

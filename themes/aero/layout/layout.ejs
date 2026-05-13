@@ -53,25 +53,60 @@
             })
         })
     </script>
-    <% if (theme.math.enable && page.mathjax) { %>
+    <%
+      // 自动检测是否包含数学公式（$...$ 或 $$...$$）
+      // 跳过 ``` 代码块内的内容
+      var hasMath = false;
+      if (theme.math.enable && page._content) {
+        // 使用原始 Markdown 内容（page._content），避免 $ 被 HTML 转义干扰
+        var content = page._content;
+        // 移除代码块
+        var withoutCode = content.replace(/```[\s\S]*?```/g, '');
+        hasMath = /\$\$[^$]+\$\$/.test(withoutCode) || /\$[^$\n]+\$/.test(withoutCode);
+      }
+    %>
+    <% if (theme.math.enable && (page.mathjax || hasMath)) { %>
         <script>
             window.MathJax = {
                 tex: {
                     inlineMath: [['$', '$'], ["\\(", "\\)"]],
                     displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-                    processEscapes: true
+                    processEscapes: true,
+                    packages: {'[+]': ['noerrors']}
                 },
                 options: {
-                    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] // 忽略的代码块
+                    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+                    ignoreHtmlClass: 'tex2jax_ignore',
+                    processHtmlClass: 'tex2jax_process'
+                },
+                loader: {
+                    load: ['[tex]/noerrors']
+                },
+                startup: {
+                    pageReady: function() {
+                        return MathJax.typesetPromise();
+                    }
                 }
             };
         </script>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+        <script>
+            // PJAX 导航后重新排版 MathJax 公式
+            document.addEventListener('pjax:success', function() {
+                if (window.MathJax && typeof MathJax.typesetPromise === 'function') {
+                    MathJax.typesetPromise();
+                }
+            });
+        </script>
     <% } %>
     <% if (theme.graph && theme.graph.enable) { %>
     <script src="https://cdn.jsdelivr.net/npm/pixi.js@8.18.1/dist/pixi.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
     <script src="/js/graph.js"></script>
+    <% } %>
+    <% if (theme.mermaid && theme.mermaid.enable) { %>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.0/dist/mermaid.min.js"></script>
+    <script src="/js/mermaid-init.js"></script>
     <% } %>
 </body>
 

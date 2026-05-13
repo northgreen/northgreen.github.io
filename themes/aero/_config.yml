@@ -56,3 +56,7 @@ category_list:
 sidebar_category:
   enable: true
   show_count: true
+
+# Mermaid
+mermaid:
+  enable: true
