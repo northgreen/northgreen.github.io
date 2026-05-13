@@ -33,9 +33,9 @@ function transformCalloutSyntax(data) {
       const title = openMatch[3].trim();
       result.push('::: ' + type + (title ? ' ' + title : ''));
       inCallout = true;
-    } else if (inCallout && contMatch) {
-      // callout 延续行：> content => content
-      result.push(contMatch[1] + contMatch[2]); // 缩进 + 实际内容
+    } else if (inCallout && /^(\s*)>/.test(line)) {
+      // callout 内部任意 > 行（含空行、代码围栏等）→ 去掉 > 前缀
+      result.push(line.replace(/^(\s*)>\s?/, '$1'));
     } else {
       // 结束 callout
       if (inCallout) {
@@ -105,7 +105,7 @@ function registerCalloutContainers(md) {
 }
 
 // 注册 before_post_render filter 将 > [!type] 转换为 ::: type
-hexo.extend.filter.register('before_post_render', transformCalloutSyntax);
+hexo.extend.filter.register('before_post_render', transformCalloutSyntax, 8);
 
 // 注册 markdown-it:renderer filter 添加自定义容器渲染
 hexo.extend.filter.register('markdown-it:renderer', registerCalloutContainers);
