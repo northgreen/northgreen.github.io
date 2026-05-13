@@ -844,17 +844,38 @@
   // Event Setup
   // ============================================================
 
+  // ============================================================
+  // Post Page Visibility
+  // ============================================================
+
+  /**
+   * Toggle graph widget visibility based on whether current page is a post.
+   * Hides the widget on non-post pages (homepage, archives, tags, etc.)
+   * and shows it on post pages. Returns true if current page is a post.
+   */
+  function toggleGraphVisibility() {
+    var widget = document.querySelector('.graph-widget');
+    if (!widget) return false;
+    var isPost = !!document.querySelector('.post-full');
+    widget.style.display = isPost ? '' : 'none';
+    return isPost;
+  }
+
   // PJAX navigation integration
   document.addEventListener('pjax:success', function () {
-    renderLocalGraph('graph-container');
+    if (toggleGraphVisibility()) {
+      renderLocalGraph('graph-container');
+    }
   });
 
   // Page load initialization
   document.addEventListener('DOMContentLoaded', function () {
     setTimeout(function () {
-      initLocalGraph('graph-container');
+      if (toggleGraphVisibility()) {
+        initLocalGraph('graph-container');
+      }
 
-      // Wire up global graph buttons
+      // Wire up global graph buttons (always, even when hidden)
       var globalBtn = document.getElementById('graph-global-btn');
       if (globalBtn) {
         globalBtn.addEventListener('click', function (e) {
