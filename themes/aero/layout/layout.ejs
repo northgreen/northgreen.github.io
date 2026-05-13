@@ -108,6 +108,9 @@
     <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.0/dist/mermaid.min.js"></script>
     <script src="/js/mermaid-init.js"></script>
     <% } %>
+    <% if (page.type === 'folders') { %>
+    <script src="/js/folder-tree.js"></script>
+    <% } %>
 </body>
 
 </html>

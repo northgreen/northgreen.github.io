@@ -59,4 +59,9 @@
     --category-text: var(--black-main);
     --category-count-bg: transparent;
     --directory-header-bg: rgba(from var(--primary-color) r g b / 0.12);
+
+    /* Folder tree variables */
+    --folder-line-color: var(--secondary-color);
+    --folder-hover-bg: rgba(from var(--primary-color) r g b / 0.1);
+    --folder-badge-bg: rgba(from var(--primary-color) r g b / 0.15);
 }

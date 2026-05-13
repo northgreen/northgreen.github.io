@@ -1,0 +1,148 @@
+/* Folder Tree Styles */
+
+.folder-tree-page {
+  padding: 10px 0;
+}
+
+.folder-summary {
+  padding: 0 10px 12px;
+  font-size: 0.9em;
+  color: var(--secondary-color);
+  border-bottom: 1px solid rgba(from var(--black-main) r g b / 0.15);
+  margin-bottom: 8px;
+}
+
+.folder-tree {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.folder-node {
+  list-style: none;
+}
+
+.folder-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.folder-toggle:hover {
+  background-color: rgba(from var(--primary-color) r g b / 0.1);
+}
+
+.folder-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  font-size: 0.75em;
+  color: var(--secondary-color);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.folder-name {
+  font-size: 0.95em;
+  font-weight: 600;
+  color: var(--black-main);
+}
+
+.folder-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  font-size: 0.75em;
+  font-weight: 600;
+  border-radius: 10px;
+  background-color: rgba(from var(--primary-color) r g b / 0.15);
+  color: var(--primary-color);
+  margin-left: auto;
+}
+
+.folder-children {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.folder-children.expanded {
+  max-height: none;
+}
+
+.folder-children.collapsed {
+  max-height: 0;
+}
+
+.folder-leaf {
+  list-style: none;
+  position: relative;
+}
+
+.folder-post-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+.folder-post-link:hover {
+  background-color: rgba(from var(--primary-color) r g b / 0.08);
+}
+
+.folder-post-link::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  flex-shrink: 0;
+}
+
+.folder-post-title {
+  font-size: 0.9em;
+  color: var(--black-main);
+  flex: 1;
+}
+
+.folder-post-link:hover .folder-post-title {
+  color: var(--primary-color);
+}
+
+.folder-post-date {
+  font-size: 0.8em;
+  color: var(--secondary-color);
+  flex-shrink: 0;
+}
+
+.folder-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--secondary-color);
+  font-size: 0.95em;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .folder-toggle:hover {
+  background-color: rgba(from var(--primary-color) r g b / 0.15);
+}
+
+[data-theme="dark"] .folder-post-link:hover {
+  background-color: rgba(from var(--primary-color) r g b / 0.12);
+}

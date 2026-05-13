@@ -1,0 +1,97 @@
+<div class="card post-full">
+    <span class="post-title article-title">文件夹</span>
+    <div class="folder-tree-page">
+        <%
+        var tree = build_folder_tree(site.posts);
+        var totalPosts = tree.totalCount;
+        %>
+        <% if (totalPosts > 0) { %>
+            <div class="folder-summary">
+                <span class="folder-total">共 <%= totalPosts %> 篇文章</span>
+            </div>
+            <ul class="folder-tree">
+                <% function renderTree(node, depth) {
+                    var hasPosts = node.posts.length > 0;
+                    var hasChildren = node.children.length > 0;
+                    var isLeaf = !hasChildren;
+                    var hasContent = hasPosts || hasChildren;
+                    if (!hasContent) return '';
+                    var indent = depth * 20;
+                %>
+                    <% if (depth > 0) { %>
+                        <li class="folder-node" style="padding-left: <%= indent %>px">
+                            <div class="folder-toggle <%= hasChildren ? 'has-children' : 'no-children' %>"
+                                 data-path="<%= node.path %>">
+                                <% if (hasChildren) { %>
+                                    <span class="folder-arrow">▸</span>
+                                <% } %>
+                                <span class="folder-name"><%= node.name %></span>
+                                <span class="folder-count"><%= node.totalCount %></span>
+                            </div>
+                            <% if (hasChildren) { %>
+                                <ul class="folder-children expanded">
+                                    <% node.children.forEach(function(child) { %>
+                                        <%= renderTree(child, depth + 1) %>
+                                    <% }); %>
+                                    <% node.posts.forEach(function(post) { %>
+                                        <li class="folder-leaf" style="padding-left: <%= indent + 20 %>px">
+                                            <a href="<%= url_for(post.path) %>" class="folder-post-link">
+                                                <span class="folder-post-title"><%= post.title %></span>
+                                                <% if (post.date) { %>
+                                                    <span class="folder-post-date"><%= post.date %></span>
+                                                <% } %>
+                                            </a>
+                                        </li>
+                                    <% }); %>
+                                </ul>
+                            <% } else { %>
+                                <ul class="folder-children expanded">
+                                    <% node.posts.forEach(function(post) { %>
+                                        <li class="folder-leaf" style="padding-left: <%= indent + 20 %>px">
+                                            <a href="<%= url_for(post.path) %>" class="folder-post-link">
+                                                <span class="folder-post-title"><%= post.title %></span>
+                                                <% if (post.date) { %>
+                                                    <span class="folder-post-date"><%= post.date %></span>
+                                                <% } %>
+                                            </a>
+                                        </li>
+                                    <% }); %>
+                                </ul>
+                            <% } %>
+                        </li>
+                    <% } else { %>
+                        <% /* Root node - render children and root posts */ %>
+                        <% node.children.forEach(function(child) { %>
+                            <%= renderTree(child, 1) %>
+                        <% }); %>
+                        <% if (node.posts.length > 0) { %>
+                            <li class="folder-node">
+                                <div class="folder-toggle has-children expanded"
+                                     data-path="">
+                                    <span class="folder-arrow">▸</span>
+                                    <span class="folder-name">根目录</span>
+                                    <span class="folder-count"><%= node.posts.length %></span>
+                                </div>
+                                <ul class="folder-children expanded">
+                                    <% node.posts.forEach(function(post) { %>
+                                        <li class="folder-leaf" style="padding-left: 20px">
+                                            <a href="<%= url_for(post.path) %>" class="folder-post-link">
+                                                <span class="folder-post-title"><%= post.title %></span>
+                                                <% if (post.date) { %>
+                                                    <span class="folder-post-date"><%= post.date %></span>
+                                                <% } %>
+                                            </a>
+                                        </li>
+                                    <% }); %>
+                                </ul>
+                            </li>
+                        <% } %>
+                    <% } %>
+                <% } %>
+                <%= renderTree(tree, 0) %>
+            </ul>
+        <% } else { %>
+            <div class="folder-empty">暂无文章</div>
+        <% } %>
+    </div>
+</div>

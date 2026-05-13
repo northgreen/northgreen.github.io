@@ -60,3 +60,7 @@ sidebar_category:
 # Mermaid
 mermaid:
   enable: true
+
+# Folders
+folders:
+  enable: true
