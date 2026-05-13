@@ -52,6 +52,20 @@
 </div>
 <% } %>
 
+<% if (theme.sidebar_category && theme.sidebar_category.enable) { %>
+<div class="widget card category-widget">
+    <div class="category-widget-title">分类</div>
+    <div class="category-widget-content">
+        <%- list_categories(site.categories, {
+            style: 'list',
+            show_count: theme.sidebar_category.show_count !== false,
+            depth: 1,
+            class: 'category-widget-list'
+        }) %>
+    </div>
+</div>
+<% } %>
+
 
 <div class="widget music-widget">
     <div class="player-content">

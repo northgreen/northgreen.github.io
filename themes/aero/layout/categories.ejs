@@ -1,0 +1,18 @@
+<div class="card post-full">
+    <span class="post-title article-title">分类</span>
+    <div class="category-cloud-page">
+        <% if (site.categories && site.categories.length) { %>
+            <div class="category-cloud">
+                <%- list_categories(site.categories, {
+                    style: theme.category_list.style || 'list',
+                    show_count: theme.category_list.show_count !== false,
+                    depth: theme.category_list.depth || 0,
+                    orderby: theme.category_list.orderby || 'name',
+                    class: 'category'
+                }) %>
+            </div>
+        <% } else { %>
+            <div class="category-empty">暂无分类</div>
+        <% } %>
+    </div>
+</div>

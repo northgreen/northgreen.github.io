@@ -52,4 +52,11 @@
     --hl-regexp: #a6d189;            /* 正则 */
     --hl-gutter-text: #626880;       /* 行号文字 */
     --hl-gutter-border: #51576d;     /* 行号边框 */
+
+    /* Category variables */
+    --category-bg: rgba(from var(--primary-color) r g b / 0.2);
+    --category-bg-hover: rgba(from var(--primary-color) r g b / 0.35);
+    --category-text: var(--black-main);
+    --category-count-bg: transparent;
+    --directory-header-bg: rgba(from var(--primary-color) r g b / 0.12);
 }

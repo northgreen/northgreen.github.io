@@ -1,0 +1,78 @@
+// 侧边栏分类 widget
+.category-widget {
+  margin-top: 10px;
+
+  .category-widget-title {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 12px;
+    color: var(--secondary-color);
+  }
+
+  .category-widget-content {
+    padding: 4px 12px 12px;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .category-widget-list-item {
+      padding: 4px 0;
+    }
+
+    .category-widget-list-link {
+      text-decoration: none;
+      color: var(--black-main);
+      font-size: 13px;
+      transition: color 0.2s ease;
+      display: inline-block;
+      padding: 2px 0;
+
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
+
+    .category-widget-list-count {
+      font-size: 11px;
+      color: var(--secondary-color);
+      margin-left: 4px;
+    }
+
+    .category-widget-list-child {
+      margin-left: 16px;
+      border-left: 1px solid rgba(from var(--primary-color) r g b / 0.2);
+      padding-left: 10px;
+    }
+  }
+}
+
+// 暗主题适配
+[data-theme="dark"],
+body.dark-mode {
+  .category-widget {
+    .category-widget-title {
+      color: var(--secondary-color);
+    }
+
+    .category-widget-list-link {
+      color: var(--black-main);
+    }
+  }
+}
+
+// 亮主题适配
+[data-theme="light"],
+body:not(.dark-mode) {
+  .category-widget {
+    .category-widget-title {
+      color: #666;
+    }
+
+    .category-widget-list-link {
+      color: #555;
+    }
+  }
+}

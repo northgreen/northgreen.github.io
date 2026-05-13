@@ -1,0 +1,44 @@
+// 首页目录分组
+.directory-group {
+  margin-bottom: 20px;
+}
+
+.directory-group-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 10px 16px;
+  margin-bottom: 16px;
+  background: rgba(from var(--primary-color) r g b / 0.12);
+  border-radius: 3px;
+  box-shadow:
+    inset 0 0 10px rgba(from var(--primary-color) r g b / 0.2),
+    0 0 0 1px var(--white-main),
+    0 0 0 1.5px var(--black-main);
+  backdrop-filter: blur(2px);
+}
+
+.directory-group-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--black-main);
+  text-shadow:
+    0 0 8px var(--white-main),
+    0 0 8px var(--white-main);
+}
+
+.directory-group-count {
+  font-size: 11px;
+  color: var(--secondary-color);
+}
+
+.directory-group-separator {
+  height: 1px;
+  margin: 8px 0 20px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(from var(--primary-color) r g b / 0.3),
+    transparent
+  );
+}

@@ -1,29 +1,43 @@
 <section class="post-list">
-    <% page.posts.forEach(function(post){ %>
-    <article class="card post-item">
-        <% if (post.cover) { %>
-            <div class="post-cover">
-                <a href="<%- url_for(post.path) %>">
-                    <img src="<%- url_for(post.cover) %>" alt="<%= post.title %>">
+    <% var groups = group_by_directory(page.posts); %>
+    <% var dirCount = 0; %>
+    <% for (var dir in groups) { %>
+        <% if (dirCount > 0) { %>
+    <div class="directory-group-separator"></div>
+        <% } %>
+    <div class="directory-group">
+        <div class="directory-group-header">
+            <span class="directory-group-name"><%= dir %></span>
+            <span class="directory-group-count"><%= groups[dir].length %> 篇</span>
+        </div>
+        <% groups[dir].forEach(function(post){ %>
+        <article class="card post-item">
+            <% if (post.cover) { %>
+                <div class="post-cover">
+                    <a href="<%- url_for(post.path) %>">
+                        <img src="<%- url_for(post.cover) %>" alt="<%= post.title %>">
+                    </a>
+                </div>
+            <% } %>
+            <div class="post-info">
+                <span class="post-title">
+                        <%= post.title %>
+                </span>
+                <div class="post-meta">
+                    <%= date(post.date, 'YYYY-MM-DD' ) %>
+                </div>
+                <div class="post-excerpt">
+                    <%- truncate(strip_html(post.excerpt || post.content), {length: 150, omission: '...'}) %>
+                </div>
+                <a href="<%- url_for(post.path) %>" class="button rm-link">
+                    <span class="read-more">Read More...</span>
                 </a>
             </div>
-        <% } %>
-        <div class="post-info">
-            <span class="post-title">
-                    <%= post.title %>
-            </span>
-            <div class="post-meta">
-                <%= date(post.date, 'YYYY-MM-DD' ) %>
-            </div>
-            <div class="post-excerpt">
-                <%- truncate(strip_html(post.excerpt || post.content), {length: 150, omission: '...'}) %>
-            </div>
-            <a href="<%- url_for(post.path) %>" class="button rm-link">
-                <span class="read-more">Read More...</span>
-            </a>
-        </div>
-    </article>
-    <% }) %>
+        </article>
+        <% }) %>
+    </div>
+        <% dirCount++; %>
+    <% } %>
 </section>
 
 <nav class="page-nav">

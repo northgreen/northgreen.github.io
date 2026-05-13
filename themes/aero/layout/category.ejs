@@ -1,0 +1,35 @@
+<section class="post-list">
+    <div class="category-page-header">
+        <span class="category-page-title"><%= page.category %></span>
+        <span class="category-post-count"><%= page.posts.length %> 篇文章</span>
+    </div>
+    <% if (page.posts && page.posts.length) { %>
+        <% page.posts.each(function(post) { %>
+            <article class="card post-item">
+                <% if (post.cover) { %>
+                    <div class="post-cover">
+                        <a href="<%- url_for(post.path) %>">
+                            <img src="<%- url_for(post.cover) %>" alt="<%= post.title %>">
+                        </a>
+                    </div>
+                <% } %>
+                <div class="post-info">
+                    <span class="post-title">
+                            <%= post.title %>
+                    </span>
+                    <div class="post-meta">
+                        <%= date(post.date, 'YYYY-MM-DD') %>
+                    </div>
+                    <div class="post-excerpt">
+                        <%- truncate(strip_html(post.excerpt || post.content), {length: 150, omission: '...'}) %>
+                    </div>
+                    <a href="<%- url_for(post.path) %>" class="button rm-link">
+                        <span class="read-more">Read More...</span>
+                    </a>
+                </div>
+            </article>
+        <% }) %>
+    <% } else { %>
+        <div class="category-empty">该分类暂无文章</div>
+    <% } %>
+</section>

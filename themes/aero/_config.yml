@@ -46,3 +46,13 @@ tagcloud:
 sidebar_tagcloud:
   enable: true
   limit: 20
+
+# Categories
+category_list:
+  style: list
+  show_count: true
+  depth: 0
+  orderby: name
+sidebar_category:
+  enable: true
+  show_count: true
