@@ -135,54 +135,6 @@
   font-size: 1.1em;
 }
 
-.callout-note .callout-icon::before {
-  font-family: 'remixicon';
-  content: '\ea0c';  /* ri-information-line */
-}
-.callout-tip .callout-icon::before {
-  font-family: 'remixicon';
-  content: '\f0b1';  /* ri-lightbulb-line */
-}
-.callout-warning .callout-icon::before {
-  font-family: 'remixicon';
-  content: '\f125';  /* ri-alert-line */
-}
-.callout-danger .callout-icon::before {
-  font-family: 'remixicon';
-  content: '\f08d';  /* ri-error-warning-line */
-}
-.callout-info .callout-icon::before {
-  font-family: 'remixicon';
-  content: '\f124';  /* ri-information-2-line - close match */
-}
-.callout-question .callout-icon::before {
-  font-family: 'remixicon';
-  content: '\f091';  /* ri-question-line */
-}
-.callout-example .callout-icon::before {
-  font-family: 'remixicon';
-  content: '\f02d';  /* ri-flask-line */
-}
-.callout-quote .callout-icon::before {
-  font-family: 'remixicon';
-  content: '\f0b3';  /* ri-double-quotes-l */
-}
-.callout-todo .callout-icon::before {
-  font-family: 'remixicon';
-  content: '\f078';  /* ri-checkbox-circle-line */
-}
-.callout-important .callout-icon::before {
-  font-family: 'remixicon';
-  content: '\f030';  /* ri-star-line */
-}
-.callout-summary .callout-icon::before {
-  font-family: 'remixicon';
-  content: '\f17d';  /* ri-file-list-3-line */
-}
-.callout-abstract .callout-icon::before {
-  font-family: 'remixicon';
-  content: '\f17c';  /* ri-file-list-2-line */
-}
 
 /* Dark theme */
 [data-theme="dark"] .callout-note { border-left-color: #82b1ff; }

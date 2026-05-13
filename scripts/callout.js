@@ -4,7 +4,7 @@
 // 同时注册自定义 markdown-it-container 渲染器
 
 const CALLOUT_OPEN = /^(\s*)> \[!(\w+)\]\s*(.*)$/;  // > [!note] title
-const CALLOUT_LINE = /^(\s*)>\s?(.*)$/;              // > content
+const CALLOUT_LINE = /^(\s*)>\s(.+)$/;              // > content
 
 function transformCalloutSyntax(data) {
   // 提前退出：没有 Hexo 上下文或空内容
@@ -63,6 +63,21 @@ function registerCalloutContainers(md) {
     'important', 'summary', 'abstract'
   ];
 
+  const iconMap = {
+    note: 'ri-information-line',
+    tip: 'ri-lightbulb-line',
+    warning: 'ri-alert-line',
+    danger: 'ri-error-warning-line',
+    info: 'ri-information-line',
+    question: 'ri-question-line',
+    example: 'ri-flask-line',
+    quote: 'ri-double-quotes-l',
+    todo: 'ri-checkbox-circle-line',
+    important: 'ri-star-line',
+    summary: 'ri-file-list-3-line',
+    abstract: 'ri-file-list-2-line'
+  };
+
   types.forEach(function(type) {
     md.use(require('markdown-it-container'), type, {
       validate: function(params) {
@@ -77,7 +92,7 @@ function registerCalloutContainers(md) {
           // 开标签
           return '<div class="callout callout-' + type + '">\n' +
             '<div class="callout-title">\n' +
-            '<span class="callout-icon"></span>\n' +
+            '<i class="' + iconMap[type] + '"></i>\n' +
             md.utils.escapeHtml(title) + '\n' +
             '</div>\n' +
             '<div class="callout-content">\n';
