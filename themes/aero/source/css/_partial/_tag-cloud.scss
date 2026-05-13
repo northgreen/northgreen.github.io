@@ -1,5 +1,7 @@
+@use "common_style";
 // 标签总览页 - 标签云
 .tag-cloud-page {
+  @extend %common-body;
   padding: 20px;
 
   .tag-cloud {
@@ -31,22 +33,3 @@
   }
 }
 
-// 暗主题适配
-[data-theme="dark"],
-body.dark-mode {
-  .tag-cloud-page {
-    .tag-cloud a {
-      text-shadow: 0 0 4px currentColor;
-    }
-  }
-}
-
-// 亮主题适配
-[data-theme="light"],
-body:not(.dark-mode) {
-  .tag-cloud-page {
-    .tag-cloud a {
-      text-shadow: none;
-    }
-  }
-}

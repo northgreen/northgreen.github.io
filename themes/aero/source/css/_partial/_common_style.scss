@@ -1,0 +1,11 @@
+%common-body {
+  position: relative;
+  padding: 10px;
+  background-color: var(--white-main);
+  box-shadow: var(--card-shadow);
+}
+
+%common-btn{
+  background: var(--aero-grad);
+  box-shadow: var(--button-shadow);
+}

@@ -1,4 +1,7 @@
+@use "palette" as *;
+
 :root {
+    @include palette-variables;
 
     /* You can customize the theme color here */
     // --black-main: #303446;
@@ -13,6 +16,8 @@
     --secondary-color: #838ba7;
 
     --text: #c6d0f5;
+    --text1: #b8c0e0;
+    --text2: #a5adcb;
 
     --table-2n:#6e738d;
 
@@ -22,8 +27,7 @@
     color-mix(in srgb, var(--secondary-color), black 10%) 51%, 
     var(--secondary-color) 100%);
 
-    /* You can customize the background image here */
-    --bg-image: url(/image/background.png);
+    --bg-image: url(/image/b-1.jpg);
 
     /* Graph variables */
     --graph-node: #49b0f5;
@@ -80,7 +84,7 @@
     --blockquote-color: #6a737d;
     --table-border: #dfe2e5;
     --error-color: #e74c3c;
-    --mermaid-bg: #ffffff;
+    --mermaid-bg: var(--white-main);
     --inline-code-bg: rgba(27, 31, 35, 0.05);
 
     /* Callout type colors */
@@ -96,18 +100,4 @@
     --callout-important: #ff6d00;
     --callout-summary: #00e5ff;
     --callout-abstract: #1de9b6;
-
-    /* Callout type colors - dark theme */
-    --callout-note-dark: #82b1ff;
-    --callout-tip-dark: #69f0ae;
-    --callout-warning-dark: #ffd740;
-    --callout-danger-dark: #ff5252;
-    --callout-info-dark: #4dd0e1;
-    --callout-question-dark: #ce93d8;
-    --callout-example-dark: #f48fb1;
-    --callout-quote-dark: #bdbdbd;
-    --callout-todo-dark: #aed581;
-    --callout-important-dark: #ff8a65;
-    --callout-summary-dark: #80deea;
-    --callout-abstract-dark: #a7ffeb;
 }

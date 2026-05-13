@@ -51,10 +51,4 @@ $callout-types:
     background-color: rgba(from var(--callout-#{$type}) r g b / 0.15);
     color: var(--callout-#{$type});
   }
-  [data-theme="dark"] .callout-#{$type} {
-    border-left-color: var(--callout-#{$type}-dark);
-  }
-  [data-theme="dark"] .callout-#{$type} .callout-title {
-    color: var(--callout-#{$type}-dark);
-  }
 }

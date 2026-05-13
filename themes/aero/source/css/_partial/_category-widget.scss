@@ -1,3 +1,5 @@
+@use "common_style";
+
 // 侧边栏分类 widget
 .category-widget {
   margin-top: 10px;
@@ -49,30 +51,3 @@
   }
 }
 
-// 暗主题适配
-[data-theme="dark"],
-body.dark-mode {
-  .category-widget {
-    .category-widget-title {
-      color: var(--secondary-color);
-    }
-
-    .category-widget-list-link {
-      color: var(--black-main);
-    }
-  }
-}
-
-// 亮主题适配
-[data-theme="light"],
-body:not(.dark-mode) {
-  .category-widget {
-    .category-widget-title {
-      color: #666;
-    }
-
-    .category-widget-list-link {
-      color: #555;
-    }
-  }
-}

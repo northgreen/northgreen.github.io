@@ -1,5 +1,8 @@
+@use "common_style";
+
 // 分类总览页 - 分类云
 .category-cloud-page {
+  @extend %common-body;
   padding: 20px;
 
   .category-cloud {
@@ -21,21 +24,22 @@
     }
 
     .category-list-link {
+      @extend %common-btn;
       display: inline-block;
       text-decoration: none;
       padding: 4px 14px;
-      border-radius: 15px;
-      background: rgba(from var(--primary-color) r g b / 0.2);
-      box-shadow:
-        inset 0 0 0 1px var(--white-main),
-        0 0 0 0.5px var(--black-main),
-        1px 1px 4px rgba(from var(--black-main) r g b / 0.3);
+      border-radius: 5px;
+      // background: rgba(from var(--primary-color) r g b / 0.2);
+      // box-shadow:
+      //   inset 0 0 0 1px var(--white-main),
+      //   0 0 0 0.5px var(--black-main),
+      //   1px 1px 4px rgba(from var(--black-main) r g b / 0.3);
       transition: all 0.2s ease;
       color: var(--black-main);
       font-size: 14px;
 
       &:hover {
-        background: rgba(from var(--primary-color) r g b / 0.35);
+        // background: rgba(from var(--primary-color) r g b / 0.35);
         box-shadow:
           inset 0 0 0 1px var(--white-main),
           0 0 0 0.5px var(--black-main),
@@ -67,24 +71,3 @@
   }
 }
 
-// 暗主题适配
-[data-theme="dark"],
-body.dark-mode {
-  .category-cloud-page {
-    .category-list-link {
-      background: rgba(from var(--primary-color) r g b / 0.2);
-      color: var(--black-main);
-    }
-  }
-}
-
-// 亮主题适配
-[data-theme="light"],
-body:not(.dark-mode) {
-  .category-cloud-page {
-    .category-list-link {
-      background: rgba(from var(--primary-color) r g b / 0.1);
-      color: #555;
-    }
-  }
-}

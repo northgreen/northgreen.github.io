@@ -1,0 +1,37 @@
+@mixin palette-variables {
+    /* Catppuccin Frappe Palette (https://catppuccin.com) */
+
+    /* Frappe Base & Surface Colors */
+    --ctp-base: #303446;
+    --ctp-mantle: #292c3c;
+    --ctp-crust: #232634;
+    --ctp-surface0: #414559;
+    --ctp-surface1: #51576d;
+    --ctp-surface2: #626880;
+
+    /* Frappe Text Colors */
+    --ctp-text: #c6d0f5;
+    --ctp-subtext0: #b8c0e0;
+    --ctp-subtext1: #a5adcb;
+
+    /* Frappe Overlay Colors */
+    --ctp-overlay0: #6e738d;
+    --ctp-overlay1: #737994;
+    --ctp-overlay2: #838ba7;
+
+    /* Frappe Accent Colors */
+    --ctp-rosewater: #f2d5cf;
+    --ctp-flamingo: #eebebe;
+    --ctp-pink: #f4b8e4;
+    --ctp-mauve: #ca9ee6;
+    --ctp-red: #e78284;
+    --ctp-maroon: #ea999c;
+    --ctp-peach: #ef9f76;
+    --ctp-yellow: #e5c890;
+    --ctp-green: #a6d189;
+    --ctp-teal: #81c8be;
+    --ctp-sky: #99d1db;
+    --ctp-sapphire: #85c1dc;
+    --ctp-blue: #8caaee;
+    --ctp-lavender: #babbf1;
+}
