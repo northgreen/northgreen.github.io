@@ -2,7 +2,7 @@
 
 ## VCS
 
-- **Jujutsu (jj)** is the VCS for the entire project (`.jj/` exists). **Never use `git`** — use `jj describe`, `jj new`, `jj log`, `jj diff`. `themes/aero/` is a regular subdirectory, NOT a nested git repo.
+- **Jujutsu (jj)** is the VCS for the main repo (`.jj/` exists). **Never use `git`** in the root — use `jj describe`, `jj new`, `jj log`, `jj diff`.
 - `.gitignore` ignores `public/`, `node_modules/`, `db.json`, `.deploy*/`.
 
 ## Commands
@@ -52,7 +52,8 @@ Both use `this.locals.get('posts')` and `this.locals.get('pages')` — they need
 
 ## Critical Gotchas
 
-1. **SCSS `:root` isolation** — `hexo-renderer-sass` treats each partial independently. CSS variables must be declared exactly once in `_variables.scss:root`.
-2. **`contentIndex.json` is an array** — `graph.js` must iterate with indexed `for` loop (not `for...in`).
-3. **Wikilink lookup priority**: title (case-insensitive) > source filename > slug.
-4. **Graph click navigation** uses `node.path` (full URL via `new URL(node.path).pathname`). The `node` object must include `path` from `contentIndex.json` details.
+1. **`themes/aero/` is a nested git repo** — changes there need `git commit` inside that directory, not `jj`.
+2. **SCSS `:root` isolation** — `hexo-renderer-sass` treats each partial independently. CSS variables must be declared exactly once in `_variables.scss:root`.
+3. **`contentIndex.json` is an array** — `graph.js` must iterate with indexed `for` loop (not `for...in`).
+4. **Wikilink lookup priority**: title (case-insensitive) > source filename > slug.
+5. **Graph click navigation** uses `node.path` (full URL via `new URL(node.path).pathname`). The `node` object must include `path` from `contentIndex.json` details.

@@ -87,22 +87,4 @@
   padding: 0 0.25em;
 }
 
-// Dark theme — Catppuccin Frappe palette
-[data-theme="dark"],
-body.dark-mode {
-  --hl-background: #303446;
-  --hl-text: #c6d0f5;
-  --hl-comment: #737994;
-  --hl-keyword: #ca9ee6;
-  --hl-string: #a6d189;
-  --hl-function: #8caaee;
-  --hl-number: #ef9f76;
-  --hl-class: #e5c890;
-  --hl-attribute: #e78284;
-  --hl-tag: #e78284;
-  --hl-operator: #81c8be;
-  --hl-param: #e78284;
-  --hl-regexp: #a6d189;
-  --hl-gutter-text: #626880;
-  --hl-gutter-border: #51576d;
-}
+

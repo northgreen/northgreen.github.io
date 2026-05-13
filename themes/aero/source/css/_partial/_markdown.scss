@@ -60,9 +60,9 @@
 .post-content blockquote {
     margin: 0 0 1.5em 0;
     padding: 10px 20px;
-    border-left: 4px solid #dfe2e5;
-    background-color: #f8f9fa;
-    color: #6a737d;
+    border-left: 4px solid var(--blockquote-border);
+    background-color: var(--blockquote-bg);
+    color: var(--blockquote-color);
 }
 
 .post-content blockquote p {
@@ -87,7 +87,7 @@
 
 .post-content th,
 .post-content td {
-    border: 1px solid #dfe2e5;
+    border: 1px solid var(--table-border);
     padding: 6px 13px;
 }
 
@@ -102,7 +102,7 @@
 }
 
 .post-content :not(pre) > code {
-    background-color: rgba(27,31,35,0.05);
+    background-color: var(--inline-code-bg);
     color: var(--primary-color);
     padding: 0.2em 0.4em;
     border-radius: 3px;
@@ -189,7 +189,7 @@
   text-align: center;
   margin: 1.5em 0;
   overflow-x: auto;
-  background-color: white;
+  background-color: var(--mermaid-bg);
   padding: 1em;
   border-radius: 8px;
 }
@@ -233,8 +233,8 @@
 
 .embed-broken,
 .embed-error {
-  color: #e74c3c;
-  border: 1px dashed #e74c3c;
+  color: var(--error-color);
+  border: 1px dashed var(--error-color);
   padding: 2px 6px;
   border-radius: 3px;
   font-size: 0.9em;
