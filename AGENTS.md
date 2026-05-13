@@ -3,7 +3,6 @@
 ## VCS
 
 - **Jujutsu (jj)** is the VCS for the main repo (`.jj/` exists). **Never use `git`** in the root — use `jj describe`, `jj new`, `jj log`, `jj diff`.
-- **`themes/aero/`** is a **nested git repo** (cloned from `https://github.com/5h1nnN/hexo-theme-aero.git`, not a submodule). Modifications to theme files must be committed with `git` inside `themes/aero/`, not with `jj`.
 - `.gitignore` ignores `public/`, `node_modules/`, `db.json`, `.deploy*/`.
 
 ## Commands

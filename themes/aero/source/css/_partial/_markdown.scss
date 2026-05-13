@@ -28,7 +28,7 @@
 
 .post-content strong {
     font-weight: 700;
-    color: #000;
+    color: var(--text);
 }
 
 .post-content em {
@@ -92,12 +92,13 @@
 }
 
 .post-content th {
-    background-color: #f6f8fa;
+
+    background-color: var(--table-2n);
     font-weight: 700;
 }
 
 .post-content tr:nth-child(2n) {
-    background-color: #f8f9fa;
+    background-color: var(--table-2n);
 }
 
 .post-content :not(pre) > code {
