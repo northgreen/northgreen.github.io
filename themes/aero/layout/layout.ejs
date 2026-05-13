@@ -25,17 +25,18 @@
             <span class="menu-icon ri-menu-fill"></span>
         </div>
 
-            <div class="main-layout">
-                <aside id="sidebar">
-                    <%- partial('_partial/widget') %>
-                </aside>
-                <main id="pjax-container">
-                    <%- body %>
-                </main>
-                <div class="sidebar-mask" id="sidebar-mask"></div>
-            </div>
-            <!-- footer -->
-            <%- partial('_partial/footer') %>
+        <div class="main-layout">
+            <aside id="sidebar">
+                <%- partial('_partial/widget') %>
+            </aside>
+            <main id="pjax-container">
+                <%- body %>
+            </main>
+            <div class="sidebar-mask" id="sidebar-mask"></div>
+        </div>
+
+        <!-- footer -->
+        <%- partial('_partial/footer') %>
     </div>
 
     <script src="/js/responsive.js"></script>
