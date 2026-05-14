@@ -79,25 +79,33 @@ body::before {
 .extend::after {
   content: '';
   position: absolute;
+  // position: relative;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: linear-gradient(to top,
-      var(--highlight-color) 0%,
-      var(--highlight-color) 50%,
-      color-mix(in srgb, var(--highlight-color), black 10%) 51%,
-      var(--highlight-color) 80%);
-  box-shadow: inset 0 0 0 2px var(--highlight-color),
-    0 0 3px var(--highlight-color);
+      var(--hover-light2) 0%,
+      color-mix(in srgb, var(--hover-light2), black 20%) 51%,
+      var(--hover-light2) 50%,
+      var(--hover-light2) 80%);
+  box-shadow: inset 0 0 0 2px var(--highlight-color), 0 0 3px var(--highlight-color);
   transition: all 0.2s;
   opacity: 0;
 }
 
+// .button:hover {
+//   z-index: 2;
+// }
+
 .button:hover::after,
 .page-number:not(.current):hover::after,
 .extend:hover::after {
-  opacity: 1;
+  // z-index:10;
+  opacity: 0.5;
+  box-shadow: 0 0 3px 6px var(--hover-light) inset;
+  // 0 0 10px 3px var(--hover-light) inset;
+  // 0 0 7px 10px var(--hover-light2),
 }
 
 .button:active::after,

@@ -1,4 +1,9 @@
 <footer class="card">
+    <div class="footer-rss">
+        <a href="<%= url_for('atom.xml') %>" target="_blank" rel="noopener" aria-label="RSS Feed">
+            <i class="ri-rss-line"></i>
+        </a>
+    </div>
     <div class="copyright">
         <p>Copyright © <%= date(new Date(), 'YYYY' ) %>
                 <%= config.author %>

@@ -5,7 +5,7 @@
 # Site
 title: Ictye Blog
 subtitle: ''
-description: ''
+description: '一个普通的blog'
 keywords:
 author: Ictye
 language: zh
@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: http://northgreen.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -115,6 +115,23 @@ markdown:
     - markdown-it-emoji
 
 theme: aero
+
+# RSS Feed
+feed:
+  enable: true
+  type:
+    - atom
+    - rss2
+  path:
+    - atom.xml
+    - rss2.xml
+  limit: 50
+  hub:
+  content: true
+  content_limit:
+  content_limit_delim: ' '
+  order_by: -date
+  icon: /image/icon/vista_messenger.jpg
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment

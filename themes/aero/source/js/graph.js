@@ -640,7 +640,7 @@
         if (animId !== null) cancelAnimationFrame(animId);
         window.removeEventListener('resize', handleResize);
         simulation.stop();
-        app.destroy(true, { children: true, texture: true });
+        app.destroy({ children: true, texture: true });
       },
       resize: handleResize,
     };

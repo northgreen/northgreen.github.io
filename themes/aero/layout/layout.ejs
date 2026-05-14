@@ -14,6 +14,8 @@
         <% } %>
     <% } %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.9.1/fonts/remixicon.css">
+    <link rel="alternate" type="application/atom+xml" title="<%= config.title %> - Atom" href="<%= url_for('atom.xml') %>">
+    <link rel="alternate" type="application/rss+xml" title="<%= config.title %> - RSS" href="<%= url_for('rss2.xml') %>">
 </head>
 
 <body>
