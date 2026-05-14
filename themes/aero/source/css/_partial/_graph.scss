@@ -1,3 +1,4 @@
+@use "common_style";
 // 局部图谱 - 侧边栏
 
 .graph-widget {
@@ -62,8 +63,8 @@
   width: 100vw;
   height: 100vh;
   z-index: 9999;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(9px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -90,10 +91,11 @@
     }
 
     .global-graph-close {
+      @extend %common-btn;
       width: 32px;
       height: 32px;
       border: none;
-      background: rgba(255, 255, 255, 0.12);
+      // background: rgba(255, 255, 255, 0.12);
       color: var(--graph-overlay-text);
       border-radius: 50%;
       cursor: pointer;

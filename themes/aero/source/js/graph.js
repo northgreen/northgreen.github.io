@@ -782,7 +782,7 @@
         '<span class="global-graph-title">关系图谱</span>' +
         '<button class="global-graph-close" id="global-graph-close">&times;</button>' +
       '</div>' +
-      '<div id="global-graph-container" class="global-graph-container"></div>';
+      '<div id="global-graph-container" class="global-graph-container card"></div>';
     document.body.appendChild(overlay);
 
     // Close button
