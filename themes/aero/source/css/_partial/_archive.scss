@@ -1,35 +1,35 @@
 .year-group {
-    position: relative;
-    padding: 10px;
-    border-radius: 3px;
-    margin: 20px 0;
+  padding: 10px;
+  border-radius: 3px;
+  margin: 20px 0;
 }
 
 .year-header {
-    font-size: 24px;
-    text-shadow: var(--glow-shadow), var(--glow-shadow), var(--glow-shadow), var(--glow-shadow), var(--glow-shadow), var(--glow-shadow);
-    padding: 10px 0;
+  font-size: 24px;
+  text-shadow: var(--glow-shadow), var(--glow-shadow), var(--glow-shadow), var(--glow-shadow), var(--glow-shadow), var(--glow-shadow);
+  padding: 10px 0;
 }
 
 .archive-list {
-    padding: 10px;
-    background-color: var(--white-main);
-    box-shadow: var(--card-shadow);
+  padding: 10px;
+  background-color: var(--white-main);
+  box-shadow: var(--card-shadow);
+  position: relative;
 }
 
 .archive-item {
-    padding: 5px 0;
-    width: 100%;
+  padding: 5px 0;
+  width: 100%;
 }
 
 .archive-title {
-    margin-left: 5px;
-    color: var(--primary-color);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: all 0.2s;
+  margin-left: 5px;
+  color: var(--primary-color);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s;
 }
 
 .archive-title:hover {
-    border-bottom-color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
 }
