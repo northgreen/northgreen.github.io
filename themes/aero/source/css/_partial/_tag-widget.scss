@@ -6,7 +6,7 @@
     font-size: 13px;
     font-weight: 600;
     padding: 8px 12px;
-    color: var(--secondary-color);
+    color: var(--text);
   }
 
   .tag-cloud-content {
@@ -43,32 +43,3 @@
   }
 }
 
-// 暗主题适配
-[data-theme="dark"],
-body.dark-mode {
-  .tag-cloud-widget {
-    .tag-cloud-title {
-      color: var(--secondary-color);
-    }
-
-    .tag-cloud-content a {
-      background: rgba(from var(--primary-color) r g b / 0.2);
-      color: var(--black-main);
-    }
-  }
-}
-
-// 亮主题适配
-[data-theme="light"],
-body:not(.dark-mode) {
-  .tag-cloud-widget {
-    .tag-cloud-title {
-      color: #666;
-    }
-
-    .tag-cloud-content a {
-      background: rgba(from var(--primary-color) r g b / 0.1);
-      color: #555;
-    }
-  }
-}
