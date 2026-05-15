@@ -49,22 +49,22 @@
     --graph-wikilink-broken-border: #e03131; /* 断裂维基链接边框 */
     --graph-widget-title-light: #666;        /* 亮主题侧边栏标题文字 */
 
-    /* Highlight.js syntax highlighting variables */
-    --hl-background: #303446;        /* 代码块背景 */
-    --hl-text: #c6d0f5;              /* 普通文本 */
-    --hl-comment: #737994;           /* 注释 italic */
-    --hl-keyword: #ca9ee6;           /* 关键字 */
-    --hl-string: #a6d189;            /* 字符串 */
-    --hl-function: #8caaee;          /* 函数/标题 */
-    --hl-number: #ef9f76;            /* 数字 */
-    --hl-class: #e5c890;             /* 类名 */
-    --hl-attribute: #e78284;         /* 属性 */
-    --hl-tag: #e78284;               /* 标签 */
-    --hl-operator: #81c8be;          /* 运算符 */
-    --hl-param: #e78284;             /* 参数 */
-    --hl-regexp: #a6d189;            /* 正则 */
-    --hl-gutter-text: #626880;       /* 行号文字 */
-    --hl-gutter-border: #51576d;     /* 行号边框 */
+    /* Highlight.js syntax highlighting variables (Catppuccin Frappe) */
+    --hl-background: var(--ctp-base);        /* 代码块背景 */
+    --hl-text: var(--ctp-text);              /* 普通文本 */
+    --hl-comment: var(--ctp-overlay1);       /* 注释 italic */
+    --hl-keyword: var(--ctp-mauve);          /* 关键字 */
+    --hl-string: var(--ctp-green);           /* 字符串 */
+    --hl-function: var(--ctp-blue);          /* 函数/标题 */
+    --hl-number: var(--ctp-peach);           /* 数字 */
+    --hl-class: var(--ctp-yellow);           /* 类名 */
+    --hl-attribute: var(--ctp-red);          /* 属性 */
+    --hl-tag: var(--ctp-red);                /* 标签 */
+    --hl-operator: var(--ctp-teal);          /* 运算符 */
+    --hl-param: var(--ctp-red);              /* 参数 */
+    --hl-regexp: var(--ctp-green);           /* 正则 */
+    --hl-gutter-text: var(--ctp-surface2);   /* 行号文字 */
+    --hl-gutter-border: var(--ctp-surface1); /* 行号边框 */
 
     /* Category variables */
     --category-bg: rgba(from var(--primary-color) r g b / 0.2);
