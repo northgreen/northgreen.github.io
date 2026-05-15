@@ -92,17 +92,17 @@
     --mermaid-bg: var(--white-main);
     --inline-code-bg: rgba(27, 31, 35, 0.05);
 
-    /* Callout type colors */
-    --callout-note: #448aff;
-    --callout-tip: #00c853;
-    --callout-warning: #ff9100;
-    --callout-danger: #ff1744;
-    --callout-info: #00bcd4;
-    --callout-question: #aa00ff;
-    --callout-example: #f50057;
-    --callout-quote: #9e9e9e;
-    --callout-todo: #76ff03;
-    --callout-important: #ff6d00;
-    --callout-summary: #00e5ff;
-    --callout-abstract: #1de9b6;
+    /* Callout type colors (Catppuccin Frappe) */
+    --callout-note: var(--ctp-blue);
+    --callout-tip: var(--ctp-green);
+    --callout-warning: var(--ctp-peach);
+    --callout-danger: var(--ctp-red);
+    --callout-info: var(--ctp-sky);
+    --callout-question: var(--ctp-mauve);
+    --callout-example: var(--ctp-pink);
+    --callout-quote: var(--ctp-subtext1);
+    --callout-todo: var(--ctp-sapphire);
+    --callout-important: var(--ctp-yellow);
+    --callout-summary: var(--ctp-rosewater);
+    --callout-abstract: var(--ctp-teal);
 }
