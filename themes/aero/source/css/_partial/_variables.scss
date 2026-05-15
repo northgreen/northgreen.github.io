@@ -34,20 +34,20 @@
 
     --bg-image: url(/image/b-1.jpg);
 
-    /* Graph variables */
-    --graph-node: #49b0f5;
-    --graph-tag: #82c91e;
-    --graph-highlight: #fab005;
-    --graph-visited: #868e96;
-    --graph-link: #a0c4ff;
-    --graph-text: #c6d0f5;
-    --graph-tag-stroke: #5c940d;
+    /* Graph variables (Catppuccin Frappe) */
+    --graph-node: var(--ctp-sky);
+    --graph-tag: var(--ctp-green);
+    --graph-highlight: var(--ctp-yellow);
+    --graph-visited: var(--ctp-overlay1);
+    --graph-link: var(--ctp-sky);
+    --graph-text: var(--ctp-text);
+    --graph-tag-stroke: var(--ctp-surface1);
 
     /* Graph UI text variables */
     --graph-overlay-text: #fff;              /* 全局图谱标题/关闭按钮文字 */
-    --graph-wikilink-broken-text: #e03131;   /* 断裂维基链接文字 */
-    --graph-wikilink-broken-border: #e03131; /* 断裂维基链接边框 */
-    --graph-widget-title-light: #666;        /* 亮主题侧边栏标题文字 */
+    --graph-wikilink-broken-text: var(--ctp-red);   /* 断裂维基链接文字 */
+    --graph-wikilink-broken-border: var(--ctp-red); /* 断裂维基链接边框 */
+    --graph-widget-title-light: var(--ctp-overlay1); /* 亮主题侧边栏标题文字 */
 
     /* Highlight.js syntax highlighting variables (Catppuccin Frappe) */
     --hl-background: var(--ctp-base);        /* 代码块背景 */
@@ -85,8 +85,8 @@
 
     /* Content colors */
     --blockquote-border: #dfe2e5;
-    --blockquote-bg: #f8f9fa;
-    --blockquote-color: #6a737d;
+    --blockquote-bg: var(--ctp-surface0);
+    --blockquote-color: var(--text2);
     --table-border: #dfe2e5;
     --error-color: #e74c3c;
     --mermaid-bg: var(--white-main);
