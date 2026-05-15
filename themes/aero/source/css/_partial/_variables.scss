@@ -6,11 +6,8 @@ html{
 
 :root {
     /* You can customize the theme color here */
-    // --black-main: #303446;
-    // --white-main: #ffffff ;
-
-    --black-main: #c6d0f5;
-    --white-main: #303446;
+    --black-main: var(--ctp-text);
+    --white-main: var(--ctp-base);
 
     --code-block-background:#414559;
     --primary-color: var(--ctp-mauve);
@@ -18,9 +15,9 @@ html{
     --highlight-color: #949cbb;
     --secondary-color: #838ba7;
 
-    --text: #c6d0f5;
-    --text1: #b8c0e0;
-    --text2: #a5adcb;
+    --text: var(--ctp-text);
+    --text1:  var(--ctp-subtext0);
+    --text2:  var(--ctp-subtext1);
 
     --table-th:var(--ctp-overlay1);
     --table-2n:var(--ctp-overlay0);
