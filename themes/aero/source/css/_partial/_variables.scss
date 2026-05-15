@@ -11,7 +11,7 @@ html{
 
     --code-block-background:#414559;
     --primary-color: var(--ctp-mauve);
-    --primary-color-p: #ccbfff;
+    --primary-color-p: color-mix(in srgb, var(--ctp-mauve), white 25%);
     --highlight-color: #949cbb;
     --secondary-color: #838ba7;
 

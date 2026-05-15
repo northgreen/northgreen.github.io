@@ -118,7 +118,7 @@ function wikilinkFilter(data) {
       const relPath = '/' + (doc.path || '').replace(/index\.html$/, '');
       const url = relPath !== '/' ? relPath : (doc.permalink || '/');
       const display = (alias || title).trim();
-      const href = heading ? url + '#' + heading : url;
+      const href = heading ? url + '#' + encodeURIComponent(heading) : url;
       return '[' + display + '](' + href + ')';
     }
 

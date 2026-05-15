@@ -94,7 +94,6 @@
 
   function getCurrentSlug() {
     var path = window.location.pathname;
-    console.log('[Graph] getCurrentSlug: path =', path);
     // 尝试从 contentIndex 中查找匹配的节点
     if (contentIndex && Array.isArray(contentIndex)) {
       for (var i = 0; i < contentIndex.length; i++) {
@@ -104,21 +103,18 @@
           try {
             var urlObj = new URL(node.path);
             if (urlObj.pathname === path || normalizeSlug(urlObj.pathname) === normalizeSlug(path)) {
-              console.log('[Graph] getCurrentSlug: matched node.id =', node.id);
               return node.id || node.slug;
             }
           } catch (_) {}
         }
         // 也检查 slug 直接匹配
         if (node.slug && normalizeSlug(node.slug) === normalizeSlug(path)) {
-          console.log('[Graph] getCurrentSlug: matched by slug =', node.id);
           return node.id || node.slug;
         }
       }
     }
     // Fallback: 使用路径
     var fallback = normalizeSlug(path);
-    console.log('[Graph] getCurrentSlug: fallback =', fallback);
     return fallback;
   }
 
@@ -699,11 +695,9 @@
       console.warn('[Graph] initLocalGraph: container not found:', containerId);
       return;
     }
-    console.log('[Graph] initLocalGraph: container found, loading data...');
 
     loadContentIndex()
       .then(function () {
-        console.log('[Graph] initLocalGraph: data loaded, calling renderLocalGraph...');
         renderLocalGraph(containerId);
       })
       .catch(function (err) {
@@ -726,7 +720,6 @@
     }
 
     currentSlug = currentSlug || getCurrentSlug();
-    console.log('[Graph] renderLocalGraph: currentSlug =', currentSlug);
 
     // Destroy existing instance
     if (graphInstances.has(containerId)) {
@@ -735,7 +728,6 @@
     }
 
     var graphData = buildLocalGraph(currentSlug, DEFAULTS.depth);
-    console.log('[Graph] renderLocalGraph: graphData.nodes.length =', graphData.nodes.length);
 
     // Guard: too few nodes
     if (graphData.nodes.length < 2) {
@@ -757,7 +749,6 @@
     cfg.currentSlug = currentSlug;
 
     createGraph(container, graphData, cfg).then(function(instance) {
-      console.log('[Graph] renderLocalGraph: graph created successfully');
       if (instance) {
         graphInstances.set(containerId, instance);
       }

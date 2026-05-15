@@ -108,7 +108,7 @@ describe('wikilink.js - Wikilink 解析器', () => {
   // ==============================================================
   it('should convert [[Title#Heading]] with anchor', () => {
     const result = processWikilink('查看 [[test#安装指南]]');
-    expect(result.content).toContain('/2026/05/12/qwq/test/#安装指南');
+    expect(result.content).toContain('/2026/05/12/qwq/test/#%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97');
   });
 
   // ==============================================================
@@ -117,7 +117,7 @@ describe('wikilink.js - Wikilink 解析器', () => {
   it('should convert [[Title#Heading|Alias]] with both anchor and alias', () => {
     const result = processWikilink('查看 [[Hello World#简介|欢迎页面]]');
     expect(result.content).toContain(
-      '[欢迎页面](/2026/05/12/hello-world/#简介)'
+      '[欢迎页面](/2026/05/12/hello-world/#%E7%AE%80%E4%BB%8B)'
     );
   });
 

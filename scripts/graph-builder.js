@@ -86,6 +86,10 @@ function graphBuilderFilter() {
       }
     }
     
+    // DEAD CODE: In after_generate phase, doc.content is already HTML.
+    // Markdown links and wikilinks were already processed in before_post_render.
+    // Keeping for reference but disabled.
+    /*
     // 也解析 plain markdown 链接模式 [text](path)
     const mdLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
     while ((match = mdLinkRegex.exec(content)) !== null) {
@@ -129,6 +133,7 @@ function graphBuilderFilter() {
         links.add(targetSlug);
       }
     }
+    */
     
     // 构造 slug 用于 ID - 去掉前导/尾部斜杠，确保 id = "slug/"
     let slug = (doc.slug || '').replace(/^\/+|\/+$/g, '');

@@ -158,22 +158,6 @@ describe('graph-builder', () => {
       expect(n.links).toContain('other-page/');
     });
 
-    it('应解析 Markdown [text](/path) 链接', () => {
-      const target = createMockDoc({
-        slug: 'other-page',
-        title: 'Other Page',
-        permalink: 'http://localhost:4000/other-page/',
-      });
-      const source = createMockDoc({
-        slug: 'hello-world',
-        title: 'Hello World',
-        content: '<p>查看 [另一页](/other-page/)</p>',
-      });
-      const nodes = runWithContext([source, target]);
-      const n = nodes.find((x) => x.id === 'hello-world/');
-      expect(n.links).toContain('other-page/');
-    });
-
     it('应忽略外部链接（包含 ://）', () => {
       const source = createMockDoc({
         slug: 'hello-world',
@@ -194,43 +178,6 @@ describe('graph-builder', () => {
       const nodes = runWithContext([source]);
       const n = nodes.find((x) => x.id === 'hello-world/');
       expect(n.links).toHaveLength(0);
-    });
-  });
-
-  // ==============================================================
-  // 测试点 3: 正确解析 Wikilink [[Title]]
-  // ==============================================================
-  describe('正确解析 Wikilink [[Title]]', () => {
-    it('应解析 [[Title]] 格式的 wikilink', () => {
-      const target = createMockDoc({
-        slug: 'other-page',
-        title: 'Other Page',
-        permalink: 'http://localhost:4000/other-page/',
-      });
-      const source = createMockDoc({
-        slug: 'hello-world',
-        title: 'Hello World',
-        content: '<p>参见 [[Other Page]]</p>',
-      });
-      const nodes = runWithContext([source, target]);
-      const n = nodes.find((x) => x.id === 'hello-world/');
-      expect(n.links).toContain('other-page/');
-    });
-
-    it('wikilink 匹配应忽略大小写', () => {
-      const target = createMockDoc({
-        slug: 'other-page',
-        title: 'Other Page',
-        permalink: 'http://localhost:4000/other-page/',
-      });
-      const source = createMockDoc({
-        slug: 'hello-world',
-        title: 'Hello World',
-        content: '<p>参见 [[other page]]</p>',
-      });
-      const nodes = runWithContext([source, target]);
-      const n = nodes.find((x) => x.id === 'hello-world/');
-      expect(n.links).toContain('other-page/');
     });
   });
 
@@ -259,27 +206,6 @@ describe('graph-builder', () => {
       expect(postNode.links).toHaveLength(1);
       expect(postNode.links[0]).toBe(aboutNode.id);
     });
-
-    it('应通过 wikilink [[About]] 链接到 .html 页面', () => {
-      const about = createMockDoc({
-        slug: 'about/index.html',
-        title: 'About',
-        source: 'source/about/index.md',
-        permalink: 'http://localhost:4000/about/index.html',
-      });
-      const post = createMockDoc({
-        slug: 'hello-world',
-        title: 'Hello World',
-        content: '<p>参见 [[About]]</p>',
-      });
-      const nodes = runWithContext([post, about]);
-
-      const aboutNode = nodes.find((x) => x.title === 'About');
-      const postNode = nodes.find((x) => x.id === 'hello-world/');
-
-      expect(aboutNode).toBeTruthy();
-      expect(postNode.links).toContain(aboutNode.id);
-    });
   });
 
   // ==============================================================
@@ -292,18 +218,6 @@ describe('graph-builder', () => {
           slug: 'hello-world',
           title: 'Hello World',
           content: '<p><a href="/hello-world/">自身链接</a></p>',
-        }),
-      ]);
-      const n = nodes.find((x) => x.id === 'hello-world/');
-      expect(n.links).toHaveLength(0);
-    });
-
-    it('wikilink [[Self]] 指向自身时应被过滤', () => {
-      const nodes = runWithContext([
-        createMockDoc({
-          slug: 'hello-world',
-          title: 'Hello World',
-          content: '<p>[[Hello World]]</p>',
         }),
       ]);
       const n = nodes.find((x) => x.id === 'hello-world/');
@@ -361,33 +275,6 @@ describe('graph-builder', () => {
         }),
       ]);
       expect(nodes[0].path).toBe('/hello-world/');
-    });
-  });
-
-  // ==============================================================
-  // 测试点 8: 双向链接验证
-  // ==============================================================
-  describe('双向链接验证', () => {
-    it('A → B 且 B → A 时应生成双向链接', () => {
-      const a = createMockDoc({
-        slug: 'post-a',
-        title: 'Post A',
-        content: '<p>看 [[Post B]]</p>',
-        permalink: 'http://localhost:4000/post-a/',
-      });
-      const b = createMockDoc({
-        slug: 'post-b',
-        title: 'Post B',
-        content: '<p>看 [[Post A]]</p>',
-        permalink: 'http://localhost:4000/post-b/',
-      });
-      const nodes = runWithContext([a, b]);
-
-      const nodeA = nodes.find((x) => x.id === 'post-a/');
-      const nodeB = nodes.find((x) => x.id === 'post-b/');
-
-      expect(nodeA.links).toContain('post-b/');
-      expect(nodeB.links).toContain('post-a/');
     });
   });
 
