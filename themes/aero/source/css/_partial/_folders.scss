@@ -1,6 +1,8 @@
+@use "common_style";
 /* Folder Tree Styles */
 
 .folder-tree-page {
+  @extend %common-body;
   padding: 10px 0;
 }
 

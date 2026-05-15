@@ -79,6 +79,7 @@ html{
 
     /* Shadow variables */
     --glow-shadow: 0 0 10px var(--white-main);
+    --text-shedow:var(--glow-shadow),var(--glow-shadow),var(--glow-shadow),var(--glow-shadow),var(--glow-shadow),var(--glow-shadow);
     --card-shadow: 0 0 0 0.5px var(--black-main), 0 0 0 1.5px var(--white-main);
     --button-shadow: inset 0 0 0 1px var(--white-main), 0 0 0 0.5px var(--black-main), 3px 3px 10px rgba(from var(--black-main) r g b / 0.6);
 
