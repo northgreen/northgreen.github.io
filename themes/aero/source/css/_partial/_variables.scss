@@ -11,7 +11,7 @@
     --white-main: #303446;
 
     --code-block-background:#414559;
-    --primary-color: #ca9ee6;
+    --primary-color: var(--ctp-mauve);
     --primary-color-p: #ccbfff;
     --highlight-color: #949cbb;
     --secondary-color: #838ba7;
@@ -20,7 +20,8 @@
     --text1: #b8c0e0;
     --text2: #a5adcb;
 
-    --table-2n:#6e738d;
+    --table-th:var(--ctp-overlay1);
+    --table-2n:var(--ctp-overlay0);
 
     --hover-light:var(--primary-color);
     --hover-light2:var(--primary-color-p);
