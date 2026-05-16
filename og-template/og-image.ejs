@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1200px;
+      height: 630px;
+      background: linear-gradient(135deg, #8caaee 0%, #ca9ee6 50%, #f4b8e4 100%);
+      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #303446;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 80px;
+    }
+    .site-name { font-size: 24px; opacity: 0.8; margin-bottom: 20px; }
+    .title {
+      font-size: 48px;
+      font-weight: bold;
+      line-height: 1.2;
+      margin-bottom: 30px;
+      max-height: 2.4em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    .meta { font-size: 20px; opacity: 0.9; }
+    .tags { margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .tag { background: rgba(48, 52, 70, 0.15); padding: 6px 16px; border-radius: 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <div class="site-name"><%= siteName %></div>
+  <div class="title"><%= title %></div>
+  <div class="meta"><%= date %></div>
+  <% if (tags && tags.length > 0) { %>
+  <div class="tags">
+    <% tags.forEach(function(tag) { %>
+    <span class="tag"><%= tag %></span>
+    <% }); %>
+  </div>
+  <% } %>
+</body>
+</html>

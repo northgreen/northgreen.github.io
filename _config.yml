@@ -133,6 +133,13 @@ feed:
   order_by: -date
   icon: /image/icon/vista_messenger.jpg
 
+# OG Image Generation
+og_image:
+  enable: true
+  output_dir: og-images
+  width: 1200
+  height: 630
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
