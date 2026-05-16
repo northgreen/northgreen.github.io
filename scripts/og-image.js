@@ -65,12 +65,22 @@ async function generateOgImages() {
   // ============================================================
   const template = fs.readFileSync(templatePath, 'utf-8');
 
-  // ============================================================
-  // Compile SCSS
-  // ============================================================
-  const scssPath = path.join(__dirname, '..', 'og-template', 'og-image.scss');
-  const cssResult = sass.compile(scssPath);
-  const css = cssResult.css;
+// ============================================================
+// Compile SCSS
+// ============================================================
+const scssPath = path.join(__dirname, '..', 'og-template', 'og-image.scss');
+const cssResult = sass.compile(scssPath);
+let css = cssResult.css;
+
+// ============================================================
+// Inline reflection.png as base64
+// ============================================================
+const reflectionPath = path.join(__dirname, '..', 'og-template', 'reflection.png');
+if (fs.existsSync(reflectionPath)) {
+  const reflectionBuffer = fs.readFileSync(reflectionPath);
+  const reflectionBase64 = `data:image/png;base64,${reflectionBuffer.toString('base64')}`;
+  css = css.replace('__REFLECTION_IMG__', reflectionBase64);
+}
   
   // ============================================================
   // Launch Puppeteer
@@ -112,7 +122,13 @@ async function generateOgImages() {
       // Incremental Strategy: Compare Hash
       // ============================================================
       const hashInput = `${title}|${date}|${tags.join(',')}|${description}|${siteName}`;
-      const hash = crypto.createHash('md5').update(hashInput).digest('hex');
+      // Add image content hash
+      let imageHash = '';
+      if (fs.existsSync(reflectionPath)) {
+        const reflectionBuffer = fs.readFileSync(reflectionPath);
+        imageHash = crypto.createHash('md5').update(reflectionBuffer).digest('hex');
+      }
+      const hash = crypto.createHash('md5').update(`${hashInput}|${imageHash}`).digest('hex');
       
       if (cache[slug] === hash && fs.existsSync(imagePath)) {
         skipped++;

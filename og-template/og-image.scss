@@ -38,7 +38,7 @@ body {
   height: 100%;
   pointer-events: none;
   filter: brightness(1.2);
-  background-image: url(/image/reflection.png);
+  background-image: url(__REFLECTION_IMG__);
   background-size: cover;
   background-attachment: fixed;
 }
