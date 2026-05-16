@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const ejs = require('ejs');
 const puppeteer = require('puppeteer');
+const sass = require('sass');
 
 /**
  * Generate Open Graph images for all posts.
@@ -63,6 +64,13 @@ async function generateOgImages() {
   // Load Template
   // ============================================================
   const template = fs.readFileSync(templatePath, 'utf-8');
+
+  // ============================================================
+  // Compile SCSS
+  // ============================================================
+  const scssPath = path.join(__dirname, '..', 'og-template', 'og-image.scss');
+  const cssResult = sass.compile(scssPath);
+  const css = cssResult.css;
   
   // ============================================================
   // Launch Puppeteer
@@ -117,7 +125,8 @@ async function generateOgImages() {
         date,
         tags,
         siteName,
-        description
+        description,
+        css
       });
       
       await page.setContent(html, { waitUntil: 'domcontentloaded', timeout: 60000 });
