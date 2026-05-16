@@ -18,9 +18,10 @@ body {
 }
 
 .card {
-  background: rgba(from #ca9ee6 r g b / 0.3);
+  background: rgba(from #ca9ee6 r g b / 0.5);
   box-sizing: border-box;
-  box-shadow: 0 0 0 0.5px #c6d0f5, 0 0 0 1.5px #303446;
+  box-shadow: 0 0 0 1.7px #c6d0f5, 0 0 0 2.5px #303446
+              ,3 3 10 10 #c6d0f5;
   backdrop-filter: blur(2px);
 
   border-radius: 5px;
