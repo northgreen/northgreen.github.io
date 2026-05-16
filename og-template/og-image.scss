@@ -52,6 +52,20 @@ body {
   -webkit-box-orient: vertical;
 }
 
+.description {
+  font-size: 18px;
+  color: #a5adcb;
+  text-shadow: 0 0 10px rgba(198, 208, 245, 0.4);
+  line-height: 1.5;
+  margin-bottom: 20px;
+  max-height: 4.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
 .meta {
   font-size: 20px;
   color: #a5adcb;
