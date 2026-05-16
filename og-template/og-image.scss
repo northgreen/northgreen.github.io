@@ -35,7 +35,7 @@ body {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  filter: brightness(1.2);
+  filter: brightness(0.8);
   background-image: url(__REFLECTION_IMG__);
   background-size: cover;
   background-attachment: fixed;
@@ -44,7 +44,7 @@ body {
 .site-name {
   font-size: 20px;
   color: #b8c0e0;
-  text-shadow: 0 0 10px #c6d0f5, 0 0 10px #c6d0f5, 0 0 10px #c6d0f5, 0 0 10px #c6d0f5, 0 0 10px #c6d0f5, 0 0 10px #c6d0f5;
+  text-shadow: 0 0 10px #303446, 0 0 10px #303446, 0 0 10px #303446, 0 0 10px #303446, 0 0 10px #303446, 0 0 10px #303446;
   margin-bottom: 20px;
 }
 
@@ -52,7 +52,7 @@ body {
   font-size: 30px;
   font-weight: bold;
   color: #c6d0f5;
-  text-shadow: 0 0 10px #c6d0f5, 0 0 10px #c6d0f5, 0 0 10px #c6d0f5, 0 0 10px #c6d0f5, 0 0 10px #c6d0f5, 0 0 10px #c6d0f5;
+  text-shadow: 0 0 10px #303446, 0 0 10px #303446, 0 0 10px #303446, 0 0 10px #303446, 0 0 10px #303446, 0 0 10px #303446;
   line-height: 1.2;
   margin-bottom: 30px;
   max-height: 2.4em;
@@ -66,7 +66,7 @@ body {
 .description {
   font-size: 18px;
   color: #a5adcb;
-  text-shadow: 0 0 10px #c6d0f5, 0 0 10px #c6d0f5, 0 0 10px #c6d0f5, 0 0 10px #c6d0f5, 0 0 10px #c6d0f5, 0 0 10px #c6d0f5;
+  text-shadow: 0 0 10px #303446, 0 0 10px #303446, 0 0 10px #303446, 0 0 10px #303446, 0 0 10px #303446, 0 0 10px #303446;
   line-height: 1.5;
   margin-bottom: 20px;
   max-height: 4.5em;
@@ -80,7 +80,7 @@ body {
 .meta {
   font-size: 20px;
   color: #a5adcb;
-  text-shadow: 0 0 10px #c6d0f5, 0 0 10px #c6d0f5, 0 0 10px #c6d0f5, 0 0 10px #c6d0f5, 0 0 10px #c6d0f5, 0 0 10px #c6d0f5;
+  text-shadow: 0 0 10px #303446, 0 0 10px #303446, 0 0 10px #303446, 0 0 10px #303446, 0 0 10px #303446, 0 0 10px #303446;
 }
 
 .tags {
