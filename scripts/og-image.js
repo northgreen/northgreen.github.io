@@ -102,8 +102,8 @@ async function generateOgImages() {
       const date = post.date ? post.date.format('YYYY-MM-DD') : '';
       const tags = post.tags ? post.tags.map(t => t.name || t) : [];
       
-      // Get description with fallback chain, strip HTML, truncate to 150 chars
-      let description = post.description || post.excerpt || config.description || '';
+      // Get article excerpt, strip HTML, truncate to 150 chars
+      let description = post.excerpt || '';
       // Strip HTML tags
       description = description.replace(/<[^>]*>/g, '');
       description = description.substring(0, 150);
