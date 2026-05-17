@@ -683,6 +683,7 @@
     }
 
     markPageVisited(slug);
+    if (globalGraphActive) closeGlobalGraph();
     if (window.pjax && typeof window.pjax.loadUrl === 'function') {
       window.pjax.loadUrl(url);
     } else {
