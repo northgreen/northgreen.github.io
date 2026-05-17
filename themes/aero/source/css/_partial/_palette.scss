@@ -1,75 +1,75 @@
 @mixin palette-frappe-variables {
-    /* Catppuccin Frappe Palette (https://catppuccin.com) */
+  /* Catppuccin Frappe Palette (https://catppuccin.com) */
 
-    /* Frappe Base & Surface Colors */
-    --ctp-base: #303446;
-    --ctp-mantle: #292c3c;
-    --ctp-crust: #232634;
-    --ctp-surface0: #414559;
-    --ctp-surface1: #51576d;
-    --ctp-surface2: #626880;
+  /* Frappe Base & Surface Colors */
+  --ctp-base: #303446;
+  --ctp-mantle: #292c3c;
+  --ctp-crust: #232634;
+  --ctp-surface0: #414559;
+  --ctp-surface1: #51576d;
+  --ctp-surface2: #626880;
 
-    /* Frappe Text Colors */
-    --ctp-text: #c6d0f5;
-    --ctp-subtext0: #b8c0e0;
-    --ctp-subtext1: #a5adcb;
+  /* Frappe Text Colors */
+  --ctp-text: #c6d0f5;
+  --ctp-subtext0: #b8c0e0;
+  --ctp-subtext1: #a5adcb;
 
-    /* Frappe Overlay Colors */
-    --ctp-overlay0: #6e738d;
-    --ctp-overlay1: #737994;
-    --ctp-overlay2: #838ba7;
+  /* Frappe Overlay Colors */
+  --ctp-overlay0: #6e738d;
+  --ctp-overlay1: #737994;
+  --ctp-overlay2: #838ba7;
 
-    /* Frappe Accent Colors */
-    --ctp-rosewater: #f2d5cf;
-    --ctp-flamingo: #eebebe;
-    --ctp-pink: #f4b8e4;
-    --ctp-mauve: #ca9ee6;
-    --ctp-red: #e78284;
-    --ctp-maroon: #ea999c;
-    --ctp-peach: #ef9f76;
-    --ctp-yellow: #e5c890;
-    --ctp-green: #a6d189;
-    --ctp-teal: #81c8be;
-    --ctp-sky: #99d1db;
-    --ctp-sapphire: #85c1dc;
-    --ctp-blue: #8caaee;
-    --ctp-lavender: #babbf1;
+  /* Frappe Accent Colors */
+  --ctp-rosewater: #f2d5cf;
+  --ctp-flamingo: #eebebe;
+  --ctp-pink: #f4b8e4;
+  --ctp-mauve: #ca9ee6;
+  --ctp-red: #e78284;
+  --ctp-maroon: #ea999c;
+  --ctp-peach: #ef9f76;
+  --ctp-yellow: #e5c890;
+  --ctp-green: #a6d189;
+  --ctp-teal: #81c8be;
+  --ctp-sky: #99d1db;
+  --ctp-sapphire: #85c1dc;
+  --ctp-blue: #8caaee;
+  --ctp-lavender: #babbf1;
 }
 
 @mixin palette-latte-variables {
-    /* Catppuccin Latte Palette (https://catppuccin.com) */
+  /* Catppuccin Latte Palette (https://catppuccin.com) */
 
-    /* Latte Base & Surface Colors */
-    --ctp-base: #eff1f5;
-    --ctp-mantle: #e6e9ef;
-    --ctp-crust: #dce0e8;
-    --ctp-surface0: #ccd0da;
-    --ctp-surface1: #bcc0cc;
-    --ctp-surface2: #acb0be;
+  /* Latte Base & Surface Colors */
+  --ctp-base: #eff1f5;
+  --ctp-mantle: #e6e9ef;
+  --ctp-crust: #dce0e8;
+  --ctp-surface0: #ccd0da;
+  --ctp-surface1: #bcc0cc;
+  --ctp-surface2: #acb0be;
 
-    /* Latte Text Colors */
-    --ctp-text: #4c4f69;
-    --ctp-subtext0: #6c6f85;
-    --ctp-subtext1: #5c5f77;
+  /* Latte Text Colors */
+  --ctp-text: #4c4f69;
+  --ctp-subtext0: #6c6f85;
+  --ctp-subtext1: #5c5f77;
 
-    /* Latte Overlay Colors */
-    --ctp-overlay0: #9ca0b0;
-    --ctp-overlay1: #8c8fa1;
-    --ctp-overlay2: #7c7f93;
+  /* Latte Overlay Colors */
+  --ctp-overlay0: #9ca0b0;
+  --ctp-overlay1: #8c8fa1;
+  --ctp-overlay2: #7c7f93;
 
-    /* Latte Accent Colors */
-    --ctp-rosewater: #dc8a78;
-    --ctp-flamingo: #dd7878;
-    --ctp-pink: #ea76cb;
-    --ctp-mauve: #8839ef;
-    --ctp-red: #d20f39;
-    --ctp-maroon: #e64553;
-    --ctp-peach: #fe640b;
-    --ctp-yellow: #df8e1d;
-    --ctp-green: #40a02b;
-    --ctp-teal: #179299;
-    --ctp-sky: #04a5e5;
-    --ctp-sapphire: #209fb5;
-    --ctp-blue: #1e66f5;
-    --ctp-lavender: #7287fd;
+  /* Latte Accent Colors */
+  --ctp-rosewater: #dc8a78;
+  --ctp-flamingo: #dd7878;
+  --ctp-pink: #ea76cb;
+  --ctp-mauve: #8839ef;
+  --ctp-red: #d20f39;
+  --ctp-maroon: #e64553;
+  --ctp-peach: #fe640b;
+  --ctp-yellow: #df8e1d;
+  --ctp-green: #40a02b;
+  --ctp-teal: #179299;
+  --ctp-sky: #04a5e5;
+  --ctp-sapphire: #209fb5;
+  --ctp-blue: #1e66f5;
+  --ctp-lavender: #7287fd;
 }
