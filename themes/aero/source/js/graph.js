@@ -683,7 +683,11 @@
     }
 
     markPageVisited(slug);
-    window.location.href = url;
+    if (window.pjax && typeof window.pjax.loadUrl === 'function') {
+      window.pjax.loadUrl(url);
+    } else {
+      window.location.href = url;
+    }
   }
 
   // ============================================================

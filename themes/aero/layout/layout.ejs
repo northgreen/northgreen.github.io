@@ -64,7 +64,7 @@
     <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            new Pjax({
+            window.pjax = new Pjax({
                 elements: 'a[href]:not([target]):not([data-no-pjax])',
                 selectors: [
                     'title',
