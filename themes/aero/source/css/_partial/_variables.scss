@@ -132,7 +132,7 @@ html {
   --callout-abstract: var(--ctp-teal);
 
   /* Overlay & mask variables */
-  --overlay-backdrop: rgba(from var(--ctp-crust) r g b / 0.7);
+  --overlay-backdrop: rgba(from var(--ctp-crust) r g b / 0.5);
   --sidebar-mask-bg: rgba(from var(--ctp-crust) r g b / 0.6);
   --graph-container-shadow: 0 8px 32px rgba(from var(--ctp-crust) r g b / 0.5);
   --graph-close-hover-bg: rgba(from var(--ctp-text) r g b / 0.2);

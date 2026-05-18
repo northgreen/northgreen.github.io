@@ -247,8 +247,6 @@
   overflow-y: auto;
   padding: 1.25rem;
   background: rgba(from var(--primary-color) r g b / 0.15);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
 
   .preview-empty,
   .preview-loading {
