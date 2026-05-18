@@ -9,7 +9,9 @@
   function fetchContent(slug) {
     if (fetchCache.has(slug)) return Promise.resolve(fetchCache.get(slug));
 
-    return fetch(slug).then(function (response) {
+    // Ensure absolute path from site root
+    var url = slug.startsWith('/') ? slug : '/' + slug;
+    return fetch(url).then(function (response) {
       if (!response.ok) throw new Error('HTTP ' + response.status);
       return response.text();
     }).then(function (html) {
