@@ -81,3 +81,15 @@ nav {
 .link-home {
     border-left: 1px solid var(--header-link-border);
 }
+
+.theme-icon {
+  font-size: 16px;
+  line-height: 1;
+  transition: transform 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.theme-toggle:hover .theme-icon {
+  transform: rotate(20deg);
+}

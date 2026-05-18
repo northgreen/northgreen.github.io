@@ -88,4 +88,11 @@
     .post-cover {
         width: 100%;
     }
+
+    .theme-toggle .nav-text span:last-child {
+        display: none;
+    }
+    .theme-toggle .nav-text {
+        gap: 0;
+    }
 }

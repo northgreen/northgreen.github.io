@@ -7,6 +7,7 @@
     <title>
         <%= config.title %>
     </title>
+    <script>!function(){var t;try{t=localStorage.getItem('aero-theme')}catch(e){}t&&document.documentElement.setAttribute('data-theme',t)}()</script>
     <%- css('css/style.css') %>
     <% if (theme.favicon.enable) { %>
         <% if (theme.favicon.icon) { %>
@@ -60,6 +61,7 @@
     </div>
 
     <script src="/js/responsive.js"></script>
+    <script src="/js/theme-toggle.js"></script>
     <script src="/js/music.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
     <script>

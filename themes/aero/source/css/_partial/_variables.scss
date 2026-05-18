@@ -1,11 +1,12 @@
 @use "palette" as *;
 
 html {
-  @include palette-frappe-variables;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Default: Frappe (dark) */
 :root {
-  /* You can customize the theme color here */
+  @include palette-frappe-variables;
   --black-main: var(--ctp-text);
   --white-main: var(--ctp-base);
 
@@ -136,4 +137,26 @@ html {
   --graph-container-shadow: 0 8px 32px rgba(from var(--ctp-crust) r g b / 0.5);
   --graph-close-hover-bg: rgba(from var(--ctp-text) r g b / 0.2);
   --wikilink-broken-bg: rgba(from var(--ctp-red) r g b / 0.08);
+}
+
+/* System light preference (when no data-theme override on html) */
+@media (prefers-color-scheme: light) {
+  :root {
+    @include palette-latte-variables;
+    --black-main: var(--ctp-base);
+    --white-main: var(--ctp-text);
+  }
+}
+
+/* Manual theme overrides (always wins via source order after @media) */
+[data-theme="light"] {
+  @include palette-latte-variables;
+  --black-main: var(--ctp-base);
+  --white-main: var(--ctp-text);
+}
+
+[data-theme="dark"] {
+  @include palette-frappe-variables;
+  --black-main: var(--ctp-text);
+  --white-main: var(--ctp-base);
 }
