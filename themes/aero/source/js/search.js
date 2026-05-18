@@ -212,8 +212,16 @@
       }
     }
     if (item) {
+      // item.path is a full URL like "http://northgreen.github.io/2026/05/13/hello-world/"
+      // Extract pathname for fetching: "/2026/05/13/hello-world/"
+      var pathname = '';
+      try {
+        pathname = new URL(item.path).pathname;
+      } catch (e) {
+        pathname = '/' + item.slug; // fallback
+      }
       window.dispatchEvent(new CustomEvent('search:preview', {
-        detail: { slug: item.slug, term: currentQuery.startsWith('#') ? currentQuery.slice(1).trim() : currentQuery.trim() }
+        detail: { slug: pathname, term: currentQuery.startsWith('#') ? currentQuery.slice(1).trim() : currentQuery.trim() }
       }));
     }
   }
