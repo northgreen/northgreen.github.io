@@ -10,7 +10,7 @@ footer {
     width: 100%;
     align-items: center;
     text-align: center;
-    text-shadow: var(--glow-shadow), var(--glow-shadow), var(--glow-shadow), var(--glow-shadow), var(--glow-shadow), var(--glow-shadow);
+    text-shadow: var(--text-shadow);
 }
 
 .footer-rss {
@@ -19,7 +19,7 @@ footer {
     bottom: 28px;
 
     a {
-        color: var(--ctp-text);
+        color: var(--text);
         font-size: 22px;
         opacity: 0.7;
         transition: opacity 0.2s ease;

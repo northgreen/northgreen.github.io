@@ -46,6 +46,7 @@ $callout-types:
 @each $type in $callout-types {
   .callout-#{$type} {
     border-left-color: var(--callout-#{$type});
+    background-color: rgba(from var(--callout-#{$type}) r g b / 0.04);
   }
   .callout-#{$type} .callout-title {
     background-color: rgba(from var(--callout-#{$type}) r g b / 0.15);

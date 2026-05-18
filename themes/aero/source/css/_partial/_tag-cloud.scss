@@ -15,12 +15,12 @@
 
     a {
       text-decoration: none;
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      transition: transform 0.2s ease, filter 0.2s ease;
       display: inline-block;
 
       &:hover {
-        transform: scale(1.1);
-        opacity: 0.85;
+        transform: scale(1.15);
+        filter: brightness(1.15);
       }
     }
   }

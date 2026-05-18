@@ -40,12 +40,12 @@
 .post-title {
   position: relative;
   font-size: 24px;
-  text-shadow: var(--glow-shadow), var(--glow-shadow), var(--glow-shadow), var(--glow-shadow), var(--glow-shadow), var(--glow-shadow);
+  text-shadow: var(--text-shadow);
 }
 
 .post-meta {
   position: relative;
-  text-shadow: var(--glow-shadow), var(--glow-shadow), var(--glow-shadow), var(--glow-shadow), var(--glow-shadow), var(--glow-shadow);
+  text-shadow: var(--text-shadow);
   padding: 5px 0;
 }
 

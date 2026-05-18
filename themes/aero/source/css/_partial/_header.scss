@@ -20,7 +20,7 @@ header {
     text-align: right;
     /* font-style: italic; */
     font-size: 20px;
-    text-shadow: var(--glow-shadow), var(--glow-shadow), var(--glow-shadow), var(--glow-shadow), var(--glow-shadow), var(--glow-shadow);
+    text-shadow: var(--text-shadow);
 }
 
 nav {
@@ -79,5 +79,5 @@ nav {
 }
 
 .link-home {
-    border-left: 1px solid #333;
+    border-left: 1px solid var(--header-link-border);
 }

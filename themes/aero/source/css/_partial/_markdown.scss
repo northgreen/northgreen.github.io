@@ -12,7 +12,7 @@
 
 .post-content p {
   margin-bottom: 1.5em;
-  text-align: justify;
+  text-align: left;
 }
 
 .post-content a {
@@ -36,7 +36,7 @@
 }
 
 .post-content del {
-  color: #999;
+  color: var(--del-color);
   text-decoration: line-through;
 }
 
@@ -74,7 +74,7 @@
   height: auto;
   display: block;
   margin: 1.5em auto;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--image-shadow);
 }
 
 .post-content table {
@@ -153,7 +153,7 @@
 .post-content .footnotes {
   margin-top: 2em;
   padding-top: 1em;
-  border-top: 1px solid var(--white-main);
+  border-top: 1px solid var(--footnotes-border);
   font-size: 0.875em;
   color: var(--secondary-color);
   width: 100%;

@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    text-shadow: var(--text-shedow);
+    text-shadow: var(--text-shadow);
 
     .graph-global-btn {
       cursor: pointer;
@@ -64,7 +64,7 @@
   width: 100vw;
   height: 100vh;
   z-index: 9999;
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--overlay-backdrop);
   backdrop-filter: blur(9px);
   display: flex;
   flex-direction: column;
@@ -107,7 +107,7 @@
       transition: background 0.2s;
 
       &:hover {
-        background: rgba(255, 255, 255, 0.3);
+        background: var(--graph-close-hover-bg);
       }
     }
   }
@@ -122,7 +122,7 @@
       inset 0 0 30px rgba(from var(--primary-color) r g b / 0.4),
       0 0 0 1px var(--white-main),
       0 0 0 1.5px var(--black-main),
-      0 8px 32px rgba(0, 0, 0, 0.4);
+      var(--graph-container-shadow);
     backdrop-filter: blur(4px);
 
     canvas {
@@ -134,7 +134,7 @@
 // Broken Wikilink 样式
 .wikilink-broken {
   color: var(--graph-wikilink-broken-text);
-  background: rgba(224, 49, 49, 0.08);
+  background: var(--wikilink-broken-bg);
   border: 1px dashed var(--graph-wikilink-broken-border);
   border-radius: 3px;
   padding: 0 2px;

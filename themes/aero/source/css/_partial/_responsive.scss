@@ -52,7 +52,7 @@
         z-index: 100;
         padding: 20px;
         overflow-y: auto;
-        box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+        box-shadow: var(--sidebar-shadow);
         
         transform: translateX(-100%);
         transition: transform 0.3s ease-in-out;
@@ -68,7 +68,7 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: rgba(0, 0, 0, 0.5);
+        background: var(--sidebar-mask-bg);
         z-index: 99;
         opacity: 0;
         visibility: hidden;

@@ -9,11 +9,15 @@ html {
   --black-main: var(--ctp-text);
   --white-main: var(--ctp-base);
 
-  --code-block-background: #414559;
+  --body-bg: var(--ctp-mantle);
+  --bg-image: url(/image/b-1.jpg);
+
+  --code-block-background: var(--ctp-surface0);
   --primary-color: var(--ctp-mauve);
   --primary-color-p: color-mix(in srgb, var(--ctp-mauve), white 25%);
   --highlight-color: #949cbb;
-  --secondary-color: #838ba7;
+  /* 有意脱离 Catppuccin 色板的自定义高亮色 */
+  --secondary-color: var(--ctp-overlay2);
 
   --text: var(--ctp-text);
   --text1: var(--ctp-subtext0);
@@ -31,7 +35,6 @@ html {
       color-mix(in srgb, var(--secondary-color), black 10%) 51%,
       var(--secondary-color) 100%);
 
-  --bg-image: url(/image/b-1.jpg);
 
   /* Graph variables (Catppuccin Frappe) */
   --graph-node: var(--ctp-sky);
@@ -84,32 +87,34 @@ html {
   --hl-gutter-border: var(--ctp-surface1);
   /* 行号边框 */
 
-  /* Category variables */
-  --category-bg: rgba(from var(--primary-color) r g b / 0.2);
-  --category-bg-hover: rgba(from var(--primary-color) r g b / 0.35);
-  --category-text: var(--black-main);
-  --category-count-bg: transparent;
-  --directory-header-bg: rgba(from var(--primary-color) r g b / 0.12);
-
-  /* Folder tree variables */
-  --folder-line-color: var(--secondary-color);
-  --folder-hover-bg: rgba(from var(--primary-color) r g b / 0.1);
-  --folder-badge-bg: rgba(from var(--primary-color) r g b / 0.15);
-
   /* Shadow variables */
-  --glow-shadow: 0 0 10px var(--white-main);
-  --text-shedow: var(--glow-shadow), var(--glow-shadow), var(--glow-shadow), var(--glow-shadow), var(--glow-shadow), var(--glow-shadow);
-  --card-shadow: 0 0 0 0.5px var(--black-main), 0 0 0 1.5px var(--white-main);
-  --button-shadow: inset 0 0 0 1px var(--white-main), 0 0 0 0.5px var(--black-main), 3px 3px 10px rgba(from var(--black-main) r g b / 0.6);
+  --text-shadow: 0 0 4px var(--white-main),
+    0 0 8px var(--white-main),
+    0 0 12px var(--white-main),
+    0 0 16px var(--white-main),
+    0 0 20px var(--white-main),
+    0 0 24px var(--white-main);
+  --card-shadow: 0 0 0 0.5px var(--black-main),
+    0 0 0 1.5px var(--white-main);
+  --button-shadow: inset 0 0 0 1px var(--white-main),
+    0 0 0 0.5px var(--black-main),
+    3px 3px 10px rgba(from var(--black-main) r g b / 0.6);
+  --button-active-shadow: inset 0 5px 5px rgba(from var(--black-main) r g b / 0.4);
+  --image-shadow: 0 2px 10px rgba(from var(--black-main) r g b / 0.15);
+  --sidebar-shadow: 2px 0 8px rgba(from var(--ctp-crust) r g b / 0.5);
+  --music-inset-shadow: inset 0 3px 5px rgba(from var(--black-main) r g b / 0.5);
 
   /* Content colors */
-  --blockquote-border: #dfe2e5;
+  --blockquote-border: var(--ctp-surface1);
   --blockquote-bg: var(--ctp-surface0);
   --blockquote-color: var(--text2);
-  --table-border: #dfe2e5;
+  --table-border: var(--ctp-surface1);
   --error-color: var(--ctp-red);
   --mermaid-bg: var(--white-main);
-  --inline-code-bg: rgba(27, 31, 35, 0.05);
+  --inline-code-bg: rgba(from var(--primary-color) r g b / 0.08);
+  --del-color: var(--text2);
+  --footnotes-border: var(--ctp-surface1);
+  --header-link-border: var(--ctp-surface1);
 
   /* Callout type colors (Catppuccin Frappe) */
   --callout-note: var(--ctp-blue);
@@ -124,4 +129,11 @@ html {
   --callout-important: var(--ctp-yellow);
   --callout-summary: var(--ctp-rosewater);
   --callout-abstract: var(--ctp-teal);
+
+  /* Overlay & mask variables */
+  --overlay-backdrop: rgba(from var(--ctp-crust) r g b / 0.7);
+  --sidebar-mask-bg: rgba(from var(--ctp-crust) r g b / 0.6);
+  --graph-container-shadow: 0 8px 32px rgba(from var(--ctp-crust) r g b / 0.5);
+  --graph-close-hover-bg: rgba(from var(--ctp-text) r g b / 0.2);
+  --wikilink-broken-bg: rgba(from var(--ctp-red) r g b / 0.08);
 }
