@@ -64,3 +64,8 @@ mermaid:
 # Folders
 folders:
   enable: true
+
+# Search
+search:
+  enable: true
+  num_results: 8

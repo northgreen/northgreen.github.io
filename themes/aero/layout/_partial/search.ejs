@@ -1,0 +1,30 @@
+<% if (theme.search && theme.search.enable) { %>
+<!-- Sidebar search widget -->
+<div class="widget card search-widget">
+  <button class="search-trigger" id="search-trigger-btn">
+    <span class="ri-search-line"></span>
+    <span>搜索</span>
+    <kbd class="search-shortcut">⌘K</kbd>
+  </button>
+</div>
+<% } %>
+
+<% if (theme.search && theme.search.enable) { %>
+<!-- Search overlay -->
+<div class="search-overlay" id="search-overlay">
+  <div class="search-panel">
+    <div class="search-main">
+      <input type="search" class="search-input" id="search-input" autocomplete="off" placeholder="搜索些什么..." />
+      <button class="search-close" id="search-close"><span class="ri-close-line"></span></button>
+    </div>
+    <div class="search-body">
+      <div class="search-results" id="search-results">
+        <div class="search-empty">输入关键词开始搜索</div>
+      </div>
+      <div class="preview-container" id="preview-container">
+        <div class="preview-empty">选择结果查看预览</div>
+      </div>
+    </div>
+  </div>
+</div>
+<% } %>

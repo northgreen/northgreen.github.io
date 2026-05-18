@@ -134,6 +134,12 @@
     <% if (page.type === 'folders') { %>
     <script src="/js/folder-tree.js"></script>
     <% } %>
+    <% if (theme.search && theme.search.enable) { %>
+    <script src="/js/vendor/flexsearch.min.js"></script>
+    <script src="/js/vendor/dompurify.min.js"></script>
+    <script src="/js/search.js"></script>
+    <script src="/js/search-preview.js"></script>
+    <% } %>
 </body>
 
 </html>

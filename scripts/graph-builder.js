@@ -55,6 +55,26 @@ function graphBuilderFilter() {
   // 构建内容索引
   const index = allDocs.map(doc => {
     const content = doc.content || '';
+    // 提取纯文本内容用于搜索索引
+    // doc.content 在 after_generate 阶段已是 HTML
+    let plainContent = '';
+    if (content) {
+      // 先移除 <script> 和 <style> 标签
+      plainContent = content
+        .replace(/<(script|style)[^>]*>[\s\S]*?<\/\1>/gi, '')
+        // 去除所有 HTML 标签
+        .replace(/<[^>]*>/g, ' ')
+        // 解码常见 HTML entities
+        .replace(/&amp;/g, '&')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&nbsp;/g, ' ')
+        .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(n))
+        .replace(/&[a-z]+;/g, ' ')
+        // 压缩空白
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
     const links = new Set();
     const tags = doc.tags ? (Array.isArray(doc.tags) ? doc.tags.map(t => t.name || t) : []) : [];
     
@@ -150,7 +170,9 @@ function graphBuilderFilter() {
       slug: id,
       path: doc.permalink || '/' + id,
       tags: tags,
-      links: [...links]
+      links: [...links],
+      description: doc.description || doc.excerpt || '',
+      content: plainContent
     };
   });
 

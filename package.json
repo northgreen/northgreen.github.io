@@ -8,6 +8,7 @@
     "deploy": "hexo deploy",
     "server": "hexo server",
     "test": "vitest run",
+    "copy-vendor": "mkdir -p themes/aero/source/js/vendor && cp node_modules/flexsearch/dist/flexsearch.bundle.min.js themes/aero/source/js/vendor/flexsearch.min.js && cp node_modules/dompurify/dist/purify.min.js themes/aero/source/js/vendor/dompurify.min.js",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage"
   },
@@ -15,6 +16,8 @@
     "version": "8.1.2"
   },
   "dependencies": {
+    "dompurify": "^3.4.5",
+    "flexsearch": "^0.8.212",
     "hexo": "^8.0.0",
     "hexo-generator-archive": "^2.0.0",
     "hexo-generator-category": "^2.0.0",

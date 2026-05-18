@@ -9,6 +9,6 @@ tags:
 不过quartz的话有一些喜欢的特性比如说是关系图什么的还有搜索我比较喜欢，所以也参照着vibe出来了
 
 LICENSE:
-MIT — https://github.com/5h1nnN/hexo-theme-aero
-MIT — https://github.com/hexojs/hexo
+- MIT — https://github.com/5h1nnN/hexo-theme-aero
+- MIT — https://github.com/hexojs/hexo
 
