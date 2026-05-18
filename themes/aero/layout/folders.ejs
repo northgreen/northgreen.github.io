@@ -16,7 +16,7 @@
                     var isLeaf = !hasChildren;
                     var hasContent = hasPosts || hasChildren;
                     if (!hasContent) return '';
-                    var indent = depth * 20;
+                    var indent = depth * 5;
                 %>
                     <% if (depth > 0) { %>
                         <li class="folder-node" style="padding-left: <%= indent %>px">

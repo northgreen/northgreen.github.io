@@ -25,6 +25,7 @@
 }
 
 .folder-toggle {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -150,3 +151,4 @@
 [data-theme="dark"] .folder-post-link:hover {
   background-color: rgba(from var(--primary-color) r g b / 0.12);
 }
+
