@@ -66,15 +66,14 @@
     <script src="/js/music.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            window.pjax = new Pjax({
-                elements: 'a[href]:not([target]):not([data-no-pjax])',
-                selectors: [
-                    'title',
-                    '#pjax-container',
-                    '#pjax-header'
-                ]
-            })
+        // PJAX init synchronously (scripts at bottom of body, DOM is ready)
+        window.pjax = new Pjax({
+            elements: 'a[href]:not([target]):not([data-no-pjax])',
+            selectors: [
+                'title',
+                '#pjax-container',
+                '#pjax-header'
+            ]
         })
     </script>
     <%

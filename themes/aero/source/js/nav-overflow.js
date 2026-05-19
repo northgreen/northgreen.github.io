@@ -76,6 +76,11 @@
     }
     clone.removeAttribute('id');
 
+    // Attach PJAX click handler so dynamic links use AJAX navigation
+    if (window.pjax && window.pjax.attachLink) {
+      window.pjax.attachLink(clone);
+    }
+
     var li = document.createElement('li');
     li.appendChild(clone);
     dropdown.appendChild(li);
