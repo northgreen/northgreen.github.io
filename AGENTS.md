@@ -64,10 +64,9 @@ The scripts use `this.locals.get('posts')` and `this.locals.get('pages')` — th
 
 ## Critical Gotchas
 
-1. **`themes/aero/` is a nested git repo** — changes there need `git commit` inside that directory, not `jj`.
-2. **SCSS `:root` isolation** — `hexo-renderer-sass` treats each partial independently. CSS variables must be declared exactly once in `_variables.scss:root`.
-3. **`contentIndex.json` is an array** — `graph.js` must iterate with indexed `for` loop (not `for...in`).
-4. **Wikilink lookup priority**: title (case-insensitive) > source filename > slug.
-5. **Graph click navigation** uses `node.path` (full URL via `new URL(node.path).pathname`). The `node` object must include `path` from `contentIndex.json` details.
-6. **OG image template path** — moved from `scripts/templates/` to `og-template/` to avoid Hexo loading it as a script.
-7. **Puppeteer timeout** — uses `domcontentloaded` with 60s timeout (not `networkidle0`) for faster builds.
+1. **SCSS `:root` isolation** — `hexo-renderer-sass` treats each partial independently. CSS variables must be declared exactly once in `_variables.scss:root`.
+2. **`contentIndex.json` is an array** — `graph.js` must iterate with indexed `for` loop (not `for...in`).
+3. **Wikilink lookup priority**: title (case-insensitive) > source filename > slug.
+4. **Graph click navigation** uses `node.path` (full URL via `new URL(node.path).pathname`). The `node` object must include `path` from `contentIndex.json` details.
+5. **OG image template path** — moved from `scripts/templates/` to `og-template/` to avoid Hexo loading it as a script.
+6. **Puppeteer timeout** — uses `domcontentloaded` with 60s timeout (not `networkidle0`) for faster builds.
