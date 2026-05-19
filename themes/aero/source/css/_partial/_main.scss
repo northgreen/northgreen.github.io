@@ -54,7 +54,7 @@ body::before {
   background: var(--aero-grad);
   box-shadow: var(--button-shadow);
   box-sizing: border-box;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .button,
