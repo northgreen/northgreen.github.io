@@ -13,7 +13,7 @@ profile:
       link: 'https://github.com/northgreen' # https://github.com/username
       icon: /image/icon/github.png
     - name: Bilibili
-      link: '' # https://space.bilibili.com/youruid
+      link: 'https://space.bilibili.com/3493292842945296'
       icon: /image/icon/bilibili.png
 music:
   enable: false

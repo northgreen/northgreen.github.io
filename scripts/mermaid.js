@@ -14,7 +14,7 @@ function transformMermaidBlocks(data) {
     return data;
   }
 
-  data.content = data.content.replace(rMermaidBlock, function(match, ticks, content) {
+  data.content = data.content.replace(rMermaidBlock, function (match, ticks, content) {
     return '<div class="mermaid">\n' + content + '\n</div>\n';
   });
 
@@ -28,7 +28,7 @@ function registerMermaidRenderer(md) {
   // 保存原始的 fence 渲染器
   var originalFence = md.renderer.rules.fence;
 
-  md.renderer.rules.fence = function(tokens, idx, options, env, slf) {
+  md.renderer.rules.fence = function (tokens, idx, options, env, slf) {
     var token = tokens[idx];
     var info = token.info ? token.info.trim() : '';
     var lang = info.split(/\s+/)[0];

@@ -4,12 +4,12 @@
 
 # Site
 title: Ictye Blog
-subtitle: ''
+subtitle: '一个专注编程开发的技术博客'
 description: '一个普通的blog'
-keywords:
+keywords: [科技,个人]
 author: Ictye
-language: zh
-timezone: ''
+language: zh-cn
+timezone: 'UTC+8'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
