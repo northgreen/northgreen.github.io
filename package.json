@@ -16,7 +16,7 @@
     "version": "8.1.2"
   },
   "dependencies": {
-    "dompurify": "^3.4.5",
+    "dompurify": "^3.4.6",
     "flexsearch": "^0.8.212",
     "hexo": "^8.0.0",
     "hexo-generator-archive": "^2.0.0",
